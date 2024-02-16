@@ -27,6 +27,40 @@ namespace ProjectProgramming
             TextBoxValue.Text = ValuesListBox.SelectedIndex.ToString();
         }
 
+        private void EnumGroupBox_Enter(object sender, EventArgs e)
+        {
 
+        }
+
+        private void ParsingGroupBox_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ParseButton_Click(object sender, EventArgs e)
+        {
+            string selectedItemName = WeekdayTextBox.Text;
+            if (int.TryParse(selectedItemName, out _))
+            {
+                MessageBox.Show("Введено неправильное значение!");
+            }
+            else if (TryGetEnumValue<Weekday>(selectedItemName, out Weekday value))
+            {
+                ResultLabel.Text = $"Это день недели ({value} = {(int)value + 1})";
+            }
+            else
+            {
+                ResultLabel.Text = $"Нет такого дня недели";
+            }
+        }
+        static public bool TryGetEnumValue<T>(string itemName, out T value) where T : struct
+        {
+            if (Enum.TryParse<T>(itemName, true, out value))
+            {
+                return true;
+            }
+            value = default;
+            return false;
+        }
     }
 }
