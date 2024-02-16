@@ -6,6 +6,8 @@ namespace ProjectProgramming
         public MainForm()
         {
             InitializeComponent();
+            object[] values = Enum.GetValues(typeof(Seasons)).Cast<object>().ToArray();
+            SeasonComboBox.Items.AddRange(values);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -27,16 +29,6 @@ namespace ProjectProgramming
             TextBoxValue.Text = ValuesListBox.SelectedIndex.ToString();
         }
 
-        private void EnumGroupBox_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ParsingGroupBox_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void ParseButton_Click(object sender, EventArgs e)
         {
             string selectedItemName = WeekdayTextBox.Text;
@@ -53,6 +45,37 @@ namespace ProjectProgramming
                 ResultLabel.Text = $"Нет такого дня недели";
             }
         }
+
+        private void SeasonButton_Click(object sender, EventArgs e)
+        {
+            if (SeasonComboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Значение не выбрано!");
+            }
+            SeasonComboBox.BackColor = System.Drawing.Color.White;
+            switch (SeasonComboBox.SelectedItem)
+            {
+                case Seasons.Summer:
+                    MessageBox.Show("Ура! Солнце!");
+                    break;
+                case Seasons.Autumn:
+                    BackgroundColor(ColorTranslator.FromHtml("#e29c45"));
+                    break;
+                case Seasons.Winter:
+                    MessageBox.Show("Бррр! Холодно!");
+                    break;
+                case Seasons.Spring:
+                    BackgroundColor(ColorTranslator.FromHtml("#559c45"));
+                    break;
+            }
+        }
+        private void BackgroundColor(System.Drawing.Color color)
+        {
+            TabControl.BackColor = color;
+            TabPageEnums.BackColor = color;
+            this.BackColor = color;
+        }
+
         static public bool TryGetEnumValue<T>(string itemName, out T value) where T : struct
         {
             if (Enum.TryParse<T>(itemName, true, out value))

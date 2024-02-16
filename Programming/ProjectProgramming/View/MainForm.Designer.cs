@@ -29,7 +29,11 @@
         private void InitializeComponent()
         {
             TabControl = new TabControl();
-            tabPage1 = new TabPage();
+            TabPageEnums = new TabPage();
+            SeasonGroupBox = new GroupBox();
+            SeasonButton = new Button();
+            SeasonComboBox = new ComboBox();
+            SeasonLabel = new Label();
             EnumGroupBox = new GroupBox();
             IntLabel = new Label();
             TextBoxValue = new TextBox();
@@ -43,30 +47,73 @@
             WeekdayTextBox = new TextBox();
             ParsingLabel = new Label();
             TabControl.SuspendLayout();
-            tabPage1.SuspendLayout();
+            TabPageEnums.SuspendLayout();
+            SeasonGroupBox.SuspendLayout();
             EnumGroupBox.SuspendLayout();
             ParsingGroupBox.SuspendLayout();
             SuspendLayout();
             // 
             // TabControl
             // 
-            TabControl.Controls.Add(tabPage1);
-            TabControl.Location = new Point(12, 12);
+            TabControl.Controls.Add(TabPageEnums);
+            TabControl.Dock = DockStyle.Fill;
+            TabControl.Location = new Point(0, 0);
             TabControl.Name = "TabControl";
             TabControl.SelectedIndex = 0;
-            TabControl.Size = new Size(776, 306);
+            TabControl.Size = new Size(778, 448);
             TabControl.TabIndex = 0;
             // 
-            // tabPage1
+            // TabPageEnums
             // 
-            tabPage1.Controls.Add(EnumGroupBox);
-            tabPage1.Location = new Point(4, 24);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(768, 278);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "Enums";
-            tabPage1.UseVisualStyleBackColor = true;
+            TabPageEnums.Controls.Add(SeasonGroupBox);
+            TabPageEnums.Controls.Add(EnumGroupBox);
+            TabPageEnums.Controls.Add(ParsingGroupBox);
+            TabPageEnums.Location = new Point(4, 24);
+            TabPageEnums.Name = "TabPageEnums";
+            TabPageEnums.Padding = new Padding(3);
+            TabPageEnums.Size = new Size(770, 420);
+            TabPageEnums.TabIndex = 0;
+            TabPageEnums.Text = "Enums";
+            TabPageEnums.UseVisualStyleBackColor = true;
+            // 
+            // SeasonGroupBox
+            // 
+            SeasonGroupBox.Controls.Add(SeasonButton);
+            SeasonGroupBox.Controls.Add(SeasonComboBox);
+            SeasonGroupBox.Controls.Add(SeasonLabel);
+            SeasonGroupBox.Location = new Point(329, 278);
+            SeasonGroupBox.Name = "SeasonGroupBox";
+            SeasonGroupBox.Size = new Size(433, 134);
+            SeasonGroupBox.TabIndex = 2;
+            SeasonGroupBox.TabStop = false;
+            SeasonGroupBox.Text = "Season Handle";
+            // 
+            // SeasonButton
+            // 
+            SeasonButton.Location = new Point(195, 38);
+            SeasonButton.Name = "SeasonButton";
+            SeasonButton.Size = new Size(85, 24);
+            SeasonButton.TabIndex = 2;
+            SeasonButton.Text = "Go!";
+            SeasonButton.UseVisualStyleBackColor = true;
+            SeasonButton.Click += SeasonButton_Click;
+            // 
+            // SeasonComboBox
+            // 
+            SeasonComboBox.FormattingEnabled = true;
+            SeasonComboBox.Location = new Point(10, 38);
+            SeasonComboBox.Name = "SeasonComboBox";
+            SeasonComboBox.Size = new Size(179, 23);
+            SeasonComboBox.TabIndex = 1;
+            // 
+            // SeasonLabel
+            // 
+            SeasonLabel.AutoSize = true;
+            SeasonLabel.Location = new Point(10, 19);
+            SeasonLabel.Name = "SeasonLabel";
+            SeasonLabel.Size = new Size(89, 15);
+            SeasonLabel.TabIndex = 0;
+            SeasonLabel.Text = "Choose season:";
             // 
             // EnumGroupBox
             // 
@@ -82,7 +129,6 @@
             EnumGroupBox.TabIndex = 0;
             EnumGroupBox.TabStop = false;
             EnumGroupBox.Text = "Enumerations";
-            EnumGroupBox.Enter += EnumGroupBox_Enter;
             // 
             // IntLabel
             // 
@@ -145,13 +191,12 @@
             ParsingGroupBox.Controls.Add(ParseButton);
             ParsingGroupBox.Controls.Add(WeekdayTextBox);
             ParsingGroupBox.Controls.Add(ParsingLabel);
-            ParsingGroupBox.Location = new Point(16, 320);
+            ParsingGroupBox.Location = new Point(8, 278);
             ParsingGroupBox.Name = "ParsingGroupBox";
-            ParsingGroupBox.Size = new Size(301, 134);
+            ParsingGroupBox.Size = new Size(305, 134);
             ParsingGroupBox.TabIndex = 1;
             ParsingGroupBox.TabStop = false;
             ParsingGroupBox.Text = "WeekdayParsing";
-            ParsingGroupBox.Enter += ParsingGroupBox_Enter;
             // 
             // ResultLabel
             // 
@@ -163,9 +208,9 @@
             // 
             // ParseButton
             // 
-            ParseButton.Location = new Point(165, 37);
+            ParseButton.Location = new Point(165, 38);
             ParseButton.Name = "ParseButton";
-            ParseButton.Size = new Size(75, 23);
+            ParseButton.Size = new Size(75, 24);
             ParseButton.TabIndex = 2;
             ParseButton.Text = "Parse";
             ParseButton.UseVisualStyleBackColor = true;
@@ -191,14 +236,15 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 631);
-            Controls.Add(ParsingGroupBox);
+            ClientSize = new Size(778, 448);
             Controls.Add(TabControl);
             Name = "MainForm";
-            Text = "Form1";
+            Text = "Main Form";
             Load += MainForm_Load;
             TabControl.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
+            TabPageEnums.ResumeLayout(false);
+            SeasonGroupBox.ResumeLayout(false);
+            SeasonGroupBox.PerformLayout();
             EnumGroupBox.ResumeLayout(false);
             EnumGroupBox.PerformLayout();
             ParsingGroupBox.ResumeLayout(false);
@@ -209,7 +255,7 @@
         #endregion
 
         private TabControl TabControl;
-        private TabPage tabPage1;
+        private TabPage TabPageEnums;
         private GroupBox EnumGroupBox;
         private Label EnumLabel;
         private ListBox EnumsListBox;
@@ -222,5 +268,9 @@
         private Button ParseButton;
         private TextBox WeekdayTextBox;
         private Label ParsingLabel;
+        private GroupBox SeasonGroupBox;
+        private Button SeasonButton;
+        private ComboBox SeasonComboBox;
+        private Label SeasonLabel;
     }
 }
