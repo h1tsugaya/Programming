@@ -7,5 +7,6 @@
     Black,
     White,
     Purple,
-    Orange
+    Orange,
+    Pink
 }
