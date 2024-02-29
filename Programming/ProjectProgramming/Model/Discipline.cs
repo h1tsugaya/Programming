@@ -1,6 +1,6 @@
 ﻿namespace ProjectProgramming.Model
 {
-    public class Discipline
+    class Discipline
     {
         private string _disciplineName;
         private string _instructor;

@@ -1,6 +1,6 @@
 ﻿namespace ProjectProgramming.Model
 {
-    public class Contact
+    class Contact
     {
         private string _name;
         private string _email;
@@ -11,7 +11,7 @@
             set 
             {
                 if (string.IsNullOrWhiteSpace(value))
-                    throw new ArgumentException("Имя не может быть пустым или содержать только пробелы.");
+                    throw new ArgumentException("The name cannot be empty or contain only spaces!");
                 _name = value; 
             }
         }
@@ -21,7 +21,7 @@
             get { return _email; }
             set 
             {   if (!string.IsNullOrWhiteSpace(_email) && _email.Contains("@"))
-                    throw new ArgumentException("Неккоректный формат электронной почты.");
+                    throw new ArgumentException("Invalid email format!");
                 _email = value; 
             }
         }
@@ -35,10 +35,10 @@
         }
         public Contact()
         {
-            Name = "None";
-            PhoneNumber = "None";
-            Email = "None";
-            Company = "None";
+            Name = "Gleb";
+            PhoneNumber = "8-800-555-35-35";
+            Email = "super_gleb@gmail.com";
+            Company = "TUSUR";
         }
     }
 }
