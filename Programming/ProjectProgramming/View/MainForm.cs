@@ -5,7 +5,7 @@ namespace ProjectProgramming
         Rectangle[] _rectangles = new Rectangle[5];
         Rectangle _currentRectangle = new Rectangle();
         Type[] typeModel = new Type[6] { typeof(Color), typeof(EducationForms), typeof(Genre), typeof(SmartphoneManufacturers), typeof(Seasons), typeof(Weekday) };
-        
+
         public MainForm()
         {
             InitializeComponent();
@@ -76,6 +76,21 @@ namespace ProjectProgramming
             }
         }
 
+        private int FindRectangleWithMaxWidth(Rectangle[] rectangles)
+        {
+            int MaxWidth = rectangles[0].Width;
+            int MaxWidthIndex = 0;
+            for (int i = 0; i < 5; i++)
+            {
+                if (rectangles[i].Width > MaxWidth)
+                {
+                    MaxWidth = rectangles[i].Width;
+                    MaxWidthIndex = i;
+                }
+            }
+            return MaxWidthIndex;
+        }
+
         private void BackgroundColor(System.Drawing.Color color)
         {
             TabControl.BackColor = color;
@@ -105,7 +120,7 @@ namespace ProjectProgramming
 
         private void textBoxLength_TextChanged(object sender, EventArgs e)
         {
-            
+
             int index = RectanglesListBox.Items.IndexOf(_currentRectangle);
             RectanglesListBox.Items.RemoveAt(index);
             RectanglesListBox.Items.Insert(index, _currentRectangle);
@@ -114,7 +129,7 @@ namespace ProjectProgramming
                 textBoxLength.BackColor = System.Drawing.Color.White;
                 int length = int.Parse(textBoxLength.Text);
                 _currentRectangle.Length = length;
-                
+
             }
             catch (Exception)
             {
@@ -138,6 +153,12 @@ namespace ProjectProgramming
             {
                 textBoxWidth.BackColor = System.Drawing.Color.LightPink;
             }
+        }
+
+        private void buttonRectangle_Click(object sender, EventArgs e)
+        {
+            int RectangleMaxWidthIndex = FindRectangleWithMaxWidth(_rectangles);
+            RectanglesListBox.SelectedIndex = RectangleMaxWidthIndex;
         }
     }
 }

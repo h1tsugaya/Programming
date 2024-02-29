@@ -280,6 +280,7 @@
             buttonRectangle.TabIndex = 7;
             buttonRectangle.Text = "Find";
             buttonRectangle.UseVisualStyleBackColor = true;
+            buttonRectangle.Click += buttonRectangle_Click;
             // 
             // RectanglesListBox
             // 
