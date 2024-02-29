@@ -2,9 +2,9 @@
 {
     public class Contact
     {
-        public string Name { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Email { get; set; }
-        public string Address { get; set; }
+        private string Name { get; set; }
+        private string PhoneNumber { get; set; }
+        private string Email { get; set; }
+        private string Address { get; set; }
     }
 }

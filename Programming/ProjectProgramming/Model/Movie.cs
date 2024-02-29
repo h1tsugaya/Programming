@@ -2,10 +2,10 @@
 {
     public class Movie
     {
-        public string Title { get; set; }
-        public int DurationMinutes { get; set; }
-        public int RealeseYear { get; set; }
-        public string Genre { get; set; }
-        public double Rating { get; set; }
+        private string Title { get; set; }
+        private int DurationMinutes { get; set; }
+        private int RealeseYear { get; set; }
+        private string Genre { get; set; }
+        private double Rating { get; set; }
     }
 }

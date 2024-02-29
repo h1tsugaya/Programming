@@ -2,9 +2,9 @@
 {
     public class Song
     {
-        public string Title { get; set; }
-        public string Artist { get; set; }
-        public string Album { get; set; }
-        public string Genre { get; set; }
+        private string Title { get; set; }
+        private string Artist { get; set; }
+        private string Album { get; set; }
+        private string Genre { get; set; }
     }
 }

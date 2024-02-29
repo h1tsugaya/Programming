@@ -1,9 +1,9 @@
 namespace ProjectProgramming
 {
-    public partial class MainForm : Form
+    private partial class MainForm : Form
     {
         Type[] typeModel = new Type[6] { typeof(Color), typeof(EducationForms), typeof(Genre), typeof(SmartphoneManufacturers), typeof(Seasons), typeof(Weekday) };
-        public MainForm()
+        private MainForm()
         {
             InitializeComponent();
             object[] values = Enum.GetValues(typeof(Seasons)).Cast<object>().ToArray();
@@ -76,7 +76,7 @@ namespace ProjectProgramming
             this.BackColor = color;
         }
 
-        static public bool TryGetEnumValue<T>(string itemName, out T value) where T : struct // T - пользовательский тип данных
+        static private bool TryGetEnumValue<T>(string itemName, out T value) where T : struct // T - пользовательский тип данных
         {
             if (Enum.TryParse<T>(itemName, true, out value))
             {
