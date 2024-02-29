@@ -2,8 +2,8 @@
 {
     public class Rectangle
     {
-        private double Lenght { get; set; }
-        private double Width { get; set; }
-        private string Color { get; set; }
+        public double Lenght { get; set; }
+        public double Width { get; set; }
+        public string Color { get; set; }
     }
 }

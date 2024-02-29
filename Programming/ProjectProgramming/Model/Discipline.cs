@@ -2,9 +2,9 @@
 {
     public class Discipline
     {
-        private string DiscpilineName { get; set; }
-        private string Instructor {  get; set; }
-        private int Grade { get; set; }
-        private string Semester { get; set; }
+        public string DiscpilineName { get; set; }
+        public string Instructor {  get; set; }
+        public int Grade { get; set; }
+        public string Semester { get; set; }
     }
 }

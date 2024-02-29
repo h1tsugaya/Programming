@@ -2,8 +2,8 @@
 {
     public class Flight
     {
-        private string Departure { get; set; }
-        private string Destination { get; set; }
-        private int FlightTimeMinutes { get; set; }
+        public string Departure { get; set; }
+        public string Destination { get; set; }
+        public int FlightTimeMinutes { get; set; }
     }
 }
