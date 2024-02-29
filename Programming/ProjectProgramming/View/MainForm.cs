@@ -13,10 +13,10 @@ namespace ProjectProgramming
             Random random = new Random();
             for (int i = 0; i < 5; i++)
             {
-                Rectangle rectangle = new(random.Next(6, 51), random.Next(3, 58), Color.Green);
+                Rectangle rectangle = new Rectangle(random.Next(6, 51), random.Next(3, 58), Color.Green);
                 _rectangles[i] = rectangle;
                 RectanglesListBox.Items.Add(rectangle);
-            } 
+            }
         }
 
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -94,12 +94,28 @@ namespace ProjectProgramming
 
         private void RectanglesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (RectanglesListBox.SelectedIndex == -1) return;
             _currentRectangle = _rectangles[RectanglesListBox.SelectedIndex];
             Rectangle rectangle = (Rectangle)RectanglesListBox.SelectedItem;
-            LengthTextBox.Text = rectangle.Length.ToString();
-            WidthTextBox.Text = rectangle.Width.ToString();
-            ColorTextBox.Text = rectangle.Color.ToString();
+            textBoxLength.Text = rectangle.Length.ToString();
+            textBoxWidth.Text = rectangle.Width.ToString();
+            textBoxColor.Text = rectangle.Color.ToString();
         }
 
+        private void textBoxLength_TextChanged(object sender, EventArgs e)
+        {
+            _currentRectangle.Length = Convert.ToInt32(textBoxLength.Text);
+            int index = RectanglesListBox.Items.IndexOf(_currentRectangle);
+            RectanglesListBox.Items.RemoveAt(index);
+            RectanglesListBox.Items.Insert(index, _currentRectangle);
+        }
+
+        private void textBoxWidth_TextChanged(object sender, EventArgs e)
+        {
+            _currentRectangle.Width = Convert.ToInt32(textBoxWidth.Text);
+            int index = RectanglesListBox.Items.IndexOf(_currentRectangle);
+            RectanglesListBox.Items.RemoveAt(index);
+            RectanglesListBox.Items.Insert(index, _currentRectangle);
+        }
     }
 }

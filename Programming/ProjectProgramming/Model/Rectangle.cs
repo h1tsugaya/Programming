@@ -5,6 +5,7 @@ class Rectangle
     int _length;
     int _width;
 
+
     public Color Color { get; set; }
 
     public int Length
