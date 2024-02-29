@@ -76,6 +76,8 @@ namespace ProjectProgramming
             this.BackColor = color;
         }
 
+
+
         static private bool TryGetEnumValue<T>(string itemName, out T value) where T : struct // T - пользовательский тип данных
         {
             if (Enum.TryParse<T>(itemName, true, out value))

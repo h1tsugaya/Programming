@@ -46,16 +46,20 @@
             ParseButton = new Button();
             WeekdayTextBox = new TextBox();
             ParsingLabel = new Label();
+            TabPageClasses = new TabPage();
+            classesBox = new GroupBox();
             TabControl.SuspendLayout();
             TabPageEnums.SuspendLayout();
             SeasonGroupBox.SuspendLayout();
             EnumGroupBox.SuspendLayout();
             ParsingGroupBox.SuspendLayout();
+            TabPageClasses.SuspendLayout();
             SuspendLayout();
             // 
             // TabControl
             // 
             TabControl.Controls.Add(TabPageEnums);
+            TabControl.Controls.Add(TabPageClasses);
             TabControl.Dock = DockStyle.Fill;
             TabControl.Location = new Point(0, 0);
             TabControl.Name = "TabControl";
@@ -232,6 +236,25 @@
             ParsingLabel.TabIndex = 0;
             ParsingLabel.Text = "Type value for parsing:";
             // 
+            // TabPageClasses
+            // 
+            TabPageClasses.Controls.Add(classesBox);
+            TabPageClasses.Location = new Point(4, 24);
+            TabPageClasses.Name = "TabPageClasses";
+            TabPageClasses.Size = new Size(770, 420);
+            TabPageClasses.TabIndex = 1;
+            TabPageClasses.Text = "Classes";
+            TabPageClasses.UseVisualStyleBackColor = true;
+            // 
+            // classesBox
+            // 
+            classesBox.Location = new Point(8, 3);
+            classesBox.Name = "classesBox";
+            classesBox.Size = new Size(317, 203);
+            classesBox.TabIndex = 0;
+            classesBox.TabStop = false;
+            classesBox.Text = "Rectangles";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -249,6 +272,7 @@
             EnumGroupBox.PerformLayout();
             ParsingGroupBox.ResumeLayout(false);
             ParsingGroupBox.PerformLayout();
+            TabPageClasses.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -272,5 +296,7 @@
         private Button SeasonButton;
         private ComboBox SeasonComboBox;
         private Label SeasonLabel;
+        private TabPage TabPageClasses;
+        private GroupBox classesBox;
     }
 }
