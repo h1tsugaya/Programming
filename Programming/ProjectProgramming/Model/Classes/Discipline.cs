@@ -1,4 +1,4 @@
-﻿namespace ProjectProgramming.Model
+﻿namespace ProjectProgramming.Model.Classes
 {
     class Discipline
     {

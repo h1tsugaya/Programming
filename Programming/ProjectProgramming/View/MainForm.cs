@@ -5,6 +5,7 @@ namespace ProjectProgramming
         Rectangle[] _rectangles = new Rectangle[5];
         Rectangle _currentRectangle = new Rectangle();
         Type[] typeModel = new Type[6] { typeof(Color), typeof(EducationForms), typeof(Genre), typeof(SmartphoneManufacturers), typeof(Seasons), typeof(Weekday) };
+        
         public MainForm()
         {
             InitializeComponent();
@@ -104,18 +105,39 @@ namespace ProjectProgramming
 
         private void textBoxLength_TextChanged(object sender, EventArgs e)
         {
-            _currentRectangle.Length = Convert.ToInt32(textBoxLength.Text);
+            
             int index = RectanglesListBox.Items.IndexOf(_currentRectangle);
             RectanglesListBox.Items.RemoveAt(index);
             RectanglesListBox.Items.Insert(index, _currentRectangle);
+            try
+            {
+                textBoxLength.BackColor = System.Drawing.Color.White;
+                int length = int.Parse(textBoxLength.Text);
+                _currentRectangle.Length = length;
+                
+            }
+            catch (Exception)
+            {
+                textBoxLength.BackColor = System.Drawing.Color.LightPink;
+            }
         }
 
         private void textBoxWidth_TextChanged(object sender, EventArgs e)
         {
-            _currentRectangle.Width = Convert.ToInt32(textBoxWidth.Text);
+
             int index = RectanglesListBox.Items.IndexOf(_currentRectangle);
             RectanglesListBox.Items.RemoveAt(index);
             RectanglesListBox.Items.Insert(index, _currentRectangle);
+            try
+            {
+                textBoxWidth.BackColor = System.Drawing.Color.White;
+                int width = int.Parse(textBoxWidth.Text);
+                _currentRectangle.Width = width;
+            }
+            catch (Exception)
+            {
+                textBoxWidth.BackColor = System.Drawing.Color.LightPink;
+            }
         }
     }
 }

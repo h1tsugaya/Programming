@@ -1,4 +1,4 @@
-﻿namespace ProjectProgramming.Model
+﻿namespace ProjectProgramming.Model.Classes
 {
     class Contact
     {
@@ -8,21 +8,22 @@
         public string Name
         {
             get { return _name; }
-            set 
+            set
             {
                 if (string.IsNullOrWhiteSpace(value))
                     throw new ArgumentException("The name cannot be empty or contain only spaces!");
-                _name = value; 
+                _name = value;
             }
         }
         public string PhoneNumber { get; set; }
         public string Email
         {
             get { return _email; }
-            set 
-            {   if (!string.IsNullOrWhiteSpace(_email) && _email.Contains("@"))
+            set
+            {
+                if (!string.IsNullOrWhiteSpace(_email) && _email.Contains("@"))
                     throw new ArgumentException("Invalid email format!");
-                _email = value; 
+                _email = value;
             }
         }
         public string Company { get; set; }
