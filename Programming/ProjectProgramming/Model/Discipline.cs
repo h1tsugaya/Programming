@@ -12,7 +12,7 @@
             get { return _disciplineName; }
             set
             {
-                if (value.Length == 0) throw new ArgumentException();
+                if (value.Length == 0) throw new ArgumentException("The Discipline name cannot be empty!");
                 _disciplineName = value;
             }
         }
@@ -21,7 +21,7 @@
             get { return _instructor; }
             set
             {
-                if (value.Length == 0) throw new ArgumentException();
+                if (value.Length == 0) throw new ArgumentException("The Instructor cannot be empty!");
                 _instructor = value;
             }
         }
