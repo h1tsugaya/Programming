@@ -1,6 +1,6 @@
 namespace ProjectProgramming
 {
-    private partial class MainForm : Form
+    public partial class MainForm : Form
     {
         Type[] typeModel = new Type[6] { typeof(Color), typeof(EducationForms), typeof(Genre), typeof(SmartphoneManufacturers), typeof(Seasons), typeof(Weekday) };
         private MainForm()
