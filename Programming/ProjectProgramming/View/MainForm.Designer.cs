@@ -47,6 +47,19 @@
             WeekdayTextBox = new TextBox();
             ParsingLabel = new Label();
             TabPageClasses = new TabPage();
+            groupBoxMovies = new GroupBox();
+            buttonMovies = new Button();
+            textBoxRating = new TextBox();
+            textBoxGenre = new TextBox();
+            textBoxYearRelease = new TextBox();
+            textBoxDuration = new TextBox();
+            textBoxName = new TextBox();
+            labelRating = new Label();
+            labelGenre = new Label();
+            labelReleaseYear = new Label();
+            labelDuration = new Label();
+            labelName = new Label();
+            listBoxMovies = new ListBox();
             groupBoxRectangles = new GroupBox();
             buttonRectangle = new Button();
             RectanglesListBox = new ListBox();
@@ -62,6 +75,7 @@
             EnumGroupBox.SuspendLayout();
             ParsingGroupBox.SuspendLayout();
             TabPageClasses.SuspendLayout();
+            groupBoxMovies.SuspendLayout();
             groupBoxRectangles.SuspendLayout();
             SuspendLayout();
             // 
@@ -247,6 +261,7 @@
             // 
             // TabPageClasses
             // 
+            TabPageClasses.Controls.Add(groupBoxMovies);
             TabPageClasses.Controls.Add(groupBoxRectangles);
             TabPageClasses.Location = new Point(4, 24);
             TabPageClasses.Name = "TabPageClasses";
@@ -254,6 +269,132 @@
             TabPageClasses.TabIndex = 1;
             TabPageClasses.Text = "Classes";
             TabPageClasses.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxMovies
+            // 
+            groupBoxMovies.Controls.Add(buttonMovies);
+            groupBoxMovies.Controls.Add(textBoxRating);
+            groupBoxMovies.Controls.Add(textBoxGenre);
+            groupBoxMovies.Controls.Add(textBoxYearRelease);
+            groupBoxMovies.Controls.Add(textBoxDuration);
+            groupBoxMovies.Controls.Add(textBoxName);
+            groupBoxMovies.Controls.Add(labelRating);
+            groupBoxMovies.Controls.Add(labelGenre);
+            groupBoxMovies.Controls.Add(labelReleaseYear);
+            groupBoxMovies.Controls.Add(labelDuration);
+            groupBoxMovies.Controls.Add(labelName);
+            groupBoxMovies.Controls.Add(listBoxMovies);
+            groupBoxMovies.Location = new Point(352, 3);
+            groupBoxMovies.Name = "groupBoxMovies";
+            groupBoxMovies.Size = new Size(410, 409);
+            groupBoxMovies.TabIndex = 8;
+            groupBoxMovies.TabStop = false;
+            groupBoxMovies.Text = "Movies";
+            // 
+            // buttonMovies
+            // 
+            buttonMovies.Location = new Point(132, 249);
+            buttonMovies.Name = "buttonMovies";
+            buttonMovies.Size = new Size(100, 23);
+            buttonMovies.TabIndex = 11;
+            buttonMovies.Text = "Find";
+            buttonMovies.UseVisualStyleBackColor = true;
+            buttonMovies.Click += buttonMovies_Click;
+            // 
+            // textBoxRating
+            // 
+            textBoxRating.Location = new Point(132, 220);
+            textBoxRating.Name = "textBoxRating";
+            textBoxRating.Size = new Size(100, 23);
+            textBoxRating.TabIndex = 10;
+            textBoxRating.TextChanged += textBoxRating_TextChanged;
+            // 
+            // textBoxGenre
+            // 
+            textBoxGenre.Location = new Point(132, 176);
+            textBoxGenre.Name = "textBoxGenre";
+            textBoxGenre.Size = new Size(100, 23);
+            textBoxGenre.TabIndex = 9;
+            textBoxGenre.TextChanged += textBoxGenre_TextChanged;
+            // 
+            // textBoxYearRelease
+            // 
+            textBoxYearRelease.Location = new Point(132, 128);
+            textBoxYearRelease.Name = "textBoxYearRelease";
+            textBoxYearRelease.Size = new Size(100, 23);
+            textBoxYearRelease.TabIndex = 8;
+            textBoxYearRelease.TextChanged += textBoxYearRelease_TextChanged;
+            // 
+            // textBoxDuration
+            // 
+            textBoxDuration.Location = new Point(132, 81);
+            textBoxDuration.Name = "textBoxDuration";
+            textBoxDuration.Size = new Size(100, 23);
+            textBoxDuration.TabIndex = 7;
+            textBoxDuration.TextChanged += textBoxDuration_TextChanged;
+            // 
+            // textBoxName
+            // 
+            textBoxName.Location = new Point(132, 37);
+            textBoxName.Name = "textBoxName";
+            textBoxName.Size = new Size(100, 23);
+            textBoxName.TabIndex = 6;
+            textBoxName.TextChanged += textBoxName_TextChanged;
+            // 
+            // labelRating
+            // 
+            labelRating.AutoSize = true;
+            labelRating.Location = new Point(132, 202);
+            labelRating.Name = "labelRating";
+            labelRating.Size = new Size(44, 15);
+            labelRating.TabIndex = 5;
+            labelRating.Text = "Rating:";
+            // 
+            // labelGenre
+            // 
+            labelGenre.AutoSize = true;
+            labelGenre.Location = new Point(132, 154);
+            labelGenre.Name = "labelGenre";
+            labelGenre.Size = new Size(41, 15);
+            labelGenre.TabIndex = 4;
+            labelGenre.Text = "Genre:";
+            // 
+            // labelReleaseYear
+            // 
+            labelReleaseYear.AutoSize = true;
+            labelReleaseYear.Location = new Point(132, 107);
+            labelReleaseYear.Name = "labelReleaseYear";
+            labelReleaseYear.Size = new Size(71, 15);
+            labelReleaseYear.TabIndex = 3;
+            labelReleaseYear.Text = "Year release:";
+            // 
+            // labelDuration
+            // 
+            labelDuration.AutoSize = true;
+            labelDuration.Location = new Point(132, 63);
+            labelDuration.Name = "labelDuration";
+            labelDuration.Size = new Size(56, 15);
+            labelDuration.TabIndex = 2;
+            labelDuration.Text = "Duration:";
+            // 
+            // labelName
+            // 
+            labelName.AutoSize = true;
+            labelName.Location = new Point(132, 19);
+            labelName.Name = "labelName";
+            labelName.Size = new Size(42, 15);
+            labelName.TabIndex = 1;
+            labelName.Text = "Name:";
+            // 
+            // listBoxMovies
+            // 
+            listBoxMovies.FormattingEnabled = true;
+            listBoxMovies.ItemHeight = 15;
+            listBoxMovies.Location = new Point(6, 19);
+            listBoxMovies.Name = "listBoxMovies";
+            listBoxMovies.Size = new Size(120, 379);
+            listBoxMovies.TabIndex = 0;
+            listBoxMovies.SelectedIndexChanged += listBoxMovies_SelectedIndexChanged;
             // 
             // groupBoxRectangles
             // 
@@ -267,14 +408,14 @@
             groupBoxRectangles.Controls.Add(labelLength);
             groupBoxRectangles.Location = new Point(8, 3);
             groupBoxRectangles.Name = "groupBoxRectangles";
-            groupBoxRectangles.Size = new Size(338, 241);
+            groupBoxRectangles.Size = new Size(338, 414);
             groupBoxRectangles.TabIndex = 7;
             groupBoxRectangles.TabStop = false;
             groupBoxRectangles.Text = "Rectangles";
             // 
             // buttonRectangle
             // 
-            buttonRectangle.Location = new Point(132, 195);
+            buttonRectangle.Location = new Point(132, 154);
             buttonRectangle.Name = "buttonRectangle";
             buttonRectangle.Size = new Size(100, 23);
             buttonRectangle.TabIndex = 7;
@@ -288,7 +429,7 @@
             RectanglesListBox.ItemHeight = 15;
             RectanglesListBox.Location = new Point(6, 19);
             RectanglesListBox.Name = "RectanglesListBox";
-            RectanglesListBox.Size = new Size(120, 199);
+            RectanglesListBox.Size = new Size(120, 379);
             RectanglesListBox.TabIndex = 0;
             RectanglesListBox.SelectedIndexChanged += RectanglesListBox_SelectedIndexChanged;
             // 
@@ -359,6 +500,8 @@
             ParsingGroupBox.ResumeLayout(false);
             ParsingGroupBox.PerformLayout();
             TabPageClasses.ResumeLayout(false);
+            groupBoxMovies.ResumeLayout(false);
+            groupBoxMovies.PerformLayout();
             groupBoxRectangles.ResumeLayout(false);
             groupBoxRectangles.PerformLayout();
             ResumeLayout(false);
@@ -394,5 +537,18 @@
         private Button buttonRectangle;
         private ListBox RectanglesListBox;
         private TextBox textBoxLength;
+        private GroupBox groupBoxMovies;
+        private ListBox listBoxMovies;
+        private Label labelReleaseYear;
+        private Label labelDuration;
+        private Label labelName;
+        private Button buttonMovies;
+        private TextBox textBoxRating;
+        private TextBox textBoxGenre;
+        private TextBox textBoxYearRelease;
+        private TextBox textBoxDuration;
+        private TextBox textBoxName;
+        private Label labelRating;
+        private Label labelGenre;
     }
 }

@@ -4,8 +4,6 @@ class Movie
 {
     string _name;
     int _duration;
-    int _releaseYear;
-    string _genre;
     double _rating;
 
     public string Name
@@ -20,6 +18,8 @@ class Movie
             _name = value;
         }
     }
+
+    public int ReleaseYear { get; set; }
     public int Duration
     {
         get { return _duration; }
@@ -32,24 +32,7 @@ class Movie
             _duration = value;
         }
     }
-
-    public int ReleaseYear
-    {
-        get { return _releaseYear; }
-        set
-        {
-            if (value < 1895)
-            {
-                throw new ArgumentException("Films were not released until 1895!");
-            }
-            _duration = value;
-        }
-    }
-    public string Genre
-    {
-        get { return _genre; }
-        set { _genre = value; }
-    }
+    public Genre Genre { get; set; }
 
     public double Rating
     {
@@ -69,14 +52,14 @@ class Movie
         Name = "Fight Club";
         Duration = 139;
         ReleaseYear = 1999;
-        Genre = "thriller";
+        Genre = Genre.Thriller;
     }
 
-    public Movie(string name, int duration, int releaseyear, string genre, double rating)
+    public Movie(string name, int duration, int releaseyear, Genre genre, double rating)
     {
         Name = name;
-        Duration = duration;
         ReleaseYear = releaseyear;
+        Duration = duration;
         Genre = genre;
         Rating = rating;
     }
