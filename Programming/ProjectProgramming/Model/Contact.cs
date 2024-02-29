@@ -1,6 +1,4 @@
-﻿using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-
-namespace ProjectProgramming.Model
+﻿namespace ProjectProgramming.Model
 {
     public class Contact
     {
@@ -17,10 +15,7 @@ namespace ProjectProgramming.Model
                 _name = value; 
             }
         }
-
         public string PhoneNumber { get; set; }
-       
-
         public string Email
         {
             get { return _email; }
@@ -30,7 +25,6 @@ namespace ProjectProgramming.Model
                 _email = value; 
             }
         }
-
         public string Company { get; set; }
         public Contact(string name, string phoneNumber, string email, string company)
         {
