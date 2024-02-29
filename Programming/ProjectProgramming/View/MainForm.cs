@@ -2,18 +2,23 @@ namespace ProjectProgramming
 {
     public partial class MainForm : Form
     {
+        Rectangle[] _rectangles = new Rectangle[5];
+        Rectangle _currentRectangle = new Rectangle();
         Type[] typeModel = new Type[6] { typeof(Color), typeof(EducationForms), typeof(Genre), typeof(SmartphoneManufacturers), typeof(Seasons), typeof(Weekday) };
-        private MainForm()
+        public MainForm()
         {
             InitializeComponent();
             object[] values = Enum.GetValues(typeof(Seasons)).Cast<object>().ToArray();
             SeasonComboBox.Items.AddRange(values);
+            Random random = new Random();
+            for (int i = 0; i < 5; i++)
+            {
+                Rectangle rectangle = new(random.Next(6, 51), random.Next(3, 58), Color.Green);
+                _rectangles[i] = rectangle;
+                RectanglesListBox.Items.Add(rectangle);
+            } 
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = EnumsListBox.SelectedIndex;
@@ -69,14 +74,13 @@ namespace ProjectProgramming
                     break;
             }
         }
+
         private void BackgroundColor(System.Drawing.Color color)
         {
             TabControl.BackColor = color;
             TabPageEnums.BackColor = color;
             this.BackColor = color;
         }
-
-
 
         static private bool TryGetEnumValue<T>(string itemName, out T value) where T : struct // T - пользовательский тип данных
         {
@@ -87,5 +91,15 @@ namespace ProjectProgramming
             value = default;
             return false;
         }
+
+        private void RectanglesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _currentRectangle = _rectangles[RectanglesListBox.SelectedIndex];
+            Rectangle rectangle = (Rectangle)RectanglesListBox.SelectedItem;
+            LengthTextBox.Text = rectangle.Length.ToString();
+            WidthTextBox.Text = rectangle.Width.ToString();
+            ColorTextBox.Text = rectangle.Color.ToString();
+        }
+
     }
 }

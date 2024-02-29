@@ -39,4 +39,9 @@ class Rectangle
         Width = width;
         Color = color;
     }
+
+    public override string ToString()
+    {
+        return $"Rectangle {Length}x{Width}";
+    }
 }
