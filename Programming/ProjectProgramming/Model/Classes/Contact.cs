@@ -3,6 +3,7 @@
     class Contact
     {
         private string _name;
+        private string _surname;
         private string _email;
 
         public string Name
@@ -12,7 +13,22 @@
             {
                 if (string.IsNullOrWhiteSpace(value))
                     throw new ArgumentException("The name cannot be empty or contain only spaces!");
+                if (!IsEnglishAlphabet(value))
+                    throw new ArgumentException("The name should contain only English alphabet characters!");
+
                 _name = value;
+            }
+        }
+        public string Surname
+        {
+            get { return _surname; }
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                    throw new ArgumentException("The surname cannot be empty or contain only spaces!");
+                if (!IsEnglishAlphabet(value))
+                    throw new ArgumentException("The surname should contain only English alphabet characters!");
+                _surname = value;
             }
         }
         public string PhoneNumber { get; set; }
@@ -40,6 +56,10 @@
             PhoneNumber = "8-800-555-35-35";
             Email = "super_gleb@gmail.com";
             Company = "TUSUR";
+        }
+        private bool IsEnglishAlphabet(string input)
+        {
+            return !string.IsNullOrEmpty(input) && input.All(char.IsLetter) && input.All(char.IsLetterOrDigit);
         }
     }
 }
