@@ -13,8 +13,7 @@
             {
                 if (string.IsNullOrWhiteSpace(value))
                     throw new ArgumentException("The name cannot be empty or contain only spaces!");
-                if (!IsEnglishAlphabet(value))
-                    throw new ArgumentException("The name should contain only English alphabet characters!");
+                AssertStringContainsOnlyLetters(value, "Name");
 
                 _name = value;
             }
@@ -26,8 +25,7 @@
             {
                 if (string.IsNullOrWhiteSpace(value))
                     throw new ArgumentException("The surname cannot be empty or contain only spaces!");
-                if (!IsEnglishAlphabet(value))
-                    throw new ArgumentException("The surname should contain only English alphabet characters!");
+                AssertStringContainsOnlyLetters(value, "Surname");
                 _surname = value;
             }
         }
@@ -56,6 +54,11 @@
             PhoneNumber = "8-800-555-35-35";
             Email = "super_gleb@gmail.com";
             Company = "TUSUR";
+        }
+        private void AssertStringContainsOnlyLetters(string value, string propertyName)
+        {
+            if (!IsEnglishAlphabet(value))
+                throw new ArgumentException($"The {propertyName.ToLower()} should contain only English alphabet characters!");
         }
         private bool IsEnglishAlphabet(string input)
         {
