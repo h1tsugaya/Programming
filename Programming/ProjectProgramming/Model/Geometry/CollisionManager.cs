@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Programming.Model
+namespace ProjectProgramming.Model
 {
     static class CollisionManager
     {
@@ -22,8 +22,8 @@ namespace Programming.Model
         static public bool IsCollision(Ring ring1, Ring ring2)
         {
             double hypotenuse = Math.Sqrt(Math.Pow(Math.Abs(ring1.Center.X - ring2.Center.X), 2) + Math.Pow(Math.Abs(ring1.Center.Y - ring2.Center.Y), 2));
-            double sumOfExternalRadii = ring1.ExternalRadius + ring2.ExternalRadius;
-            return hypotenuse < sumOfExternalRadii;
+            double sumOfExternalRadiuses = ring1.ExternalRadius + ring2.ExternalRadius;
+            return hypotenuse < sumOfExternalRadiuses;
         }
     }
 }

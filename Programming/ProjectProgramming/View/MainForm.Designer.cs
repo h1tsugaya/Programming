@@ -61,6 +61,12 @@
             labelName = new Label();
             listBoxMovies = new ListBox();
             groupBoxRectangles = new GroupBox();
+            middleYTextBox = new TextBox();
+            middleXTextBox = new TextBox();
+            middleYLabel = new Label();
+            middleXLabel = new Label();
+            idLabel = new Label();
+            idTextBox = new TextBox();
             buttonRectangle = new Button();
             RectanglesListBox = new ListBox();
             textBoxColor = new TextBox();
@@ -87,7 +93,7 @@
             TabControl.Location = new Point(0, 0);
             TabControl.Name = "TabControl";
             TabControl.SelectedIndex = 0;
-            TabControl.Size = new Size(778, 448);
+            TabControl.Size = new Size(775, 448);
             TabControl.TabIndex = 0;
             // 
             // TabPageEnums
@@ -98,7 +104,7 @@
             TabPageEnums.Location = new Point(4, 24);
             TabPageEnums.Name = "TabPageEnums";
             TabPageEnums.Padding = new Padding(3);
-            TabPageEnums.Size = new Size(770, 420);
+            TabPageEnums.Size = new Size(767, 420);
             TabPageEnums.TabIndex = 0;
             TabPageEnums.Text = "Enums";
             TabPageEnums.UseVisualStyleBackColor = true;
@@ -265,7 +271,7 @@
             TabPageClasses.Controls.Add(groupBoxRectangles);
             TabPageClasses.Location = new Point(4, 24);
             TabPageClasses.Name = "TabPageClasses";
-            TabPageClasses.Size = new Size(770, 420);
+            TabPageClasses.Size = new Size(767, 420);
             TabPageClasses.TabIndex = 1;
             TabPageClasses.Text = "Classes";
             TabPageClasses.UseVisualStyleBackColor = true;
@@ -293,7 +299,7 @@
             // 
             // buttonMovies
             // 
-            buttonMovies.Location = new Point(132, 249);
+            buttonMovies.Location = new Point(234, 375);
             buttonMovies.Name = "buttonMovies";
             buttonMovies.Size = new Size(100, 23);
             buttonMovies.TabIndex = 11;
@@ -303,7 +309,7 @@
             // 
             // textBoxRating
             // 
-            textBoxRating.Location = new Point(132, 220);
+            textBoxRating.Location = new Point(234, 220);
             textBoxRating.Name = "textBoxRating";
             textBoxRating.Size = new Size(100, 23);
             textBoxRating.TabIndex = 10;
@@ -311,7 +317,7 @@
             // 
             // textBoxGenre
             // 
-            textBoxGenre.Location = new Point(132, 176);
+            textBoxGenre.Location = new Point(234, 176);
             textBoxGenre.Name = "textBoxGenre";
             textBoxGenre.Size = new Size(100, 23);
             textBoxGenre.TabIndex = 9;
@@ -319,7 +325,7 @@
             // 
             // textBoxYearRelease
             // 
-            textBoxYearRelease.Location = new Point(132, 128);
+            textBoxYearRelease.Location = new Point(234, 128);
             textBoxYearRelease.Name = "textBoxYearRelease";
             textBoxYearRelease.Size = new Size(100, 23);
             textBoxYearRelease.TabIndex = 8;
@@ -327,7 +333,7 @@
             // 
             // textBoxDuration
             // 
-            textBoxDuration.Location = new Point(132, 81);
+            textBoxDuration.Location = new Point(234, 81);
             textBoxDuration.Name = "textBoxDuration";
             textBoxDuration.Size = new Size(100, 23);
             textBoxDuration.TabIndex = 7;
@@ -335,7 +341,7 @@
             // 
             // textBoxName
             // 
-            textBoxName.Location = new Point(132, 37);
+            textBoxName.Location = new Point(234, 37);
             textBoxName.Name = "textBoxName";
             textBoxName.Size = new Size(100, 23);
             textBoxName.TabIndex = 6;
@@ -344,7 +350,7 @@
             // labelRating
             // 
             labelRating.AutoSize = true;
-            labelRating.Location = new Point(132, 202);
+            labelRating.Location = new Point(234, 202);
             labelRating.Name = "labelRating";
             labelRating.Size = new Size(44, 15);
             labelRating.TabIndex = 5;
@@ -353,7 +359,7 @@
             // labelGenre
             // 
             labelGenre.AutoSize = true;
-            labelGenre.Location = new Point(132, 154);
+            labelGenre.Location = new Point(234, 154);
             labelGenre.Name = "labelGenre";
             labelGenre.Size = new Size(41, 15);
             labelGenre.TabIndex = 4;
@@ -362,7 +368,7 @@
             // labelReleaseYear
             // 
             labelReleaseYear.AutoSize = true;
-            labelReleaseYear.Location = new Point(132, 107);
+            labelReleaseYear.Location = new Point(234, 107);
             labelReleaseYear.Name = "labelReleaseYear";
             labelReleaseYear.Size = new Size(71, 15);
             labelReleaseYear.TabIndex = 3;
@@ -371,7 +377,7 @@
             // labelDuration
             // 
             labelDuration.AutoSize = true;
-            labelDuration.Location = new Point(132, 63);
+            labelDuration.Location = new Point(234, 63);
             labelDuration.Name = "labelDuration";
             labelDuration.Size = new Size(56, 15);
             labelDuration.TabIndex = 2;
@@ -380,7 +386,7 @@
             // labelName
             // 
             labelName.AutoSize = true;
-            labelName.Location = new Point(132, 19);
+            labelName.Location = new Point(234, 19);
             labelName.Name = "labelName";
             labelName.Size = new Size(42, 15);
             labelName.TabIndex = 1;
@@ -392,12 +398,18 @@
             listBoxMovies.ItemHeight = 15;
             listBoxMovies.Location = new Point(6, 19);
             listBoxMovies.Name = "listBoxMovies";
-            listBoxMovies.Size = new Size(120, 379);
+            listBoxMovies.Size = new Size(222, 379);
             listBoxMovies.TabIndex = 0;
             listBoxMovies.SelectedIndexChanged += listBoxMovies_SelectedIndexChanged;
             // 
             // groupBoxRectangles
             // 
+            groupBoxRectangles.Controls.Add(middleYTextBox);
+            groupBoxRectangles.Controls.Add(middleXTextBox);
+            groupBoxRectangles.Controls.Add(middleYLabel);
+            groupBoxRectangles.Controls.Add(middleXLabel);
+            groupBoxRectangles.Controls.Add(idLabel);
+            groupBoxRectangles.Controls.Add(idTextBox);
             groupBoxRectangles.Controls.Add(buttonRectangle);
             groupBoxRectangles.Controls.Add(RectanglesListBox);
             groupBoxRectangles.Controls.Add(textBoxColor);
@@ -413,9 +425,60 @@
             groupBoxRectangles.TabStop = false;
             groupBoxRectangles.Text = "Rectangles";
             // 
+            // middleYTextBox
+            // 
+            middleYTextBox.Enabled = false;
+            middleYTextBox.Location = new Point(234, 220);
+            middleYTextBox.Name = "middleYTextBox";
+            middleYTextBox.Size = new Size(100, 23);
+            middleYTextBox.TabIndex = 13;
+            // 
+            // middleXTextBox
+            // 
+            middleXTextBox.Enabled = false;
+            middleXTextBox.Location = new Point(234, 172);
+            middleXTextBox.Name = "middleXTextBox";
+            middleXTextBox.Size = new Size(100, 23);
+            middleXTextBox.TabIndex = 12;
+            // 
+            // middleYLabel
+            // 
+            middleYLabel.AutoSize = true;
+            middleYLabel.Location = new Point(234, 202);
+            middleYLabel.Name = "middleYLabel";
+            middleYLabel.Size = new Size(57, 15);
+            middleYLabel.TabIndex = 11;
+            middleYLabel.Text = "Middle Y:";
+            // 
+            // middleXLabel
+            // 
+            middleXLabel.AutoSize = true;
+            middleXLabel.Location = new Point(234, 154);
+            middleXLabel.Name = "middleXLabel";
+            middleXLabel.Size = new Size(57, 15);
+            middleXLabel.TabIndex = 10;
+            middleXLabel.Text = "Middle X:";
+            // 
+            // idLabel
+            // 
+            idLabel.AutoSize = true;
+            idLabel.Location = new Point(234, 249);
+            idLabel.Name = "idLabel";
+            idLabel.Size = new Size(20, 15);
+            idLabel.TabIndex = 9;
+            idLabel.Text = "Id:";
+            // 
+            // idTextBox
+            // 
+            idTextBox.Enabled = false;
+            idTextBox.Location = new Point(234, 267);
+            idTextBox.Name = "idTextBox";
+            idTextBox.Size = new Size(100, 23);
+            idTextBox.TabIndex = 8;
+            // 
             // buttonRectangle
             // 
-            buttonRectangle.Location = new Point(132, 154);
+            buttonRectangle.Location = new Point(234, 375);
             buttonRectangle.Name = "buttonRectangle";
             buttonRectangle.Size = new Size(100, 23);
             buttonRectangle.TabIndex = 7;
@@ -429,13 +492,13 @@
             RectanglesListBox.ItemHeight = 15;
             RectanglesListBox.Location = new Point(6, 19);
             RectanglesListBox.Name = "RectanglesListBox";
-            RectanglesListBox.Size = new Size(120, 379);
+            RectanglesListBox.Size = new Size(222, 379);
             RectanglesListBox.TabIndex = 0;
             RectanglesListBox.SelectedIndexChanged += RectanglesListBox_SelectedIndexChanged;
             // 
             // textBoxColor
             // 
-            textBoxColor.Location = new Point(132, 125);
+            textBoxColor.Location = new Point(234, 125);
             textBoxColor.Name = "textBoxColor";
             textBoxColor.Size = new Size(100, 23);
             textBoxColor.TabIndex = 3;
@@ -443,7 +506,7 @@
             // labelColor
             // 
             labelColor.AutoSize = true;
-            labelColor.Location = new Point(132, 107);
+            labelColor.Location = new Point(234, 107);
             labelColor.Name = "labelColor";
             labelColor.Size = new Size(39, 15);
             labelColor.TabIndex = 6;
@@ -451,7 +514,7 @@
             // 
             // textBoxLength
             // 
-            textBoxLength.Location = new Point(132, 37);
+            textBoxLength.Location = new Point(234, 37);
             textBoxLength.Name = "textBoxLength";
             textBoxLength.Size = new Size(100, 23);
             textBoxLength.TabIndex = 1;
@@ -460,7 +523,7 @@
             // labelWidth
             // 
             labelWidth.AutoSize = true;
-            labelWidth.Location = new Point(132, 63);
+            labelWidth.Location = new Point(234, 63);
             labelWidth.Name = "labelWidth";
             labelWidth.Size = new Size(42, 15);
             labelWidth.TabIndex = 5;
@@ -468,7 +531,7 @@
             // 
             // textBoxWidth
             // 
-            textBoxWidth.Location = new Point(132, 81);
+            textBoxWidth.Location = new Point(234, 81);
             textBoxWidth.Name = "textBoxWidth";
             textBoxWidth.Size = new Size(100, 23);
             textBoxWidth.TabIndex = 2;
@@ -477,7 +540,7 @@
             // labelLength
             // 
             labelLength.AutoSize = true;
-            labelLength.Location = new Point(132, 19);
+            labelLength.Location = new Point(234, 19);
             labelLength.Name = "labelLength";
             labelLength.Size = new Size(47, 15);
             labelLength.TabIndex = 4;
@@ -487,7 +550,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(778, 448);
+            ClientSize = new Size(775, 448);
             Controls.Add(TabControl);
             Name = "MainForm";
             Text = "Main Form";
@@ -550,5 +613,11 @@
         private TextBox textBoxName;
         private Label labelRating;
         private Label labelGenre;
+        private Label idLabel;
+        private TextBox idTextBox;
+        private TextBox middleYTextBox;
+        private TextBox middleXTextBox;
+        private Label middleYLabel;
+        private Label middleXLabel;
     }
 }

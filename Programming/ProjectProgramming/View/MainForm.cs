@@ -5,7 +5,7 @@ namespace ProjectProgramming
     public partial class MainForm : Form
     {
         Rectangle[] _rectangles = new Rectangle[5];
-        Rectangle _currentRectangle = new Rectangle();
+        Rectangle _currentRectangle;
         Movie[] _movies = new Movie[5];
         Movie _currentMovie = new Movie();
         Type[] typeModel = new Type[6] { typeof(Color), typeof(EducationForms), typeof(Genre), typeof(SmartphoneManufacturers), typeof(Seasons), typeof(Weekday) };
@@ -133,6 +133,9 @@ namespace ProjectProgramming
             textBoxLength.Text = rectangle.Length.ToString();
             textBoxWidth.Text = rectangle.Width.ToString();
             textBoxColor.Text = rectangle.Color.ToString();
+            middleXTextBox.Text = rectangle.Center.X.ToString();
+            middleYTextBox.Text = rectangle.Center.Y.ToString();
+            idTextBox.Text = rectangle.Id.ToString();
         }
 
         private void textBoxLength_TextChanged(object sender, EventArgs e)
@@ -279,5 +282,10 @@ namespace ProjectProgramming
             }
             return MaxRateIndex;
         }
+        private void TextBoxDisable(object sender, KeyPressEventArgs e) 
+        {
+            e.Handled = true;
+        }
+
     }
 }

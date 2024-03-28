@@ -5,8 +5,6 @@ class Rectangle
 {
     int _length;
     int _width;
-    public Point2D Coordinates { get; set; }
-
 
     public Color Color { get; set; }
 
@@ -31,7 +29,7 @@ class Rectangle
             _width = value;
         }
     }
-    public Point2D Center => new Point2D(Coordinates.X + Width / 2, Coordinates.Y + Height / 2);
+    public Point2D Center => new Point2D(Width / 2, Length / 2);
 
     public static int AllRectanglesCount
     {
@@ -47,9 +45,10 @@ class Rectangle
         Length = 15;
         Width = 30;
         Color = Color.Green;
+        _id = ++_allRectanglesCount;
     }
 
-    public Rectangle(int length, int width, Color color, Point2D coordinates)
+    public Rectangle(int length, int width, Color color)
     {
         Length = length;
         Width = width;
