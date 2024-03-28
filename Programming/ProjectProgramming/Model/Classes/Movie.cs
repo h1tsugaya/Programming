@@ -5,6 +5,7 @@ class Movie
     string _name;
     int _duration;
     double _rating;
+    int _releaseYear;
 
     public string Name
     {
@@ -19,16 +20,21 @@ class Movie
         }
     }
 
-    public int ReleaseYear { get; set; }
+    public int ReleaseYear
+    {
+        get { return _releaseYear; }
+        set
+        {
+            Validator.AssertValueInRange(value, 1850, DateTime.Now.Year + 1);
+            _releaseYear = value;
+        }
+    }
     public int Duration
     {
         get { return _duration; }
         set
         {
-            if (value < 1)
-            {
-                throw new ArgumentException("Duration cannot be less then 1 minutes!");
-            }
+            Validator.AssertOnPositiveValue(value);
             _duration = value;
         }
     }
@@ -39,10 +45,7 @@ class Movie
         get { return _rating; }
         set
         {
-            if (value < 0 || value > 10)
-            {
-                throw new ArgumentException("The rating cannot be less than zero and more than 10!");
-            }
+            Validator.AssertValueInRange(value, 0, 11);
             _rating = value;
         }
     }
