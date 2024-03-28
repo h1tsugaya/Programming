@@ -58,6 +58,6 @@ class Rectangle
 
     public override string ToString()
     {
-        return $"{Id}: (X={Center.X}; Y={Center.Y}; W={Width}; H={Length})";
+        return $"{Id}: (X={Center.X}; Y={Center.Y}; W={Width}; L={Length})";
     }
 }
