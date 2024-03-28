@@ -432,6 +432,7 @@
             middleYTextBox.Name = "middleYTextBox";
             middleYTextBox.Size = new Size(100, 23);
             middleYTextBox.TabIndex = 13;
+            middleYTextBox.KeyPress += TextBoxDisable;
             // 
             // middleXTextBox
             // 
@@ -440,6 +441,7 @@
             middleXTextBox.Name = "middleXTextBox";
             middleXTextBox.Size = new Size(100, 23);
             middleXTextBox.TabIndex = 12;
+            middleXTextBox.KeyPress += TextBoxDisable;
             // 
             // middleYLabel
             // 
@@ -475,6 +477,7 @@
             idTextBox.Name = "idTextBox";
             idTextBox.Size = new Size(100, 23);
             idTextBox.TabIndex = 8;
+            idTextBox.KeyPress += TextBoxDisable;
             // 
             // buttonRectangle
             // 
