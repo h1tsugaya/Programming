@@ -292,7 +292,7 @@
             groupBoxMovies.Controls.Add(listBoxMovies);
             groupBoxMovies.Location = new Point(352, 3);
             groupBoxMovies.Name = "groupBoxMovies";
-            groupBoxMovies.Size = new Size(410, 409);
+            groupBoxMovies.Size = new Size(410, 414);
             groupBoxMovies.TabIndex = 8;
             groupBoxMovies.TabStop = false;
             groupBoxMovies.Text = "Movies";
@@ -396,7 +396,7 @@
             // 
             listBoxMovies.FormattingEnabled = true;
             listBoxMovies.ItemHeight = 15;
-            listBoxMovies.Location = new Point(6, 19);
+            listBoxMovies.Location = new Point(0, 22);
             listBoxMovies.Name = "listBoxMovies";
             listBoxMovies.Size = new Size(222, 379);
             listBoxMovies.TabIndex = 0;
