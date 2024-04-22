@@ -82,11 +82,11 @@
             labelY = new Label();
             labelX = new Label();
             labelId = new Label();
-            textBox5 = new TextBox();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            textBoxRectangleHeight = new TextBox();
+            textBoxRectangleWidth = new TextBox();
+            textBoxRectangleY = new TextBox();
+            textBoxRectangleX = new TextBox();
+            textBoxRectangleId = new TextBox();
             labelSelectedRectangle = new Label();
             buttonDeleteRectangle = new Button();
             buttonAddRectanlge = new Button();
@@ -507,7 +507,6 @@
             buttonRectangle.TabIndex = 7;
             buttonRectangle.Text = "Find";
             buttonRectangle.UseVisualStyleBackColor = true;
-            buttonRectangle.Click += buttonRectangle_Click;
             // 
             // RectanglesListBox
             // 
@@ -517,7 +516,6 @@
             RectanglesListBox.Name = "RectanglesListBox";
             RectanglesListBox.Size = new Size(222, 379);
             RectanglesListBox.TabIndex = 0;
-            RectanglesListBox.SelectedIndexChanged += RectanglesListBox_SelectedIndexChanged;
             // 
             // textBoxColor
             // 
@@ -576,11 +574,11 @@
             TabPageRectangles.Controls.Add(labelY);
             TabPageRectangles.Controls.Add(labelX);
             TabPageRectangles.Controls.Add(labelId);
-            TabPageRectangles.Controls.Add(textBox5);
-            TabPageRectangles.Controls.Add(textBox4);
-            TabPageRectangles.Controls.Add(textBox3);
-            TabPageRectangles.Controls.Add(textBox2);
-            TabPageRectangles.Controls.Add(textBox1);
+            TabPageRectangles.Controls.Add(textBoxRectangleHeight);
+            TabPageRectangles.Controls.Add(textBoxRectangleWidth);
+            TabPageRectangles.Controls.Add(textBoxRectangleY);
+            TabPageRectangles.Controls.Add(textBoxRectangleX);
+            TabPageRectangles.Controls.Add(textBoxRectangleId);
             TabPageRectangles.Controls.Add(labelSelectedRectangle);
             TabPageRectangles.Controls.Add(buttonDeleteRectangle);
             TabPageRectangles.Controls.Add(buttonAddRectanlge);
@@ -639,40 +637,44 @@
             labelId.TabIndex = 11;
             labelId.Text = "Id:";
             // 
-            // textBox5
+            // textBoxRectangleHeight
             // 
-            textBox5.Location = new Point(62, 415);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(100, 23);
-            textBox5.TabIndex = 10;
+            textBoxRectangleHeight.Location = new Point(62, 415);
+            textBoxRectangleHeight.Name = "textBoxRectangleHeight";
+            textBoxRectangleHeight.Size = new Size(100, 23);
+            textBoxRectangleHeight.TabIndex = 10;
+            textBoxRectangleHeight.TextChanged += textBoxRectangleHeight_TextChanged;
             // 
-            // textBox4
+            // textBoxRectangleWidth
             // 
-            textBox4.Location = new Point(62, 386);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(100, 23);
-            textBox4.TabIndex = 9;
+            textBoxRectangleWidth.Location = new Point(62, 386);
+            textBoxRectangleWidth.Name = "textBoxRectangleWidth";
+            textBoxRectangleWidth.Size = new Size(100, 23);
+            textBoxRectangleWidth.TabIndex = 9;
+            textBoxRectangleWidth.TextChanged += textBoxRectangleWidth_TextChanged;
             // 
-            // textBox3
+            // textBoxRectangleY
             // 
-            textBox3.Location = new Point(62, 357);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 8;
+            textBoxRectangleY.Location = new Point(62, 357);
+            textBoxRectangleY.Name = "textBoxRectangleY";
+            textBoxRectangleY.Size = new Size(100, 23);
+            textBoxRectangleY.TabIndex = 8;
+            textBoxRectangleY.TextChanged += textBoxRectangleY_TextChanged;
             // 
-            // textBox2
+            // textBoxRectangleX
             // 
-            textBox2.Location = new Point(62, 328);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 7;
+            textBoxRectangleX.Location = new Point(62, 328);
+            textBoxRectangleX.Name = "textBoxRectangleX";
+            textBoxRectangleX.Size = new Size(100, 23);
+            textBoxRectangleX.TabIndex = 7;
+            textBoxRectangleX.TextChanged += textBoxRectangleX_TextChanged;
             // 
-            // textBox1
+            // textBoxRectangleId
             // 
-            textBox1.Location = new Point(62, 299);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 6;
+            textBoxRectangleId.Location = new Point(62, 299);
+            textBoxRectangleId.Name = "textBoxRectangleId";
+            textBoxRectangleId.Size = new Size(100, 23);
+            textBoxRectangleId.TabIndex = 6;
             // 
             // labelSelectedRectangle
             // 
@@ -695,6 +697,7 @@
             buttonDeleteRectangle.Size = new Size(57, 47);
             buttonDeleteRectangle.TabIndex = 4;
             buttonDeleteRectangle.UseVisualStyleBackColor = false;
+            buttonDeleteRectangle.Click += buttonDeleteRectangle_Click;
             // 
             // buttonAddRectanlge
             // 
@@ -708,6 +711,7 @@
             buttonAddRectanlge.Size = new Size(57, 43);
             buttonAddRectanlge.TabIndex = 3;
             buttonAddRectanlge.UseVisualStyleBackColor = false;
+            buttonAddRectanlge.Click += buttonAddRectanlge_Click;
             // 
             // listBoxForRectangles
             // 
@@ -717,6 +721,7 @@
             listBoxForRectangles.Name = "listBoxForRectangles";
             listBoxForRectangles.Size = new Size(284, 184);
             listBoxForRectangles.TabIndex = 2;
+            listBoxForRectangles.SelectedIndexChanged += listBoxForRectangles_SelectedIndexChanged;
             // 
             // labelRectangles
             // 
@@ -818,11 +823,11 @@
         private Button buttonDeleteRectangle;
         private Button buttonAddRectanlge;
         private Label labelSelectedRectangle;
-        private TextBox textBox5;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox textBoxRectangleHeight;
+        private TextBox textBoxRectangleWidth;
+        private TextBox textBoxRectangleY;
+        private TextBox textBoxRectangleX;
+        private TextBox textBoxRectangleId;
         private Label labelHeightRectangle;
         private Label labelWidthRectangle;
         private Label labelY;
