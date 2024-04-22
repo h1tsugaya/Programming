@@ -282,7 +282,7 @@ namespace ProjectProgramming
             }
             return MaxRateIndex;
         }
-        private void TextBoxDisable(object sender, KeyPressEventArgs e) 
+        private void TextBoxDisable(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
         }
