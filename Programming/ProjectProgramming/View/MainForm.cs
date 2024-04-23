@@ -432,7 +432,6 @@ namespace ProjectProgramming
             // Создаём копию списка, чтобы из-за изменения во время выполнения цикла, не появлялась ошибка
             List<Rectangle> intersecting = new List<Rectangle>(_intersecting);
             // Перебираем ранее пересекающиеся прямоугольники со всеми прямоугольниками,
-            // если он ни с чем не пересекается, делаем его зелёным
             foreach (Rectangle e in intersecting)
             {
                 if (listBoxForRectangles.Items.IndexOf(e) == -1) continue;
@@ -451,9 +450,7 @@ namespace ProjectProgramming
                     _rectanglePanels[listBoxForRectangles.Items.IndexOf(e)].BackColor = AppColors.Success;
                 }
             }
-            // Удаляем из списка пересекающих изменённый прямоугольник
             if (_intersecting.Contains(rectangle)) _intersecting.Remove(rectangle);
-            // Если прямоугольник был удалён, завершаем выполнение метода
             if (!_rectangles.Contains(rectangle)) return;
 
             bool flag = false;
