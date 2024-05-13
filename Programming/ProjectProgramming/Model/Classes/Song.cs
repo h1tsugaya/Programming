@@ -1,5 +1,8 @@
 ﻿using System;
 
+/// <summary>
+/// Представляет песню.
+/// </summary>
 class Song
 {
     private string _title;
@@ -7,7 +10,9 @@ class Song
     private int _duration;
     private int _release;
 
-
+    /// <summary>
+    /// Получает или задает название песни.
+    /// </summary>
     public string Title
     {
         get { return _title; }
@@ -20,6 +25,10 @@ class Song
             _title = value;
         }
     }
+
+    /// <summary>
+    /// Получает или задает имя исполнителя.
+    /// </summary>
     public string Artist
     {
         get { return _artist; }
@@ -33,6 +42,9 @@ class Song
         }
     }
 
+    /// <summary>
+    /// Получает или задает продолжительность песни в минутах.
+    /// </summary>
     public int Duration
     {
         get { return _duration; }
@@ -46,6 +58,9 @@ class Song
         }
     }
 
+    /// <summary>
+    /// Получает или задает год выпуска песни.
+    /// </summary>
     public int Release
     {
         get { return _release; }
@@ -59,6 +74,9 @@ class Song
         }
     }
 
+    /// <summary>
+    /// Инициализирует новый экземпляр класса Song со значениями по умолчанию.
+    /// </summary>
     public Song()
     {
         Title = "Тп на аме";
@@ -67,6 +85,13 @@ class Song
         Release = 2021;
     }
 
+    /// <summary>
+    /// Инициализирует новый экземпляр класса Song с указанными параметрами.
+    /// </summary>
+    /// <param name="title">Название песни.</param>
+    /// <param name="artist">Исполнитель.</param>
+    /// <param name="duration">Продолжительность песни в минутах.</param>
+    /// <param name="release">Год выпуска песни.</param>
     public Song(string title, string artist, int duration, int release)
     {
         Title = title;

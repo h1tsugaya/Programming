@@ -1,11 +1,17 @@
 ﻿using System;
 
+/// <summary>
+/// Представляет время.
+/// </summary>
 class Time
 {
     int _hours;
     int _minutes;
     int _seconds;
 
+    /// <summary>
+    /// Получает или задает часы.
+    /// </summary>
     public int Hours
     {
         get { return _hours; }
@@ -15,6 +21,10 @@ class Time
             _hours = value;
         }
     }
+
+    /// <summary>
+    /// Получает или задает минуты.
+    /// </summary>
     public int Minutes
     {
         get { return _minutes; }
@@ -24,6 +34,10 @@ class Time
             _minutes = value;
         }
     }
+
+    /// <summary>
+    /// Получает или задает секунды.
+    /// </summary>
     public int Seconds
     {
         get { return _seconds; }
@@ -34,6 +48,9 @@ class Time
         }
     }
 
+    /// <summary>
+    /// Инициализирует новый экземпляр класса Time со значениями текущего времени.
+    /// </summary>
     public Time()
     {
         Hours = DateTime.Now.Hour;
@@ -41,6 +58,12 @@ class Time
         Seconds = DateTime.Now.Second;
     }
 
+    /// <summary>
+    /// Инициализирует новый экземпляр класса Time с указанными параметрами.
+    /// </summary>
+    /// <param name="hours">Часы.</param>
+    /// <param name="minutes">Минуты.</param>
+    /// <param name="seconds">Секунды.</param>
     public Time(int hours, int minutes, int seconds)
     {
         Hours = hours;

@@ -1,4 +1,7 @@
-﻿public enum Seasons
+﻿/// <summary>
+/// Перечисление сезонов.
+/// </summary>
+public enum Seasons
 {
     Winter,
     Spring,

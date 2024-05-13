@@ -2,12 +2,22 @@
 
 namespace ProjectProgramming.Model
 {
+    /// <summary>
+    /// Представляет кольцо.
+    /// </summary>
     class Ring
     {
+        /// <summary>
+        /// Получает центр кольца.
+        /// </summary>
         public Point2D Center { get; }
+
         double _internalRadius;
         double _externalRadius;
 
+        /// <summary>
+        /// Получает или задает внутренний радиус кольца.
+        /// </summary>
         public double InternalRadius
         {
             get { return _internalRadius; }
@@ -18,6 +28,10 @@ namespace ProjectProgramming.Model
                 _internalRadius = value;
             }
         }
+
+        /// <summary>
+        /// Получает или задает внешний радиус кольца.
+        /// </summary>
         public double ExternalRadius
         {
             get { return _externalRadius; }
@@ -28,8 +42,17 @@ namespace ProjectProgramming.Model
                 _externalRadius = value;
             }
         }
+
+        /// <summary>
+        /// Получает площадь кольца.
+        /// </summary>
         public double Area => Math.PI * Math.Pow(_externalRadius, 2) - Math.PI * Math.Pow(_internalRadius, 2);
 
+        /// <summary>
+        /// Инициализирует новый экземпляр класса Ring с указанными внутренним и внешним радиусами.
+        /// </summary>
+        /// <param name="internalRadius">Внутренний радиус.</param>
+        /// <param name="externalRadius">Внешний радиус.</param>
         public Ring(double internalRadius, double externalRadius)
         {
             InternalRadius = internalRadius;

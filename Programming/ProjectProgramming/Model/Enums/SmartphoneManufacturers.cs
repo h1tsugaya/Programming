@@ -1,4 +1,7 @@
-﻿public enum SmartphoneManufacturers
+﻿/// <summary>
+/// Перечисление создателей смартфонов.
+/// </summary>
+public enum SmartphoneManufacturers
 {
     Apple,
     Samsung,

@@ -1,4 +1,7 @@
-﻿public enum EducationForms
+﻿/// <summary>
+/// Перечисление форм обучения.
+/// </summary>
+public enum EducationForms
 {
     Fulltime,
     Parttime,

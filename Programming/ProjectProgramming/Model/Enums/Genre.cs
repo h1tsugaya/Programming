@@ -1,4 +1,7 @@
-﻿public enum Genre
+﻿/// <summary>
+/// Перечисление жанров.
+/// </summary>
+public enum Genre
 {
     Comedy,
     Drama,

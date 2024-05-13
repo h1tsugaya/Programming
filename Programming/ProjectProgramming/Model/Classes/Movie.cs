@@ -1,5 +1,8 @@
 ﻿using System;
 
+/// <summary>
+/// Представляет фильм.
+/// </summary>
 class Movie
 {
     string _name;
@@ -7,6 +10,9 @@ class Movie
     double _rating;
     int _releaseYear;
 
+    /// <summary>
+    /// Получает или задает название фильма.
+    /// </summary>
     public string Name
     {
         get { return _name; }
@@ -20,6 +26,9 @@ class Movie
         }
     }
 
+    /// <summary>
+    /// Получает или задает год выпуска фильма.
+    /// </summary>
     public int ReleaseYear
     {
         get { return _releaseYear; }
@@ -29,6 +38,10 @@ class Movie
             _releaseYear = value;
         }
     }
+
+    /// <summary>
+    /// Получает или задает длительность фильма в минутах.
+    /// </summary>
     public int Duration
     {
         get { return _duration; }
@@ -38,8 +51,15 @@ class Movie
             _duration = value;
         }
     }
+
+    /// <summary>
+    /// Получает или задает жанр фильма.
+    /// </summary>
     public Genre Genre { get; set; }
 
+    /// <summary>
+    /// Получает или задает рейтинг фильма.
+    /// </summary>
     public double Rating
     {
         get { return _rating; }
@@ -50,6 +70,9 @@ class Movie
         }
     }
 
+    /// <summary>
+    /// Инициализирует новый экземпляр класса Movie со значениями по умолчанию.
+    /// </summary>
     public Movie()
     {
         Name = "Fight Club";
@@ -58,6 +81,14 @@ class Movie
         Genre = Genre.Thriller;
     }
 
+    /// <summary>
+    /// Инициализирует новый экземпляр класса Movie с указанными параметрами.
+    /// </summary>
+    /// <param name="name">Название фильма.</param>
+    /// <param name="duration">Длительность фильма в минутах.</param>
+    /// <param name="releaseyear">Год выпуска фильма.</param>
+    /// <param name="genre">Жанр фильма.</param>
+    /// <param name="rating">Рейтинг фильма.</param>
     public Movie(string name, int duration, int releaseyear, Genre genre, double rating)
     {
         Name = name;
