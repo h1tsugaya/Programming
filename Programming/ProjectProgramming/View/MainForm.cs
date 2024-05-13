@@ -10,21 +10,16 @@ namespace ProjectProgramming
 {
     public partial class MainForm : Form
     {
-        List<Panel> _rectanglePanels;
         List<Rectangle> _rectangles;
         Rectangle _currentRectangle;
         Movie[] _movies = new Movie[5];
         Movie _currentMovie = new Movie();
-        Type[] typeModel = new Type[6] { typeof(Color), typeof(EducationForms), typeof(Genre), typeof(SmartphoneManufacturers), typeof(Seasons), typeof(Weekday) };
-
         public MainForm()
         {
             InitializeComponent();
             // 
             // Initialize ComboBoxSeasons
             // 
-            object[] values = Enum.GetValues(typeof(Seasons)).Cast<object>().ToArray();
-            SeasonComboBox.Items.AddRange(values);
             Random random = new Random();
             //for (int i = 0; i < 5; i++)
             //{
@@ -46,62 +41,17 @@ namespace ProjectProgramming
             }
             listBoxMovies.Items.AddRange(moviesListBoxItems);
         }
-
-
-        private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void SeasonHandleControl_SeasonChanged(object sender, View.Panels.SeasonChangedEventArgs e)
         {
-            int selectedIndex = EnumsListBox.SelectedIndex;
-            object[] values = Enum.GetValues(typeModel[selectedIndex]).Cast<object>().ToArray();
-            TextBoxValue.Text = "";
-            ValuesListBox.Items.Clear();
-            ValuesListBox.Items.AddRange(values);
+            SetBackColor(e.Season == Seasons.Autumn ? AppColors.Autumn : AppColors.Spring);
         }
 
-        private void ValuesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void SetBackColor(System.Drawing.Color color)
         {
-            if (ValuesListBox.SelectedIndex == -1) return;
-            TextBoxValue.Text = ValuesListBox.SelectedIndex.ToString();
-        }
-
-        private void ParseButton_Click(object sender, EventArgs e)
-        {
-            string selectedItemName = WeekdayTextBox.Text;
-            if (int.TryParse(selectedItemName, out _))
-            {
-                MessageBox.Show("Введено неправильное значение!");
-            }
-            else if (TryGetEnumValue<Weekday>(selectedItemName, out Weekday value))
-            {
-                ResultLabel.Text = $"Это день недели ({value} = {(int)value + 1})";
-            }
-            else
-            {
-                ResultLabel.Text = $"Нет такого дня недели";
-            }
-        }
-
-        private void SeasonButton_Click(object sender, EventArgs e)
-        {
-            if (SeasonComboBox.SelectedItem == null)
-            {
-                MessageBox.Show("Значение не выбрано!");
-            }
-            SeasonComboBox.BackColor = System.Drawing.Color.White;
-            switch (SeasonComboBox.SelectedItem)
-            {
-                case Seasons.Summer:
-                    MessageBox.Show("Ура! Солнце!");
-                    break;
-                case Seasons.Autumn:
-                    BackgroundColor(ColorTranslator.FromHtml("#e29c45"));
-                    break;
-                case Seasons.Winter:
-                    MessageBox.Show("Бррр! Холодно!");
-                    break;
-                case Seasons.Spring:
-                    BackgroundColor(ColorTranslator.FromHtml("#559c45"));
-                    break;
-            }
+            EnumGroupBox.BackColor = color;
+            ParsingGroupBox.BackColor = color;
+            SeasonGroupBox.BackColor = color;
+            this.BackColor = color;
         }
 
         private int FindRectangleWithMaxWidth(List<Rectangle> rectangles)
