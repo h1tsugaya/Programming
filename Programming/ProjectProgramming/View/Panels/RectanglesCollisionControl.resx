@@ -112,9 +112,19 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, privateKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, privateKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="buttonAddRectanlge.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAgCAYAAABQISshAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAALJJREFUWEftj9EKxDAIBPP/P50jD8ISTFZ7TZXWgX1RYZ3WX0KJZOO9Iq21NPFQ
+        Ik/EwzdEnga7vf0lcgLs9vaXyAmw29tfItkokbvB3iv94SLYt4qFUBHsYmGEiWAPRtjtNFKJzLA9EiKC
+        HZgZy42QQsQCu92K3B1BmzHYfbgIznew2xQikhnLjbDeHMbyJNsjqURGhN1OI0xkoD27CiNUZKA9PcdC
+        uIhwVUBII/Ifvf8ATWEn8ltreugAAAAASUVORK5CYII=
+</value>
+  </data>
 </root>
