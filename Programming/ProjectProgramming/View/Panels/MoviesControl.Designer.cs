@@ -51,6 +51,7 @@
             buttonMovies.Text = "Find";
             buttonMovies.UseVisualStyleBackColor = true;
             buttonMovies.TextChanged += buttonMovies_Click;
+            buttonMovies.Click += buttonMovies_Click;
             // 
             // textBoxRating
             // 
