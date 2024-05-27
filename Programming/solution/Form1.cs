@@ -11,6 +11,7 @@ namespace solution
     public partial class Form1 : Form
     {
         private BindingList<Product> products;
+
         public Form1()
         {
             InitializeComponent();
@@ -119,7 +120,9 @@ namespace solution
 
         private void SaveProductsToFile()
         {
-            var json = JsonSerializer.Serialize(products.ToList());
+            var productsList = products.ToList();
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            var json = JsonSerializer.Serialize(productsList, options);
             File.WriteAllText("products.json", json);
         }
 
@@ -129,9 +132,11 @@ namespace solution
             {
                 var json = File.ReadAllText("products.json");
                 var loadedProducts = JsonSerializer.Deserialize<List<Product>>(json);
-                foreach (var product in loadedProducts)
+                if (loadedProducts != null)
                 {
-                    products.Add(product);
+                    products = new BindingList<Product>(loadedProducts);
+                    listBoxProducts.DataSource = products; // Перепривязка данных к ListBox после загрузки
+                    listBoxProducts.DisplayMember = "Name";
                 }
             }
         }

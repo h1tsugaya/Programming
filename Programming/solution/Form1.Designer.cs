@@ -153,29 +153,29 @@
             // 
             this.addProductButton.Location = new System.Drawing.Point(12, 399);
             this.addProductButton.Name = "addProductButton";
-            this.addProductButton.Size = new System.Drawing.Size(75, 23);
+            this.addProductButton.Size = new System.Drawing.Size(78, 23);
             this.addProductButton.TabIndex = 2;
-            this.addProductButton.Text = "+";
+            this.addProductButton.Text = "Add Product";
             this.addProductButton.UseVisualStyleBackColor = true;
             this.addProductButton.Click += new System.EventHandler(this.addProductButton_Click);
             // 
             // deleteProductButton
             // 
-            this.deleteProductButton.Location = new System.Drawing.Point(93, 399);
+            this.deleteProductButton.Location = new System.Drawing.Point(96, 399);
             this.deleteProductButton.Name = "deleteProductButton";
-            this.deleteProductButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteProductButton.Size = new System.Drawing.Size(87, 23);
             this.deleteProductButton.TabIndex = 3;
-            this.deleteProductButton.Text = "-";
+            this.deleteProductButton.Text = "Delete Product";
             this.deleteProductButton.UseVisualStyleBackColor = true;
             this.deleteProductButton.Click += new System.EventHandler(this.deleteProductButton_Click);
             // 
             // editProductButton
             // 
-            this.editProductButton.Location = new System.Drawing.Point(174, 399);
+            this.editProductButton.Location = new System.Drawing.Point(193, 399);
             this.editProductButton.Name = "editProductButton";
-            this.editProductButton.Size = new System.Drawing.Size(80, 23);
+            this.editProductButton.Size = new System.Drawing.Size(83, 23);
             this.editProductButton.TabIndex = 4;
-            this.editProductButton.Text = "edit";
+            this.editProductButton.Text = "Edit Product";
             this.editProductButton.UseVisualStyleBackColor = true;
             this.editProductButton.Click += new System.EventHandler(this.editProductButton_click);
             // 
@@ -187,14 +187,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 584);
+            this.ClientSize = new System.Drawing.Size(800, 427);
             this.Controls.Add(this.editProductButton);
             this.Controls.Add(this.deleteProductButton);
             this.Controls.Add(this.addProductButton);
             this.Controls.Add(this.selectedProductgroupBox);
             this.Controls.Add(this.listBoxProducts);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "List Products";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.selectedProductgroupBox.ResumeLayout(false);
             this.selectedProductgroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantity)).EndInit();
