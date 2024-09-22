@@ -68,45 +68,48 @@
             groupBoxCustomers.Controls.Add(buttonAdd2);
             groupBoxCustomers.Controls.Add(CustomersListBox);
             groupBoxCustomers.Controls.Add(labelCustomers);
-            groupBoxCustomers.Location = new Point(3, 3);
+            groupBoxCustomers.Dock = DockStyle.Fill;
+            groupBoxCustomers.Location = new Point(0, 0);
             groupBoxCustomers.Name = "groupBoxCustomers";
-            groupBoxCustomers.Size = new Size(912, 515);
+            groupBoxCustomers.Size = new Size(918, 523);
             groupBoxCustomers.TabIndex = 1;
             groupBoxCustomers.TabStop = false;
             // 
             // panel
             // 
-            panel.Location = new Point(334, 253);
+            panel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel.Location = new Point(452, 253);
             panel.Name = "panel";
-            panel.Size = new Size(572, 249);
+            panel.Size = new Size(454, 249);
             panel.TabIndex = 11;
             // 
             // textBoxAddress
             // 
-            textBoxAddress.Location = new Point(407, 108);
+            textBoxAddress.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxAddress.Location = new Point(452, 108);
             textBoxAddress.Multiline = true;
             textBoxAddress.Name = "textBoxAddress";
-            textBoxAddress.Size = new Size(499, 139);
+            textBoxAddress.Size = new Size(454, 139);
             textBoxAddress.TabIndex = 10;
             // 
             // textBoxFullName
             // 
-            textBoxFullName.Location = new Point(407, 78);
+            textBoxFullName.Location = new Point(452, 78);
             textBoxFullName.Name = "textBoxFullName";
-            textBoxFullName.Size = new Size(499, 23);
+            textBoxFullName.Size = new Size(454, 23);
             textBoxFullName.TabIndex = 9;
             // 
             // textBoxId2
             // 
-            textBoxId2.Location = new Point(407, 46);
+            textBoxId2.Location = new Point(452, 46);
             textBoxId2.Name = "textBoxId2";
-            textBoxId2.Size = new Size(127, 23);
+            textBoxId2.Size = new Size(125, 23);
             textBoxId2.TabIndex = 8;
             // 
             // labelAddress
             // 
             labelAddress.AutoSize = true;
-            labelAddress.Location = new Point(334, 108);
+            labelAddress.Location = new Point(362, 108);
             labelAddress.Name = "labelAddress";
             labelAddress.Size = new Size(52, 15);
             labelAddress.TabIndex = 7;
@@ -115,7 +118,7 @@
             // labelFullName
             // 
             labelFullName.AutoSize = true;
-            labelFullName.Location = new Point(334, 78);
+            labelFullName.Location = new Point(362, 78);
             labelFullName.Name = "labelFullName";
             labelFullName.Size = new Size(64, 15);
             labelFullName.TabIndex = 6;
@@ -124,7 +127,7 @@
             // labelId2
             // 
             labelId2.AutoSize = true;
-            labelId2.Location = new Point(334, 49);
+            labelId2.Location = new Point(362, 49);
             labelId2.Name = "labelId2";
             labelId2.Size = new Size(21, 15);
             labelId2.TabIndex = 5;
@@ -134,7 +137,7 @@
             // 
             labelSelectedCustomers.AutoSize = true;
             labelSelectedCustomers.Font = new Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelSelectedCustomers.Location = new Point(334, 17);
+            labelSelectedCustomers.Location = new Point(362, 17);
             labelSelectedCustomers.Name = "labelSelectedCustomers";
             labelSelectedCustomers.Size = new Size(129, 17);
             labelSelectedCustomers.TabIndex = 4;
@@ -142,10 +145,10 @@
             // 
             // buttonRemove2
             // 
-            buttonRemove2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            buttonRemove2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             buttonRemove2.Location = new Point(117, 460);
             buttonRemove2.Name = "buttonRemove2";
-            buttonRemove2.Size = new Size(105, 42);
+            buttonRemove2.Size = new Size(105, 50);
             buttonRemove2.TabIndex = 3;
             buttonRemove2.Text = "Remove";
             buttonRemove2.UseVisualStyleBackColor = true;
@@ -153,10 +156,10 @@
             // 
             // buttonAdd2
             // 
-            buttonAdd2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            buttonAdd2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             buttonAdd2.Location = new Point(6, 460);
             buttonAdd2.Name = "buttonAdd2";
-            buttonAdd2.Size = new Size(105, 46);
+            buttonAdd2.Size = new Size(105, 54);
             buttonAdd2.TabIndex = 2;
             buttonAdd2.Text = "Add";
             buttonAdd2.UseVisualStyleBackColor = true;
@@ -169,8 +172,9 @@
             CustomersListBox.ItemHeight = 15;
             CustomersListBox.Location = new Point(6, 37);
             CustomersListBox.Name = "CustomersListBox";
-            CustomersListBox.Size = new Size(320, 409);
+            CustomersListBox.Size = new Size(350, 409);
             CustomersListBox.TabIndex = 1;
+            CustomersListBox.SelectedIndexChanged += CustomersListBox_SelectedIndexChanged;
             // 
             // CustomersTab
             // 

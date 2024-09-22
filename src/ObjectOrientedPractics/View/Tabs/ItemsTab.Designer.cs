@@ -52,7 +52,7 @@
             itemsListBox.ItemHeight = 15;
             itemsListBox.Location = new Point(6, 35);
             itemsListBox.Name = "itemsListBox";
-            itemsListBox.Size = new Size(343, 394);
+            itemsListBox.Size = new Size(360, 394);
             itemsListBox.TabIndex = 0;
             itemsListBox.SelectedIndexChanged += itemsListBox_SelectedIndexChanged;
             // 
@@ -115,16 +115,16 @@
             // textBoxDescription
             // 
             textBoxDescription.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxDescription.Location = new Point(355, 245);
+            textBoxDescription.Location = new Point(372, 245);
             textBoxDescription.Multiline = true;
             textBoxDescription.Name = "textBoxDescription";
-            textBoxDescription.Size = new Size(623, 109);
+            textBoxDescription.Size = new Size(606, 109);
             textBoxDescription.TabIndex = 11;
             // 
             // labelDescription
             // 
             labelDescription.AutoSize = true;
-            labelDescription.Location = new Point(355, 227);
+            labelDescription.Location = new Point(372, 227);
             labelDescription.Name = "labelDescription";
             labelDescription.Size = new Size(70, 15);
             labelDescription.TabIndex = 10;
@@ -133,16 +133,16 @@
             // textBoxName
             // 
             textBoxName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxName.Location = new Point(355, 121);
+            textBoxName.Location = new Point(372, 121);
             textBoxName.Multiline = true;
             textBoxName.Name = "textBoxName";
-            textBoxName.Size = new Size(623, 103);
+            textBoxName.Size = new Size(606, 103);
             textBoxName.TabIndex = 9;
             // 
             // labelName
             // 
             labelName.AutoSize = true;
-            labelName.Location = new Point(355, 103);
+            labelName.Location = new Point(372, 103);
             labelName.Name = "labelName";
             labelName.Size = new Size(42, 15);
             labelName.TabIndex = 8;
@@ -150,7 +150,7 @@
             // 
             // textBoxCost
             // 
-            textBoxCost.Location = new Point(412, 67);
+            textBoxCost.Location = new Point(441, 67);
             textBoxCost.Name = "textBoxCost";
             textBoxCost.Size = new Size(166, 23);
             textBoxCost.TabIndex = 7;
@@ -158,7 +158,7 @@
             // labelCost
             // 
             labelCost.AutoSize = true;
-            labelCost.Location = new Point(355, 70);
+            labelCost.Location = new Point(375, 70);
             labelCost.Name = "labelCost";
             labelCost.Size = new Size(34, 15);
             labelCost.TabIndex = 6;
@@ -166,7 +166,7 @@
             // 
             // textBoxId
             // 
-            textBoxId.Location = new Point(412, 41);
+            textBoxId.Location = new Point(441, 41);
             textBoxId.Name = "textBoxId";
             textBoxId.Size = new Size(166, 23);
             textBoxId.TabIndex = 5;
@@ -174,7 +174,7 @@
             // labelId
             // 
             labelId.AutoSize = true;
-            labelId.Location = new Point(355, 44);
+            labelId.Location = new Point(375, 44);
             labelId.Name = "labelId";
             labelId.Size = new Size(21, 15);
             labelId.TabIndex = 4;
@@ -184,7 +184,7 @@
             // 
             labelSelectedItem.AutoSize = true;
             labelSelectedItem.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelSelectedItem.Location = new Point(355, 19);
+            labelSelectedItem.Location = new Point(375, 19);
             labelSelectedItem.Name = "labelSelectedItem";
             labelSelectedItem.Size = new Size(88, 15);
             labelSelectedItem.TabIndex = 0;
