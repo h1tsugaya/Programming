@@ -47,14 +47,12 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void buttonRemoveItem_Click(object sender, EventArgs e)
         {
+            if (itemsListBox.SelectedIndex != -1)
             {
-                if (itemsListBox.SelectedIndex != -1)
-                {
-                    int selectedIndex = itemsListBox.SelectedIndex;
-                    _items.RemoveAt(selectedIndex);
-                    itemsListBox.Items.RemoveAt(selectedIndex);
-                    ClearInputFields();
-                }
+                int selectedIndex = itemsListBox.SelectedIndex;
+                _items.RemoveAt(selectedIndex);
+                itemsListBox.Items.RemoveAt(selectedIndex);
+                ClearInputFields();
             }
         }
         private void itemsListBox_SelectedIndexChanged(object sender, EventArgs e)
