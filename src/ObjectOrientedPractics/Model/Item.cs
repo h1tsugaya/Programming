@@ -1,4 +1,6 @@
-﻿namespace ObjectOrientedPractics.Model
+﻿using ObjectOrientedPractics.Services;
+
+namespace ObjectOrientedPractics.Model
 {
     /// <summary>
     /// Класс, представляющий товар.
