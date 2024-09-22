@@ -12,14 +12,30 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
+    /// <summary>
+    /// Вкладка для управления списком клиентов.
+    /// </summary>
     public partial class CustomersTab : UserControl
     {
+        /// <summary>
+        /// Список клиентов.
+        /// </summary>
         private List<Customer> _customers = new List<Customer>();
+
+        /// <summary>
+        /// Инициализирует новый экземпляр <see cref="CustomersTab"/>.
+        /// </summary>
         public CustomersTab()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Обрабатывает нажатие кнопки "Add".
+        /// Добавляет нового клиента в список и обновляет <see cref="ListBox"/>.
+        /// </summary>
+        /// <param name="sender">Источник события.</param>
+        /// <param name="e">Аргументы события.</param>
         private void buttonAdd2_Click(object sender, EventArgs e)
         {
             if (ValidateInput())
@@ -43,6 +59,12 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
+        /// <summary>
+        /// Обрабатывает нажатие кнопки "Remove".
+        /// Удаляет выбранного клиента из списка и <see cref="ListBox"/>.
+        /// </summary>
+        /// <param name="sender">Источник события.</param>
+        /// <param name="e">Аргументы события.</param>
         private void buttonRemove2_Click(object sender, EventArgs e)
         {
             if (CustomersListBox.SelectedIndex != -1)
@@ -54,6 +76,12 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
+        /// <summary>
+        /// Обрабатывает изменение выбранного клиента в <see cref="ListBox"/>.
+        /// Загружает информацию о выбранном клиенте в текстовые поля.
+        /// </summary>
+        /// <param name="sender">Источник события.</param>
+        /// <param name="e">Аргументы события.</param>
         private void CustomersListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (CustomersListBox.SelectedIndex != -1)
@@ -67,6 +95,11 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
+        /// <summary>
+        /// Проверяет корректность введенных данных.
+        /// Подсвечивает поля красным цветом, если данные некорректны.
+        /// </summary>
+        /// <returns>Возвращает <see langword="true"/>, если все данные корректны, иначе <see langword="false"/>.</returns>
         private bool ValidateInput()
         {
             bool isValid = true;
@@ -93,6 +126,10 @@ namespace ObjectOrientedPractics.View.Tabs
 
             return isValid;
         }
+
+        /// <summary>
+        /// Очищает текстовые поля, связанные с клиентом.
+        /// </summary>
         private void ClearInputFields()
         {
             textBoxId2.Text = "";

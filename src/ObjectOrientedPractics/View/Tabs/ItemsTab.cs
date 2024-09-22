@@ -11,28 +11,42 @@ using ObjectOrientedPractics.Model;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
+    /// <summary>
+    /// Вкладка, отображающая и управляющая товарами.
+    /// </summary>
     public partial class ItemsTab : UserControl
     {
+        /// <summary>
+        /// Список товаров.
+        /// </summary>
         private List<Item> _items = new List<Item>();
+
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="ItemsTab"/>.
+        /// </summary>
         public ItemsTab()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Обрабатывает событие нажатия кнопки "Add".
+        /// Добавляет новый товар в список и обновляет <see cref="ListBox"/>.
+        /// </summary>
+        /// <param name="sender">Источник события.</param>
+        /// <param name="e">Аргументы события.</param>
         private void buttonAddItem_Click(object sender, EventArgs e)
         {
             if (ValidateInput())
             {
                 try
                 {
-                    // Создаем новый товар на основе введенных данных
                     Item newItem = new Item(
                         textBoxName.Text,
                         textBoxDescription.Text,
                         decimal.Parse(textBoxCost.Text)
                     );
 
-                    // Добавляем товар в список и обновляем ListBox
                     _items.Add(newItem);
                     itemsListBox.Items.Add(newItem.Name);
 
@@ -45,6 +59,12 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
+        /// <summary>
+        /// Обрабатывает событие нажатия кнопки "Remove".
+        /// Удаляет выбранный товар из списка и <see cref="ListBox"/>.
+        /// </summary>
+        /// <param name="sender">Источник события.</param>
+        /// <param name="e">Аргументы события.</param>
         private void buttonRemoveItem_Click(object sender, EventArgs e)
         {
             if (itemsListBox.SelectedIndex != -1)
@@ -55,6 +75,13 @@ namespace ObjectOrientedPractics.View.Tabs
                 ClearInputFields();
             }
         }
+
+        /// <summary>
+        /// Обрабатывает событие изменения выбранного элемента в <see cref="ListBox"/>.
+        /// Отображает информацию о выбранном товаре в текстовых полях.
+        /// </summary>
+        /// <param name="sender">Источник события.</param>
+        /// <param name="e">Аргументы события.</param>
         private void itemsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (itemsListBox.SelectedIndex != -1)
@@ -68,6 +95,12 @@ namespace ObjectOrientedPractics.View.Tabs
                 textBoxCost.Text = selectedItem.Cost.ToString();
             }
         }
+
+        /// <summary>
+        /// Проверяет корректность введенных данных.
+        /// Подсвечивает текстовые поля красным, если данные неверны.
+        /// </summary>
+        /// <returns>Возвращает <see langword="true"/>, если все данные корректны, иначе <see langword="false"/>.</returns>
         private bool ValidateInput()
         {
             bool isValid = true;
@@ -104,6 +137,10 @@ namespace ObjectOrientedPractics.View.Tabs
 
             return isValid;
         }
+
+        /// <summary>
+        /// Очищает все текстовые поля.
+        /// </summary>
         private void ClearInputFields()
         {
             textBoxId.Text = "";
