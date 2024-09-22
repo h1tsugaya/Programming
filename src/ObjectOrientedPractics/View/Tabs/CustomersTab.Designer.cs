@@ -94,6 +94,7 @@
             // 
             // textBoxFullName
             // 
+            textBoxFullName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxFullName.Location = new Point(452, 78);
             textBoxFullName.Name = "textBoxFullName";
             textBoxFullName.Size = new Size(454, 23);
@@ -148,7 +149,7 @@
             buttonRemove2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             buttonRemove2.Location = new Point(117, 460);
             buttonRemove2.Name = "buttonRemove2";
-            buttonRemove2.Size = new Size(105, 50);
+            buttonRemove2.Size = new Size(105, 53);
             buttonRemove2.TabIndex = 3;
             buttonRemove2.Text = "Remove";
             buttonRemove2.UseVisualStyleBackColor = true;
@@ -159,7 +160,7 @@
             buttonAdd2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             buttonAdd2.Location = new Point(6, 460);
             buttonAdd2.Name = "buttonAdd2";
-            buttonAdd2.Size = new Size(105, 54);
+            buttonAdd2.Size = new Size(105, 53);
             buttonAdd2.TabIndex = 2;
             buttonAdd2.Text = "Add";
             buttonAdd2.UseVisualStyleBackColor = true;

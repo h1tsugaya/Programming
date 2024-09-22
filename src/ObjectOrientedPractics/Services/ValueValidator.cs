@@ -1,4 +1,4 @@
-﻿namespace ObjectOrientedPractics.Model
+﻿namespace ObjectOrientedPractics.Services
 {
     /// <summary>
     /// Сервисный класс для проверки значений строковых полей.

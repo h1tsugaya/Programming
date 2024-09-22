@@ -74,7 +74,7 @@
             buttonRemoveItem.AutoSize = true;
             buttonRemoveItem.Location = new Point(117, 446);
             buttonRemoveItem.Name = "buttonRemoveItem";
-            buttonRemoveItem.Size = new Size(105, 52);
+            buttonRemoveItem.Size = new Size(105, 53);
             buttonRemoveItem.TabIndex = 3;
             buttonRemoveItem.Text = "Remove";
             buttonRemoveItem.UseVisualStyleBackColor = true;
