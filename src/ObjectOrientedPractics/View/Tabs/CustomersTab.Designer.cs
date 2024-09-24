@@ -80,7 +80,7 @@
             panel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             panel.Location = new Point(82, 676);
             panel.Name = "panel";
-            panel.Size = new Size(981, 261);
+            panel.Size = new Size(949, 261);
             panel.TabIndex = 11;
             // 
             // textBoxAddress
