@@ -41,14 +41,18 @@
             buttonRemove2 = new Button();
             buttonAdd2 = new Button();
             CustomersListBox = new ListBox();
+            groupBoxCustomers2 = new GroupBox();
+            tableLayoutCustomersPanel = new TableLayoutPanel();
             groupBoxCustomers.SuspendLayout();
+            groupBoxCustomers2.SuspendLayout();
+            tableLayoutCustomersPanel.SuspendLayout();
             SuspendLayout();
             // 
             // labelCustomers
             // 
             labelCustomers.AutoSize = true;
             labelCustomers.Font = new Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelCustomers.Location = new Point(6, 17);
+            labelCustomers.Location = new Point(6, 19);
             labelCustomers.Name = "labelCustomers";
             labelCustomers.Size = new Size(74, 17);
             labelCustomers.TabIndex = 0;
@@ -56,6 +60,7 @@
             // 
             // groupBoxCustomers
             // 
+            groupBoxCustomers.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBoxCustomers.Controls.Add(panel);
             groupBoxCustomers.Controls.Add(textBoxAddress);
             groupBoxCustomers.Controls.Add(textBoxFullName);
@@ -64,45 +69,39 @@
             groupBoxCustomers.Controls.Add(labelFullName);
             groupBoxCustomers.Controls.Add(labelId2);
             groupBoxCustomers.Controls.Add(labelSelectedCustomers);
-            groupBoxCustomers.Controls.Add(buttonRemove2);
-            groupBoxCustomers.Controls.Add(buttonAdd2);
-            groupBoxCustomers.Controls.Add(CustomersListBox);
-            groupBoxCustomers.Controls.Add(labelCustomers);
-            groupBoxCustomers.Dock = DockStyle.Fill;
-            groupBoxCustomers.Location = new Point(0, 0);
+            groupBoxCustomers.Location = new Point(379, 3);
             groupBoxCustomers.Name = "groupBoxCustomers";
-            groupBoxCustomers.Size = new Size(918, 523);
+            groupBoxCustomers.Size = new Size(1042, 943);
             groupBoxCustomers.TabIndex = 1;
             groupBoxCustomers.TabStop = false;
             // 
             // panel
             // 
-            panel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel.Location = new Point(452, 253);
+            panel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            panel.Location = new Point(82, 676);
             panel.Name = "panel";
-            panel.Size = new Size(454, 249);
+            panel.Size = new Size(981, 261);
             panel.TabIndex = 11;
             // 
             // textBoxAddress
             // 
             textBoxAddress.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxAddress.Location = new Point(452, 108);
+            textBoxAddress.Location = new Point(82, 111);
             textBoxAddress.Multiline = true;
             textBoxAddress.Name = "textBoxAddress";
-            textBoxAddress.Size = new Size(454, 139);
+            textBoxAddress.Size = new Size(949, 559);
             textBoxAddress.TabIndex = 10;
             // 
             // textBoxFullName
             // 
-            textBoxFullName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxFullName.Location = new Point(452, 78);
+            textBoxFullName.Location = new Point(82, 75);
             textBoxFullName.Name = "textBoxFullName";
-            textBoxFullName.Size = new Size(454, 23);
+            textBoxFullName.Size = new Size(297, 23);
             textBoxFullName.TabIndex = 9;
             // 
             // textBoxId2
             // 
-            textBoxId2.Location = new Point(452, 46);
+            textBoxId2.Location = new Point(82, 46);
             textBoxId2.Name = "textBoxId2";
             textBoxId2.Size = new Size(125, 23);
             textBoxId2.TabIndex = 8;
@@ -110,7 +109,7 @@
             // labelAddress
             // 
             labelAddress.AutoSize = true;
-            labelAddress.Location = new Point(362, 108);
+            labelAddress.Location = new Point(6, 111);
             labelAddress.Name = "labelAddress";
             labelAddress.Size = new Size(52, 15);
             labelAddress.TabIndex = 7;
@@ -119,7 +118,7 @@
             // labelFullName
             // 
             labelFullName.AutoSize = true;
-            labelFullName.Location = new Point(362, 78);
+            labelFullName.Location = new Point(6, 78);
             labelFullName.Name = "labelFullName";
             labelFullName.Size = new Size(64, 15);
             labelFullName.TabIndex = 6;
@@ -128,7 +127,7 @@
             // labelId2
             // 
             labelId2.AutoSize = true;
-            labelId2.Location = new Point(362, 49);
+            labelId2.Location = new Point(6, 46);
             labelId2.Name = "labelId2";
             labelId2.Size = new Size(21, 15);
             labelId2.TabIndex = 5;
@@ -138,7 +137,7 @@
             // 
             labelSelectedCustomers.AutoSize = true;
             labelSelectedCustomers.Font = new Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelSelectedCustomers.Location = new Point(362, 17);
+            labelSelectedCustomers.Location = new Point(6, 19);
             labelSelectedCustomers.Name = "labelSelectedCustomers";
             labelSelectedCustomers.Size = new Size(129, 17);
             labelSelectedCustomers.TabIndex = 4;
@@ -147,7 +146,7 @@
             // buttonRemove2
             // 
             buttonRemove2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            buttonRemove2.Location = new Point(117, 460);
+            buttonRemove2.Location = new Point(117, 884);
             buttonRemove2.Name = "buttonRemove2";
             buttonRemove2.Size = new Size(105, 53);
             buttonRemove2.TabIndex = 3;
@@ -158,7 +157,7 @@
             // buttonAdd2
             // 
             buttonAdd2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            buttonAdd2.Location = new Point(6, 460);
+            buttonAdd2.Location = new Point(6, 884);
             buttonAdd2.Name = "buttonAdd2";
             buttonAdd2.Size = new Size(105, 53);
             buttonAdd2.TabIndex = 2;
@@ -168,24 +167,55 @@
             // 
             // CustomersListBox
             // 
-            CustomersListBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            CustomersListBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             CustomersListBox.FormattingEnabled = true;
             CustomersListBox.ItemHeight = 15;
-            CustomersListBox.Location = new Point(6, 37);
+            CustomersListBox.Location = new Point(6, 39);
             CustomersListBox.Name = "CustomersListBox";
-            CustomersListBox.Size = new Size(350, 409);
+            CustomersListBox.Size = new Size(352, 829);
             CustomersListBox.TabIndex = 1;
             CustomersListBox.SelectedIndexChanged += CustomersListBox_SelectedIndexChanged;
+            // 
+            // groupBoxCustomers2
+            // 
+            groupBoxCustomers2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBoxCustomers2.Controls.Add(labelCustomers);
+            groupBoxCustomers2.Controls.Add(CustomersListBox);
+            groupBoxCustomers2.Controls.Add(buttonAdd2);
+            groupBoxCustomers2.Controls.Add(buttonRemove2);
+            groupBoxCustomers2.Location = new Point(3, 3);
+            groupBoxCustomers2.Name = "groupBoxCustomers2";
+            groupBoxCustomers2.Size = new Size(370, 943);
+            groupBoxCustomers2.TabIndex = 2;
+            groupBoxCustomers2.TabStop = false;
+            // 
+            // tableLayoutCustomersPanel
+            // 
+            tableLayoutCustomersPanel.ColumnCount = 2;
+            tableLayoutCustomersPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 26.4044952F));
+            tableLayoutCustomersPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 73.5955048F));
+            tableLayoutCustomersPanel.Controls.Add(groupBoxCustomers2, 0, 0);
+            tableLayoutCustomersPanel.Controls.Add(groupBoxCustomers, 1, 0);
+            tableLayoutCustomersPanel.Dock = DockStyle.Fill;
+            tableLayoutCustomersPanel.Location = new Point(0, 0);
+            tableLayoutCustomersPanel.Name = "tableLayoutCustomersPanel";
+            tableLayoutCustomersPanel.RowCount = 1;
+            tableLayoutCustomersPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutCustomersPanel.Size = new Size(1424, 949);
+            tableLayoutCustomersPanel.TabIndex = 3;
             // 
             // CustomersTab
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(groupBoxCustomers);
+            Controls.Add(tableLayoutCustomersPanel);
             Name = "CustomersTab";
-            Size = new Size(918, 523);
+            Size = new Size(1424, 949);
             groupBoxCustomers.ResumeLayout(false);
             groupBoxCustomers.PerformLayout();
+            groupBoxCustomers2.ResumeLayout(false);
+            groupBoxCustomers2.PerformLayout();
+            tableLayoutCustomersPanel.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -204,5 +234,7 @@
         private Label labelFullName;
         private Label labelId2;
         private Panel panel;
+        private GroupBox groupBoxCustomers2;
+        private TableLayoutPanel tableLayoutCustomersPanel;
     }
 }
