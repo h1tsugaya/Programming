@@ -164,6 +164,7 @@
             // 
             textBoxId.Location = new Point(61, 34);
             textBoxId.Name = "textBoxId";
+            textBoxId.ReadOnly = true;
             textBoxId.Size = new Size(166, 23);
             textBoxId.TabIndex = 5;
             // 
