@@ -1,2 +1,2 @@
 # Programming
-My repository!
+University practics C#
