@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Model.Address address1 = new Model.Address();
             labelCustomers = new Label();
             groupBoxCustomers = new GroupBox();
             panel = new Panel();
-            textBoxAddress = new TextBox();
             textBoxFullName = new TextBox();
             textBoxId2 = new TextBox();
-            labelAddress = new Label();
             labelFullName = new Label();
             labelId2 = new Label();
             labelSelectedCustomers = new Label();
@@ -43,6 +42,7 @@
             CustomersListBox = new ListBox();
             groupBoxCustomers2 = new GroupBox();
             tableLayoutCustomersPanel = new TableLayoutPanel();
+            addressControl1 = new Controls.AddressControl();
             groupBoxCustomers.SuspendLayout();
             groupBoxCustomers2.SuspendLayout();
             tableLayoutCustomersPanel.SuspendLayout();
@@ -61,11 +61,10 @@
             // groupBoxCustomers
             // 
             groupBoxCustomers.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBoxCustomers.Controls.Add(addressControl1);
             groupBoxCustomers.Controls.Add(panel);
-            groupBoxCustomers.Controls.Add(textBoxAddress);
             groupBoxCustomers.Controls.Add(textBoxFullName);
             groupBoxCustomers.Controls.Add(textBoxId2);
-            groupBoxCustomers.Controls.Add(labelAddress);
             groupBoxCustomers.Controls.Add(labelFullName);
             groupBoxCustomers.Controls.Add(labelId2);
             groupBoxCustomers.Controls.Add(labelSelectedCustomers);
@@ -83,15 +82,6 @@
             panel.Size = new Size(949, 261);
             panel.TabIndex = 11;
             // 
-            // textBoxAddress
-            // 
-            textBoxAddress.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxAddress.Location = new Point(82, 111);
-            textBoxAddress.Multiline = true;
-            textBoxAddress.Name = "textBoxAddress";
-            textBoxAddress.Size = new Size(949, 559);
-            textBoxAddress.TabIndex = 10;
-            // 
             // textBoxFullName
             // 
             textBoxFullName.Location = new Point(82, 75);
@@ -106,15 +96,6 @@
             textBoxId2.ReadOnly = true;
             textBoxId2.Size = new Size(125, 23);
             textBoxId2.TabIndex = 8;
-            // 
-            // labelAddress
-            // 
-            labelAddress.AutoSize = true;
-            labelAddress.Location = new Point(6, 111);
-            labelAddress.Name = "labelAddress";
-            labelAddress.Size = new Size(52, 15);
-            labelAddress.TabIndex = 7;
-            labelAddress.Text = "Address:";
             // 
             // labelFullName
             // 
@@ -205,6 +186,20 @@
             tableLayoutCustomersPanel.Size = new Size(1424, 949);
             tableLayoutCustomersPanel.TabIndex = 3;
             // 
+            // addressControl1
+            // 
+            address1.Apartment = "";
+            address1.Building = "";
+            address1.City = "";
+            address1.Country = "";
+            address1.Index = 0;
+            address1.Street = "";
+            addressControl1.Address = address1;
+            addressControl1.Location = new Point(6, 104);
+            addressControl1.Name = "addressControl1";
+            addressControl1.Size = new Size(550, 158);
+            addressControl1.TabIndex = 0;
+            // 
             // CustomersTab
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -228,14 +223,13 @@
         private Button buttonAdd2;
         private ListBox CustomersListBox;
         private Label labelSelectedCustomers;
-        private TextBox textBoxAddress;
         private TextBox textBoxFullName;
         private TextBox textBoxId2;
-        private Label labelAddress;
         private Label labelFullName;
         private Label labelId2;
         private Panel panel;
         private GroupBox groupBoxCustomers2;
         private TableLayoutPanel tableLayoutCustomersPanel;
+        private Controls.AddressControl addressControl1;
     }
 }

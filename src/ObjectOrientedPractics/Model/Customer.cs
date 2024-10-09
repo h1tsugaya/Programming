@@ -21,14 +21,14 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Адрес доставки покупателя.
         /// </summary>
-        private string _address;
+        private Address _address;
 
         /// <summary>
         /// Создает новый экземпляр класса Customer.
         /// </summary>
         /// <param name="fullname">Полное имя покупателя (до 200 символов).</param>
         /// <param name="address">Адрес доставки покупателя (до 500 символов).</param>
-        public Customer(string fullname, string address)
+        public Customer(string fullname, Address address)
         {
             _id = IdGenerator.GetNextId();
             Fullname = fullname;
@@ -58,14 +58,10 @@ namespace ObjectOrientedPractics.Model
         /// Адрес доставки покупателя.
         /// </summary>
         /// <exception cref="ArgumentException">Выбрасывается, если длина адреса превышает 500 символов.</exception>
-        public string Address
+        public Address Address
         {
             get => _address;
-            set
-            {
-                ValueValidator.AssertStringOnLength(value, 500, nameof(Address));
-                _address = value;
-            }
+            set => _address = value ?? new Address(); // Если передан null, инициализируем пустым адресом.
         }
     }
 }
