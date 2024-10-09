@@ -19,22 +19,22 @@ public enum Category
     HomeAppliances,
 
     /// <summary>
-    /// Продукты питания и напитки.
+    /// Продукты питания.
     /// </summary>
-    FoodAndBeverages,
+    Food,
 
     /// <summary>
-    /// Товары для дома и сада.
+    /// Косметика.
     /// </summary>
-    HomeAndGarden,
+    Cosmetics,
 
     /// <summary>
     /// Спортивные товары.
     /// </summary>
-    Sports,
+    SportsEquipment,
 
     /// <summary>
-    /// Красота и здоровье.
+    /// Фурнитура.
     /// </summary>
-    BeautyAndHealth
+    Furniture
 }
