@@ -31,6 +31,7 @@
             Model.Address address1 = new Model.Address();
             labelCustomers = new Label();
             groupBoxCustomers = new GroupBox();
+            addressControl1 = new Controls.AddressControl();
             panel = new Panel();
             textBoxFullName = new TextBox();
             textBoxId2 = new TextBox();
@@ -42,7 +43,6 @@
             CustomersListBox = new ListBox();
             groupBoxCustomers2 = new GroupBox();
             tableLayoutCustomersPanel = new TableLayoutPanel();
-            addressControl1 = new Controls.AddressControl();
             groupBoxCustomers.SuspendLayout();
             groupBoxCustomers2.SuspendLayout();
             tableLayoutCustomersPanel.SuspendLayout();
@@ -74,12 +74,26 @@
             groupBoxCustomers.TabIndex = 1;
             groupBoxCustomers.TabStop = false;
             // 
+            // addressControl1
+            // 
+            address1.Apartment = "";
+            address1.Building = "";
+            address1.City = "";
+            address1.Country = "";
+            address1.Index = 0;
+            address1.Street = "";
+            addressControl1.Address = address1;
+            addressControl1.Location = new Point(6, 104);
+            addressControl1.Name = "addressControl1";
+            addressControl1.Size = new Size(550, 158);
+            addressControl1.TabIndex = 0;
+            // 
             // panel
             // 
             panel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            panel.Location = new Point(82, 676);
+            panel.Location = new Point(6, 676);
             panel.Name = "panel";
-            panel.Size = new Size(949, 261);
+            panel.Size = new Size(1025, 261);
             panel.TabIndex = 11;
             // 
             // textBoxFullName
@@ -185,20 +199,6 @@
             tableLayoutCustomersPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutCustomersPanel.Size = new Size(1424, 949);
             tableLayoutCustomersPanel.TabIndex = 3;
-            // 
-            // addressControl1
-            // 
-            address1.Apartment = "";
-            address1.Building = "";
-            address1.City = "";
-            address1.Country = "";
-            address1.Index = 0;
-            address1.Street = "";
-            addressControl1.Address = address1;
-            addressControl1.Location = new Point(6, 104);
-            addressControl1.Name = "addressControl1";
-            addressControl1.Size = new Size(550, 158);
-            addressControl1.TabIndex = 0;
             // 
             // CustomersTab
             // 
