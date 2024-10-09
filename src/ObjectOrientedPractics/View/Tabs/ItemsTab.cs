@@ -27,6 +27,43 @@ namespace ObjectOrientedPractics.View.Tabs
         public ItemsTab()
         {
             InitializeComponent();
+            InitializeCategoryComboBox();
+        }
+
+        /// <summary>
+        /// Инициализирует выпадающий список значениями из перечисления Category.
+        /// </summary>
+        private void InitializeCategoryComboBox()
+        {
+            // Добавляем все значения перечисления Category в выпадающий список
+            foreach (Category category in Enum.GetValues(typeof(Category)))
+            {
+                comboBoxCategory.Items.Add(category);
+            }
+
+            // Устанавливаем значение по умолчанию (первое значение списка)
+            comboBoxCategory.SelectedIndex = 0;
+
+            // Добавляем обработчик для события изменения выбранного элемента
+            comboBoxCategory.SelectedIndexChanged += comboBoxCategory_SelectedIndexChanged;
+        }
+
+        /// <summary>
+        /// Обрабатывает событие изменения категории в выпадающем списке.
+        /// Присваивает выбранную категорию текущему выбранному товару.
+        /// </summary>
+        /// <param name="sender">Источник события.</param>
+        /// <param name="e">Аргументы события.</param>
+        private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (itemsListBox.SelectedIndex != -1)
+            {
+                int selectedIndex = itemsListBox.SelectedIndex;
+                Item selectedItem = _items[selectedIndex];
+
+                // Присваиваем новую категорию выбранному товару
+                selectedItem.Category = (Category)comboBoxCategory.SelectedItem;
+            }
         }
 
         /// <summary>
@@ -44,7 +81,8 @@ namespace ObjectOrientedPractics.View.Tabs
                     Item newItem = new Item(
                         textBoxName.Text,
                         textBoxDescription.Text,
-                        decimal.Parse(textBoxCost.Text)
+                        decimal.Parse(textBoxCost.Text),
+                        (Category)comboBoxCategory.SelectedItem
                     );
 
                     _items.Add(newItem);
@@ -93,6 +131,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 textBoxName.Text = selectedItem.Name;
                 textBoxDescription.Text = selectedItem.Info;
                 textBoxCost.Text = selectedItem.Cost.ToString();
+                comboBoxCategory.SelectedItem = selectedItem.Category;
             }
         }
 
@@ -147,6 +186,7 @@ namespace ObjectOrientedPractics.View.Tabs
             textBoxName.Text = "";
             textBoxDescription.Text = "";
             textBoxCost.Text = "";
+            comboBoxCategory.SelectedIndex = 0;
         }
     }
 }

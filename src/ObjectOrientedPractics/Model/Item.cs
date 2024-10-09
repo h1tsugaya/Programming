@@ -33,12 +33,14 @@ namespace ObjectOrientedPractics.Model
         /// <param name="name">Название товара (до 200 символов).</param>
         /// <param name="info">Описание товара (до 1000 символов).</param>
         /// <param name="cost">Стоимость товара (от 0 до 100000).</param>
-        public Item(string name, string info, decimal cost)
+        /// <param name="category">Категория товара.</param>
+        public Item(string name, string info, decimal cost, Category category)
         {
             _id = IdGenerator.GetNextId();
             Name = name;
             Info = info;
             Cost = cost;
+            Category = category;
         }
 
         /// <summary>
@@ -90,5 +92,10 @@ namespace ObjectOrientedPractics.Model
                 _cost = value;
             }
         }
+
+        /// <summary>
+        /// Категория товара.
+        /// </summary>
+        public Category Category { get; set; }
     }
 }
