@@ -20,5 +20,49 @@
                 throw new ArgumentException($"{propertyName} должен быть меньше {maxLength} символов.");
             }
         }
+
+        /// <summary>
+        /// Проверка на положительное значение для целочисленного типа.
+        /// </summary>
+        /// <param name="value">Проверяемое значение.</param>
+        /// <exception cref="ArgumentException">Выбрасывается, если значение отрицательное.</exception>
+        public static void AssertOnPositiveValue(int value, string propertyName)
+        {
+            if (value < 0) throw new ArgumentException($"{propertyName} должен быть положительным.");
+        }
+
+        /// <summary>
+        /// Проверка на положительное значение для вещественного типа.
+        /// </summary>
+        /// <param name="value">Проверяемое значение.</param>
+        /// <exception cref="ArgumentException">Выбрасывается, если значение отрицательное.</exception>
+        public static void AssertOnPositiveValue(double value, string propertyName)
+        {
+            if (value < 0) throw new ArgumentException($"{propertyName} должен быть положительным.");
+        }
+
+        /// <summary>
+        /// Проверка значения на принадлежность заданному диапазону для целочисленного типа.
+        /// </summary>
+        /// <param name="value">Проверяемое значение.</param>
+        /// <param name="min">Минимальное значение в диапазоне (включительно).</param>
+        /// <param name="max">Максимальное значение в диапазоне (исключительно).</param>
+        /// <exception cref="ArgumentException">Выбрасывается, если значение находится вне заданного диапазона.</exception>
+        public static void AssertValueInRange(int value, int min, int max, string propertyName)
+        {
+            if (value < min || value >= max) throw new ArgumentException($"{propertyName} должен быть больше {min}, но меньше {max}.");
+        }
+
+        /// <summary>
+        /// Проверка значения на принадлежность заданному диапазону для вещественного типа.
+        /// </summary>
+        /// <param name="value">Проверяемое значение.</param>
+        /// <param name="min">Минимальное значение в диапазоне (включительно).</param>
+        /// <param name="max">Максимальное значение в диапазоне (исключительно).</param>
+        /// <exception cref="ArgumentException">Выбрасывается, если значение находится вне заданного диапазона.</exception>
+        public static void AssertValueInRange(double value, double min, double max, string propertyName)
+        {
+            if (value < min || value >= max) throw new ArgumentException($"{propertyName} должен быть больше {min}, но меньше {max}.");
+        }
     }
 }
