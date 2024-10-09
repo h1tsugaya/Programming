@@ -32,6 +32,32 @@ namespace ObjectOrientedPractics.View.Tabs
         }
 
         /// <summary>
+        /// Открытое свойство для получения или установки списка покупателей.
+        /// При установке обновляет элемент управления <see cref="ListBox"/>.
+        /// </summary>
+        public List<Customer> Customers
+        {
+            get => _customers;
+            set
+            {
+                _customers = value ?? new List<Customer>();
+                UpdateCustomersListBox();
+            }
+        }
+
+        /// <summary>
+        /// Обновляет элемент управления <see cref="ListBox"/> для отображения покупателей.
+        /// </summary>
+        private void UpdateCustomersListBox()
+        {
+            CustomersListBox.Items.Clear();
+            foreach (var customer in _customers)
+            {
+                CustomersListBox.Items.Add(customer.Fullname);
+            }
+        }
+
+        /// <summary>
         /// Обрабатывает нажатие кнопки "Add".
         /// Добавляет нового клиента в список и обновляет <see cref="ListBox"/>.
         /// </summary>
@@ -50,8 +76,7 @@ namespace ObjectOrientedPractics.View.Tabs
                         );
 
                     _customers.Add(newCustomer);
-                    CustomersListBox.Items.Add(newCustomer.Fullname);
-
+                    UpdateCustomersListBox();
                     ClearInputFields();
                 }
                 catch (ArgumentException ex)

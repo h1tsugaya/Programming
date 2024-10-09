@@ -31,6 +31,32 @@ namespace ObjectOrientedPractics.View.Tabs
         }
 
         /// <summary>
+        /// Открытое свойство для получения или установки списка товаров.
+        /// При установке обновляет элемент управления <see cref="ListBox"/>.
+        /// </summary>
+        public List<Item> Items
+        {
+            get => _items;
+            set
+            {
+                _items = value ?? new List<Item>();
+                UpdateItemsListBox();
+            }
+        }
+
+        /// <summary>
+        /// Обновляет элемент управления <see cref="ListBox"/> для отображения товаров.
+        /// </summary>
+        private void UpdateItemsListBox()
+        {
+            itemsListBox.Items.Clear();
+            foreach (var item in _items)
+            {
+                itemsListBox.Items.Add(item.Name);
+            }
+        }
+
+        /// <summary>
         /// Инициализирует выпадающий список значениями из перечисления Category.
         /// </summary>
         private void InitializeCategoryComboBox()
@@ -86,8 +112,7 @@ namespace ObjectOrientedPractics.View.Tabs
                     );
 
                     _items.Add(newItem);
-                    itemsListBox.Items.Add(newItem.Name);
-
+                    UpdateItemsListBox();
                     ClearInputFields();
                 }
                 catch (ArgumentException ex)
