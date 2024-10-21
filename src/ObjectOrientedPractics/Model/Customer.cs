@@ -28,6 +28,11 @@ namespace ObjectOrientedPractics.Model
         private Cart _cart;
 
         /// <summary>
+        /// Список заказов покупателя.
+        /// </summary>
+        private List<Order> _orders;
+
+        /// <summary>
         /// Создает новый экземпляр класса Customer.
         /// </summary>
         /// <param name="fullname">Полное имя покупателя (до 200 символов).</param>
@@ -38,6 +43,7 @@ namespace ObjectOrientedPractics.Model
             Fullname = fullname;
             Address = address;
             _cart = new Cart();
+            _orders = new List<Order>();
         }
 
         /// <summary>
@@ -75,7 +81,16 @@ namespace ObjectOrientedPractics.Model
         public Cart Cart
         {
             get { return _cart; }
-            set { _cart = value ?? new Cart(); } // Если передан null, инициализируем новой корзиной.
+            set { _cart = value ?? new Cart(); } 
+        }
+
+        /// <summary>
+        /// Список заказов покупателя.
+        /// </summary>
+        public List<Order> Orders
+        {
+            get { return _orders; }
+            set { _orders = value ?? new List<Order>(); }
         }
     }
 }
