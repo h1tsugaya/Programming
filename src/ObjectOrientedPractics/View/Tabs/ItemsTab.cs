@@ -107,7 +107,7 @@ namespace ObjectOrientedPractics.View.Tabs
                     Item newItem = new Item(
                         textBoxName.Text,
                         textBoxDescription.Text,
-                        decimal.Parse(textBoxCost.Text),
+                        double.Parse(textBoxCost.Text),
                         (Category)comboBoxCategory.SelectedItem
                     );
 
@@ -189,7 +189,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 textBoxDescription.BackColor = SystemColors.Window;
             }
 
-            if (!decimal.TryParse(textBoxCost.Text, out decimal cost) || cost < 0 || cost > 100000)
+            if (!double.TryParse(textBoxCost.Text, out double cost) || cost < 0 || cost > 100000)
             {
                 textBoxCost.BackColor = Color.Red;
                 isValid = false;
