@@ -1,5 +1,4 @@
-﻿
-using ObjectOrientedPractics.Services;
+﻿using ObjectOrientedPractics.Services;
 
 namespace ObjectOrientedPractics.Model
 {
@@ -24,6 +23,11 @@ namespace ObjectOrientedPractics.Model
         private Address _address;
 
         /// <summary>
+        /// Корзина товаров покупателя.
+        /// </summary>
+        private Cart _cart;
+
+        /// <summary>
         /// Создает новый экземпляр класса Customer.
         /// </summary>
         /// <param name="fullname">Полное имя покупателя (до 200 символов).</param>
@@ -33,6 +37,7 @@ namespace ObjectOrientedPractics.Model
             _id = IdGenerator.GetNextId();
             Fullname = fullname;
             Address = address;
+            _cart = new Cart();
         }
 
         /// <summary>
@@ -46,7 +51,7 @@ namespace ObjectOrientedPractics.Model
         /// <exception cref="ArgumentException">Выбрасывается, если длина имени превышает 200 символов.</exception>
         public string Fullname
         {
-            get => _fullname;
+            get { return _fullname; }
             set
             {
                 ValueValidator.AssertStringOnLength(value, 200, nameof(Fullname));
@@ -60,8 +65,17 @@ namespace ObjectOrientedPractics.Model
         /// <exception cref="ArgumentException">Выбрасывается, если длина адреса превышает 500 символов.</exception>
         public Address Address
         {
-            get => _address;
-            set => _address = value ?? new Address(); // Если передан null, инициализируем пустым адресом.
+            get { return _address; }
+            set { _address = value ?? new Address(); } // Если передан null, инициализируем пустым адресом.
+        }
+
+        /// <summary>
+        /// Корзина товаров покупателя.
+        /// </summary>
+        public Cart Cart
+        {
+            get { return _cart; }
+            set { _cart = value ?? new Cart(); } // Если передан null, инициализируем новой корзиной.
         }
     }
 }
