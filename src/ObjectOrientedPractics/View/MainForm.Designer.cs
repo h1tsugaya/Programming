@@ -104,11 +104,12 @@
             // 
             // cartsTab
             // 
+            cartsTab.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             cartsTab.Customers = null;
             cartsTab.Items = null;
             cartsTab.Location = new Point(8, 3);
             cartsTab.Name = "cartsTab";
-            cartsTab.Size = new Size(801, 676);
+            cartsTab.Size = new Size(825, 666);
             cartsTab.TabIndex = 0;
             // 
             // MainForm

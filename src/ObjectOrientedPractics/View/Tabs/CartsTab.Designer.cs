@@ -54,18 +54,20 @@
             // 
             // listBoxCartItems
             // 
+            listBoxCartItems.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             listBoxCartItems.FormattingEnabled = true;
             listBoxCartItems.ItemHeight = 15;
             listBoxCartItems.Location = new Point(3, 20);
             listBoxCartItems.Name = "listBoxCartItems";
-            listBoxCartItems.Size = new Size(312, 604);
+            listBoxCartItems.Size = new Size(309, 604);
             listBoxCartItems.TabIndex = 1;
             // 
             // buttonAddToCart
             // 
-            buttonAddToCart.Location = new Point(3, 630);
+            buttonAddToCart.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            buttonAddToCart.Location = new Point(6, 643);
             buttonAddToCart.Name = "buttonAddToCart";
-            buttonAddToCart.Size = new Size(101, 39);
+            buttonAddToCart.Size = new Size(104, 39);
             buttonAddToCart.TabIndex = 2;
             buttonAddToCart.Text = "Add To Cart";
             buttonAddToCart.UseVisualStyleBackColor = true;
@@ -75,7 +77,7 @@
             // 
             labelCustomer.AutoSize = true;
             labelCustomer.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelCustomer.Location = new Point(331, 20);
+            labelCustomer.Location = new Point(321, 20);
             labelCustomer.Name = "labelCustomer";
             labelCustomer.Size = new Size(64, 15);
             labelCustomer.TabIndex = 3;
@@ -92,18 +94,20 @@
             // 
             // comboBoxCustomer
             // 
+            comboBoxCustomer.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             comboBoxCustomer.FormattingEnabled = true;
             comboBoxCustomer.Location = new Point(401, 17);
             comboBoxCustomer.Name = "comboBoxCustomer";
-            comboBoxCustomer.Size = new Size(390, 23);
+            comboBoxCustomer.Size = new Size(375, 23);
             comboBoxCustomer.TabIndex = 5;
             comboBoxCustomer.SelectedIndexChanged += comboBoxCustomer_SelectedIndexChanged;
             // 
             // labelAmount
             // 
+            labelAmount.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             labelAmount.AutoSize = true;
             labelAmount.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelAmount.Location = new Point(729, 254);
+            labelAmount.Location = new Point(679, 270);
             labelAmount.Name = "labelAmount";
             labelAmount.Size = new Size(62, 17);
             labelAmount.TabIndex = 7;
@@ -111,9 +115,10 @@
             // 
             // labelAmountCount
             // 
+            labelAmountCount.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             labelAmountCount.AutoSize = true;
             labelAmountCount.Font = new Font("Segoe UI Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelAmountCount.Location = new Point(729, 271);
+            labelAmountCount.Location = new Point(679, 287);
             labelAmountCount.Name = "labelAmountCount";
             labelAmountCount.Size = new Size(23, 25);
             labelAmountCount.TabIndex = 8;
@@ -121,9 +126,10 @@
             // 
             // buttonCreateOrder
             // 
-            buttonCreateOrder.Location = new Point(331, 302);
+            buttonCreateOrder.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            buttonCreateOrder.Location = new Point(331, 324);
             buttonCreateOrder.Name = "buttonCreateOrder";
-            buttonCreateOrder.Size = new Size(95, 38);
+            buttonCreateOrder.Size = new Size(99, 38);
             buttonCreateOrder.TabIndex = 9;
             buttonCreateOrder.Text = "Create Order";
             buttonCreateOrder.UseVisualStyleBackColor = true;
@@ -131,9 +137,10 @@
             // 
             // buttonRemoveItem
             // 
-            buttonRemoveItem.Location = new Point(594, 301);
+            buttonRemoveItem.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            buttonRemoveItem.Location = new Point(573, 324);
             buttonRemoveItem.Name = "buttonRemoveItem";
-            buttonRemoveItem.Size = new Size(95, 41);
+            buttonRemoveItem.Size = new Size(98, 38);
             buttonRemoveItem.TabIndex = 10;
             buttonRemoveItem.Text = "Remove Item";
             buttonRemoveItem.UseVisualStyleBackColor = true;
@@ -141,9 +148,10 @@
             // 
             // buttonClearCart
             // 
-            buttonClearCart.Location = new Point(695, 302);
+            buttonClearCart.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            buttonClearCart.Location = new Point(677, 324);
             buttonClearCart.Name = "buttonClearCart";
-            buttonClearCart.Size = new Size(95, 41);
+            buttonClearCart.Size = new Size(98, 38);
             buttonClearCart.TabIndex = 11;
             buttonClearCart.Text = "Clear Cart";
             buttonClearCart.UseVisualStyleBackColor = true;
@@ -151,11 +159,12 @@
             // 
             // listBoxCart
             // 
+            listBoxCart.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             listBoxCart.FormattingEnabled = true;
             listBoxCart.ItemHeight = 15;
             listBoxCart.Location = new Point(331, 72);
             listBoxCart.Name = "listBoxCart";
-            listBoxCart.Size = new Size(459, 169);
+            listBoxCart.Size = new Size(444, 184);
             listBoxCart.TabIndex = 12;
             // 
             // CartsTab
@@ -175,7 +184,7 @@
             Controls.Add(listBoxCartItems);
             Controls.Add(labelCartTabItems);
             Name = "CartsTab";
-            Size = new Size(801, 676);
+            Size = new Size(786, 698);
             ResumeLayout(false);
             PerformLayout();
         }
