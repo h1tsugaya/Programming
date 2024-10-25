@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Model.Address address3 = new Model.Address();
+            Model.Address address1 = new Model.Address();
             labelOrders = new Label();
             dataGridViewOrders = new DataGridView();
             labelSelectedOrder = new Label();
@@ -66,6 +66,7 @@
             dataGridViewOrders.Name = "dataGridViewOrders";
             dataGridViewOrders.Size = new Size(335, 587);
             dataGridViewOrders.TabIndex = 1;
+            dataGridViewOrders.SelectionChanged += dataGridViewOrders_SelectionChanged;
             // 
             // labelSelectedOrder
             // 
@@ -125,16 +126,17 @@
             comboBoxStatus.Name = "comboBoxStatus";
             comboBoxStatus.Size = new Size(144, 23);
             comboBoxStatus.TabIndex = 8;
+            comboBoxStatus.SelectedIndexChanged += comboBoxStatus_SelectedIndexChanged;
             // 
             // addressControlOrdersTab
             // 
-            address3.Apartment = "";
-            address3.Building = "";
-            address3.City = "";
-            address3.Country = "";
-            address3.Index = 0;
-            address3.Street = "";
-            addressControlOrdersTab.Address = address3;
+            address1.Apartment = "";
+            address1.Building = "";
+            address1.City = "";
+            address1.Country = "";
+            address1.Index = 0;
+            address1.Street = "";
+            addressControlOrdersTab.Address = address1;
             addressControlOrdersTab.Location = new Point(343, 134);
             addressControlOrdersTab.Name = "addressControlOrdersTab";
             addressControlOrdersTab.Size = new Size(551, 167);

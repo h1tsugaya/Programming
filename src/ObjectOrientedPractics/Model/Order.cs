@@ -19,6 +19,8 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         private readonly int _id;
 
+        public string CustomerName { get; set; }
+
         /// <summary>
         /// Дата создания заказа.
         /// </summary>
@@ -47,12 +49,13 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Дата создания заказа.
         /// </summary>
-        public string CreationDate { get; }
+        public DateTime CreationDate { get; }
 
         /// <summary>
         /// Адрес доставки.
         /// </summary>
         public Address Address { get; set; }
+        public string DeliveryAddress => $"{Address.Index}, {Address.Country}, {Address.City}, {Address.Street}, {Address.Building}, {Address.Apartment}";
 
         /// <summary>
         /// Список товаров в заказе.
@@ -84,18 +87,23 @@ namespace ObjectOrientedPractics.Model
         /// <param name="items">Список товаров.</param>
         public Order()
         {
+            CustomerName = "Steve";
             Status = OrderStatus.New;
-            CreationDate = "01.01.2024";
+            CreationDate = DateTime.Now;
             Address = new Address();
             Items = [];
             _id = IdGenerator.GetNextId();
         }
 
-        public Order(OrderStatus status, string CreationDate, List<Item> items) 
+        public Order(string customerName, OrderStatus status, DateTime creationDate, List<Item> items) 
         {
+            CustomerName = customerName;
             Status = status;
-            CreationDate = _creationDate;
+            CreationDate = creationDate;
             Items = new List<Item>(items);
+            Address = new Address();
+            Id = IdGenerator.GetNextId();
         }
+
     }
 }

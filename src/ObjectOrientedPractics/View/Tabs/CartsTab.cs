@@ -128,15 +128,18 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             if (listBoxCart.Items.Count != 0)
             {
-                string year = DateTime.Now.Year.ToString();
-                string month = DateTime.Now.Month.ToString();
-                string day = DateTime.Now.Day.ToString();
-                string hour = DateTime.Now.Hour.ToString();
-                string minute = DateTime.Now.Minute.ToString();
-                string Date = day + "." + month + "." + year + ". " + hour + ":" + minute;
-                List<Item> items = _currentCustomer.Cart.Items;
-                Order newOrder = new Order(OrderStatus.New, Date, items);
+                string customerName = _currentCustomer.Fullname;
+
+                DateTime creationDate = DateTime.Now;
+
+                List<Item> items = new List<Item>(_currentCustomer.Cart.Items);
+                Order newOrder = new Order(customerName, OrderStatus.New, creationDate, items)
+                {
+                    Address = _currentCustomer.Address
+                };
+
                 _currentCustomer.Orders.Add(newOrder);
+
                 items.Clear();
                 ClearCart();
                 UpdateAmount();

@@ -22,6 +22,8 @@ namespace ObjectOrientedPractics
 
             cartsTab.Items = _store.Items;
             cartsTab.Customers = _store.Customers;
+
+            ordersTab.Customers = _store.Customers;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -31,10 +33,14 @@ namespace ObjectOrientedPractics
 
         private void tabControlMainForm_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Проверяем, что выбранная вкладка - CartsTab.
             if (tabControlMainForm.SelectedIndex == 2) 
             {
                 cartsTab.RefreshData();
+            }
+
+            if (tabControlMainForm.SelectedIndex == 3)
+            {
+                ordersTab.RefreshData();
             }
         }
     }

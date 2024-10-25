@@ -8,52 +8,171 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
     public partial class OrdersTab : UserControl
     {
+        /// <summary>
+        /// Список покупателей.
+        /// </summary>
         public List<Customer> Customers { get; set; }
-        private List<Order> _orders = new List<Order>();
 
         /// <summary>
-        /// Обновляет данные списка заказов и таблицы.
+        /// Список всех заказов.
         /// </summary>
-        public void UpdateOrders()
-        {
-            _orders.Clear();
+        private List<Order> _orders;
 
-            foreach (var customer in Customers)
-            {
-                _orders.AddRange(customer.Orders);
-            }
-
-            /*UpdateDataGridView();*/
-        }
-
-        /*/// <summary>
-        /// Обновляет данные в таблице DataGridView на основе списка заказов.
+        /// <summary>
+        /// Текущий выбранный заказ.
         /// </summary>
-        private void UpdateDataGridView()
-        {
-            dataGridViewOrders.Rows.Clear();
-
-            foreach (var order in _orders)
-            {
-                int rowIndex = dataGridViewOrders.Rows.Add();
-                var row = dataGridViewOrders.Rows[rowIndex];
-
-                row.Cells["Id"].Value = order.Id;
-                row.Cells["Created"].Value = order.Created;
-                row.Cells["CustomerName"].Value = $"{order.Customer.FirstName} {order.Customer.LastName}";
-                row.Cells["DeliveryAddress"].Value = $"{order.Address}";
-                row.Cells["TotalAmount"].Value = order.TotalAmount;
-                row.Cells["Status"].Value = order.Status.ToString();
-            }
-        }*/
+        private Order _currentOrder;
         public OrdersTab()
         {
             InitializeComponent();
+            InitializeDataGridView();
+            InitializeComboBoxStatus();
         }
+
+        /// <summary>
+        /// Инициализирует настройки DataGridView для отображения заказов.
+        /// </summary>
+        private void InitializeDataGridView()
+        {
+            dataGridViewOrders.Columns.Clear();
+
+            dataGridViewOrders.AutoGenerateColumns = false;
+            dataGridViewOrders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewOrders.MultiSelect = false;
+            dataGridViewOrders.AllowUserToAddRows = false;
+            dataGridViewOrders.AllowUserToResizeRows = false;
+            dataGridViewOrders.AllowUserToOrderColumns = false;
+            dataGridViewOrders.AllowUserToResizeColumns = false;
+
+            // Добавляем столбцы в DataGridView.
+            dataGridViewOrders.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Id",
+                HeaderText = "ID",
+                ReadOnly = true
+            });
+            dataGridViewOrders.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "CreationDate",
+                HeaderText = "Created",
+                ReadOnly = true
+            });
+            dataGridViewOrders.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "CustomerName",
+                HeaderText = "Customer",
+                ReadOnly = true
+            });
+            dataGridViewOrders.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "DeliveryAddress",
+                HeaderText = "Delivery Address",
+                ReadOnly = true
+            });
+            dataGridViewOrders.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "TotalAmount",
+                HeaderText = "Total Amount",
+                ReadOnly = true
+            });
+            dataGridViewOrders.Columns.Add(new DataGridViewComboBoxColumn
+            {
+                DataPropertyName = "Status",
+                HeaderText = "Status",
+                DataSource = Enum.GetValues(typeof(OrderStatus))
+            });
+        }
+
+        /// <summary>
+        /// Инициализирует настройки ComboBox для изменения статуса заказа.
+        /// </summary>
+        private void InitializeComboBoxStatus()
+        {
+            comboBoxStatus.DataSource = Enum.GetValues(typeof(OrderStatus));
+            comboBoxStatus.SelectedIndexChanged += comboBoxStatus_SelectedIndexChanged;
+        }
+
+        /// <summary>
+        /// Обработчик изменения статуса заказа.
+        /// </summary>
+        private void comboBoxStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_currentOrder != null && comboBoxStatus.SelectedItem is OrderStatus selectedStatus)
+            {
+                _currentOrder.Status = selectedStatus;
+                dataGridViewOrders.Refresh();
+            }
+        }
+
+        /// <summary>
+        /// Обновляет список заказов и отображает их в таблице.
+        /// </summary>
+        public void UpdateOrders()
+        {
+            if (Customers == null)
+            {
+                _orders = new List<Order>();
+                dataGridViewOrders.DataSource = null;
+                return;
+            }
+
+            _orders = new List<Order>();
+
+            foreach (var customer in Customers)
+            {
+                foreach (var order in customer.Orders)
+                {
+                    // Обновляем информацию о заказах, включая имя покупателя
+                    order.CustomerName = customer.Fullname;
+                    _orders.Add(order);
+                }
+            }
+
+            dataGridViewOrders.DataSource = null;
+            dataGridViewOrders.DataSource = _orders;
+        }
+
+        /// <summary>
+        /// Обработчик выбора строки в DataGridView.
+        /// </summary>
+        private void dataGridViewOrders_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewOrders.SelectedRows.Count > 0)
+            {
+                int selectedIndex = dataGridViewOrders.SelectedRows[0].Index;
+                if (selectedIndex >= 0 && selectedIndex < _orders.Count)
+                {
+                    _currentOrder = _orders[selectedIndex];
+                    DisplayOrderDetails(_currentOrder);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Отображает детали выбранного заказа на панели справа.
+        /// </summary>
+        /// <param name="order">Выбранный заказ.</param>
+        private void DisplayOrderDetails(Order order)
+        {
+            textBoxIdOrder.Text = order.Id.ToString();
+            textBoxCreated.Text = order.CreationDate.ToString("dd.MM.yyyy HH:mm");
+            comboBoxStatus.SelectedItem = order.Status;
+            addressControlOrdersTab.Address = order.Address;
+            listBoxOrderItems.Items.Clear();
+            listBoxOrderItems.Items.AddRange(order.Items.ToArray());
+            labelTotalAmountOrdersTab.Text = order.TotalAmount.ToString("N2");
+        }
+
+        public void RefreshData()
+        {
+            UpdateOrders();
+        }
+
     }
 }
