@@ -55,7 +55,6 @@ namespace ObjectOrientedPractics.Model
         /// Адрес доставки.
         /// </summary>
         public Address Address { get; set; }
-        public string DeliveryAddress => $"{Address.Index}, {Address.Country}, {Address.City}, {Address.Street}, {Address.Building}, {Address.Apartment}";
 
         /// <summary>
         /// Список товаров в заказе.
