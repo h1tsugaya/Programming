@@ -128,6 +128,7 @@
             // 
             // ordersTab
             // 
+            ordersTab.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             ordersTab.Customers = null;
             ordersTab.Location = new Point(8, 3);
             ordersTab.Name = "ordersTab";

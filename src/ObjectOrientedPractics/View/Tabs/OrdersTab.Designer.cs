@@ -60,6 +60,7 @@
             // 
             dataGridViewOrders.AllowUserToAddRows = false;
             dataGridViewOrders.AllowUserToResizeRows = false;
+            dataGridViewOrders.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             dataGridViewOrders.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewOrders.Location = new Point(3, 29);
             dataGridViewOrders.MultiSelect = false;
@@ -137,9 +138,10 @@
             address1.Index = 0;
             address1.Street = "";
             addressControlOrdersTab.Address = address1;
+            addressControlOrdersTab.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             addressControlOrdersTab.Location = new Point(343, 134);
             addressControlOrdersTab.Name = "addressControlOrdersTab";
-            addressControlOrdersTab.Size = new Size(551, 167);
+            addressControlOrdersTab.Size = new Size(649, 167);
             addressControlOrdersTab.TabIndex = 9;
             // 
             // labelOrderItems
@@ -154,6 +156,7 @@
             // 
             // listBoxOrderItems
             // 
+            listBoxOrderItems.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             listBoxOrderItems.FormattingEnabled = true;
             listBoxOrderItems.ItemHeight = 15;
             listBoxOrderItems.Location = new Point(344, 339);
@@ -163,6 +166,7 @@
             // 
             // labelAmountOrdersTab
             // 
+            labelAmountOrdersTab.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             labelAmountOrdersTab.AutoSize = true;
             labelAmountOrdersTab.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
             labelAmountOrdersTab.Location = new Point(930, 506);
@@ -173,6 +177,7 @@
             // 
             // labelTotalAmountOrdersTab
             // 
+            labelTotalAmountOrdersTab.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             labelTotalAmountOrdersTab.AutoSize = true;
             labelTotalAmountOrdersTab.Font = new Font("Segoe UI Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
             labelTotalAmountOrdersTab.Location = new Point(902, 532);
