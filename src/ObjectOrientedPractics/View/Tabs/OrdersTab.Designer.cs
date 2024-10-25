@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Model.Address address2 = new Model.Address();
+            Model.Address address3 = new Model.Address();
             labelOrders = new Label();
             dataGridViewOrders = new DataGridView();
             labelSelectedOrder = new Label();
             labelIdOrder = new Label();
             labelCreated = new Label();
             labelStatus = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            comboBox1 = new ComboBox();
-            addressControl1 = new Controls.AddressControl();
+            textBoxIdOrder = new TextBox();
+            textBoxCreated = new TextBox();
+            comboBoxStatus = new ComboBox();
+            addressControlOrdersTab = new Controls.AddressControl();
             labelOrderItems = new Label();
-            listBox1 = new ListBox();
+            listBoxOrderItems = new ListBox();
             labelAmountOrdersTab = new Label();
             labelTotalAmountOrdersTab = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewOrders).BeginInit();
@@ -58,8 +58,11 @@
             // 
             // dataGridViewOrders
             // 
+            dataGridViewOrders.AllowUserToAddRows = false;
+            dataGridViewOrders.AllowUserToResizeRows = false;
             dataGridViewOrders.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewOrders.Location = new Point(3, 29);
+            dataGridViewOrders.MultiSelect = false;
             dataGridViewOrders.Name = "dataGridViewOrders";
             dataGridViewOrders.Size = new Size(335, 587);
             dataGridViewOrders.TabIndex = 1;
@@ -101,41 +104,41 @@
             labelStatus.TabIndex = 5;
             labelStatus.Text = "Status:";
             // 
-            // textBox1
+            // textBoxIdOrder
             // 
-            textBox1.Location = new Point(421, 41);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(144, 23);
-            textBox1.TabIndex = 6;
+            textBoxIdOrder.Location = new Point(421, 41);
+            textBoxIdOrder.Name = "textBoxIdOrder";
+            textBoxIdOrder.Size = new Size(144, 23);
+            textBoxIdOrder.TabIndex = 6;
             // 
-            // textBox2
+            // textBoxCreated
             // 
-            textBox2.Location = new Point(421, 71);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(144, 23);
-            textBox2.TabIndex = 7;
+            textBoxCreated.Location = new Point(421, 71);
+            textBoxCreated.Name = "textBoxCreated";
+            textBoxCreated.Size = new Size(144, 23);
+            textBoxCreated.TabIndex = 7;
             // 
-            // comboBox1
+            // comboBoxStatus
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(421, 105);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(144, 23);
-            comboBox1.TabIndex = 8;
+            comboBoxStatus.FormattingEnabled = true;
+            comboBoxStatus.Location = new Point(421, 105);
+            comboBoxStatus.Name = "comboBoxStatus";
+            comboBoxStatus.Size = new Size(144, 23);
+            comboBoxStatus.TabIndex = 8;
             // 
-            // addressControl1
+            // addressControlOrdersTab
             // 
-            address2.Apartment = "";
-            address2.Building = "";
-            address2.City = "";
-            address2.Country = "";
-            address2.Index = 0;
-            address2.Street = "";
-            addressControl1.Address = address2;
-            addressControl1.Location = new Point(343, 134);
-            addressControl1.Name = "addressControl1";
-            addressControl1.Size = new Size(551, 167);
-            addressControl1.TabIndex = 9;
+            address3.Apartment = "";
+            address3.Building = "";
+            address3.City = "";
+            address3.Country = "";
+            address3.Index = 0;
+            address3.Street = "";
+            addressControlOrdersTab.Address = address3;
+            addressControlOrdersTab.Location = new Point(343, 134);
+            addressControlOrdersTab.Name = "addressControlOrdersTab";
+            addressControlOrdersTab.Size = new Size(551, 167);
+            addressControlOrdersTab.TabIndex = 9;
             // 
             // labelOrderItems
             // 
@@ -147,14 +150,14 @@
             labelOrderItems.TabIndex = 10;
             labelOrderItems.Text = "Order Items";
             // 
-            // listBox1
+            // listBoxOrderItems
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(344, 339);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(648, 154);
-            listBox1.TabIndex = 11;
+            listBoxOrderItems.FormattingEnabled = true;
+            listBoxOrderItems.ItemHeight = 15;
+            listBoxOrderItems.Location = new Point(344, 339);
+            listBoxOrderItems.Name = "listBoxOrderItems";
+            listBoxOrderItems.Size = new Size(648, 154);
+            listBoxOrderItems.TabIndex = 11;
             // 
             // labelAmountOrdersTab
             // 
@@ -182,12 +185,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(labelTotalAmountOrdersTab);
             Controls.Add(labelAmountOrdersTab);
-            Controls.Add(listBox1);
+            Controls.Add(listBoxOrderItems);
             Controls.Add(labelOrderItems);
-            Controls.Add(addressControl1);
-            Controls.Add(comboBox1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(addressControlOrdersTab);
+            Controls.Add(comboBoxStatus);
+            Controls.Add(textBoxCreated);
+            Controls.Add(textBoxIdOrder);
             Controls.Add(labelStatus);
             Controls.Add(labelCreated);
             Controls.Add(labelIdOrder);
@@ -209,12 +212,12 @@
         private Label labelIdOrder;
         private Label labelCreated;
         private Label labelStatus;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private ComboBox comboBox1;
-        private Controls.AddressControl addressControl1;
+        private TextBox textBoxIdOrder;
+        private TextBox textBoxCreated;
+        private ComboBox comboBoxStatus;
+        private Controls.AddressControl addressControlOrdersTab;
         private Label labelOrderItems;
-        private ListBox listBox1;
+        private ListBox listBoxOrderItems;
         private Label labelAmountOrdersTab;
         private Label labelTotalAmountOrdersTab;
     }
