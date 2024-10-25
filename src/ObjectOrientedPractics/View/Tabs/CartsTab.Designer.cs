@@ -34,12 +34,12 @@
             labelCustomer = new Label();
             labelCart = new Label();
             comboBoxCustomer = new ComboBox();
-            textBox1 = new TextBox();
             labelAmount = new Label();
             labelAmountCount = new Label();
             buttonCreateOrder = new Button();
             buttonRemoveItem = new Button();
             buttonClearCart = new Button();
+            listBoxCart = new ListBox();
             SuspendLayout();
             // 
             // labelCartTabItems
@@ -69,6 +69,7 @@
             buttonAddToCart.TabIndex = 2;
             buttonAddToCart.Text = "Add To Cart";
             buttonAddToCart.UseVisualStyleBackColor = true;
+            buttonAddToCart.Click += buttonAddToCart_Click;
             // 
             // labelCustomer
             // 
@@ -96,14 +97,7 @@
             comboBoxCustomer.Name = "comboBoxCustomer";
             comboBoxCustomer.Size = new Size(390, 23);
             comboBoxCustomer.TabIndex = 5;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(331, 72);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(460, 170);
-            textBox1.TabIndex = 6;
+            comboBoxCustomer.SelectedIndexChanged += comboBoxCustomer_SelectedIndexChanged;
             // 
             // labelAmount
             // 
@@ -133,6 +127,7 @@
             buttonCreateOrder.TabIndex = 9;
             buttonCreateOrder.Text = "Create Order";
             buttonCreateOrder.UseVisualStyleBackColor = true;
+            buttonCreateOrder.Click += buttonCreateOrder_Click;
             // 
             // buttonRemoveItem
             // 
@@ -142,6 +137,7 @@
             buttonRemoveItem.TabIndex = 10;
             buttonRemoveItem.Text = "Remove Item";
             buttonRemoveItem.UseVisualStyleBackColor = true;
+            buttonRemoveItem.Click += buttonRemoveItem_Click;
             // 
             // buttonClearCart
             // 
@@ -151,17 +147,27 @@
             buttonClearCart.TabIndex = 11;
             buttonClearCart.Text = "Clear Cart";
             buttonClearCart.UseVisualStyleBackColor = true;
+            buttonClearCart.Click += buttonClearCart_Click;
+            // 
+            // listBoxCart
+            // 
+            listBoxCart.FormattingEnabled = true;
+            listBoxCart.ItemHeight = 15;
+            listBoxCart.Location = new Point(331, 72);
+            listBoxCart.Name = "listBoxCart";
+            listBoxCart.Size = new Size(459, 169);
+            listBoxCart.TabIndex = 12;
             // 
             // CartsTab
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(listBoxCart);
             Controls.Add(buttonClearCart);
             Controls.Add(buttonRemoveItem);
             Controls.Add(buttonCreateOrder);
             Controls.Add(labelAmountCount);
             Controls.Add(labelAmount);
-            Controls.Add(textBox1);
             Controls.Add(comboBoxCustomer);
             Controls.Add(labelCart);
             Controls.Add(labelCustomer);
@@ -182,11 +188,11 @@
         private Label labelCustomer;
         private Label labelCart;
         private ComboBox comboBoxCustomer;
-        private TextBox textBox1;
         private Label labelAmount;
         private Label labelAmountCount;
         private Button buttonCreateOrder;
         private Button buttonRemoveItem;
         private Button buttonClearCart;
+        private ListBox listBoxCart;
     }
 }

@@ -1,5 +1,7 @@
 using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.View;
+using ObjectOrientedPractics.View.Tabs;
+using System.Windows.Forms;
 
 namespace ObjectOrientedPractics
 {
@@ -17,11 +19,23 @@ namespace ObjectOrientedPractics
             // ѕрисваиваем списки товаров и покупателей вкладкам.
             itemsTab.Items = _store.Items;
             customersTab.Customers = _store.Customers;
+
+            cartsTab.Items = _store.Items;
+            cartsTab.Customers = _store.Customers;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void tabControlMainForm_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // ѕровер€ем, что выбранна€ вкладка - CartsTab.
+            if (tabControlMainForm.SelectedIndex == 2) 
+            {
+                cartsTab.RefreshData();
+            }
         }
     }
 }

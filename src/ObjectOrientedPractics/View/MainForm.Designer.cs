@@ -34,9 +34,12 @@
             itemsTab = new View.Tabs.ItemsTab();
             tabPageCustomers = new TabPage();
             customersTab = new View.Tabs.CustomersTab();
+            tabPageCart = new TabPage();
+            cartsTab = new View.Tabs.CartsTab();
             tabControlMainForm.SuspendLayout();
             tabPageItems.SuspendLayout();
             tabPageCustomers.SuspendLayout();
+            tabPageCart.SuspendLayout();
             SuspendLayout();
             // 
             // tabControlMainForm
@@ -44,11 +47,13 @@
             tabControlMainForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tabControlMainForm.Controls.Add(tabPageItems);
             tabControlMainForm.Controls.Add(tabPageCustomers);
+            tabControlMainForm.Controls.Add(tabPageCart);
             tabControlMainForm.Location = new Point(0, 0);
             tabControlMainForm.Name = "tabControlMainForm";
             tabControlMainForm.SelectedIndex = 0;
-            tabControlMainForm.Size = new Size(1031, 645);
+            tabControlMainForm.Size = new Size(849, 705);
             tabControlMainForm.TabIndex = 0;
+            tabControlMainForm.SelectedIndexChanged += tabControlMainForm_SelectedIndexChanged;
             // 
             // tabPageItems
             // 
@@ -56,7 +61,7 @@
             tabPageItems.Location = new Point(4, 24);
             tabPageItems.Name = "tabPageItems";
             tabPageItems.Padding = new Padding(3);
-            tabPageItems.Size = new Size(1023, 617);
+            tabPageItems.Size = new Size(841, 677);
             tabPageItems.TabIndex = 0;
             tabPageItems.Text = "Items";
             tabPageItems.UseVisualStyleBackColor = true;
@@ -66,7 +71,7 @@
             itemsTab.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             itemsTab.Location = new Point(3, 3);
             itemsTab.Name = "itemsTab";
-            itemsTab.Size = new Size(1017, 611);
+            itemsTab.Size = new Size(835, 671);
             itemsTab.TabIndex = 0;
             // 
             // tabPageCustomers
@@ -74,7 +79,7 @@
             tabPageCustomers.Controls.Add(customersTab);
             tabPageCustomers.Location = new Point(4, 24);
             tabPageCustomers.Name = "tabPageCustomers";
-            tabPageCustomers.Size = new Size(1023, 617);
+            tabPageCustomers.Size = new Size(841, 677);
             tabPageCustomers.TabIndex = 1;
             tabPageCustomers.Text = "Customers";
             tabPageCustomers.UseVisualStyleBackColor = true;
@@ -84,14 +89,33 @@
             customersTab.Dock = DockStyle.Fill;
             customersTab.Location = new Point(0, 0);
             customersTab.Name = "customersTab";
-            customersTab.Size = new Size(1023, 617);
+            customersTab.Size = new Size(841, 677);
             customersTab.TabIndex = 0;
+            // 
+            // tabPageCart
+            // 
+            tabPageCart.Controls.Add(cartsTab);
+            tabPageCart.Location = new Point(4, 24);
+            tabPageCart.Name = "tabPageCart";
+            tabPageCart.Size = new Size(841, 677);
+            tabPageCart.TabIndex = 2;
+            tabPageCart.Text = "Carts";
+            tabPageCart.UseVisualStyleBackColor = true;
+            // 
+            // cartsTab
+            // 
+            cartsTab.Customers = null;
+            cartsTab.Items = null;
+            cartsTab.Location = new Point(8, 3);
+            cartsTab.Name = "cartsTab";
+            cartsTab.Size = new Size(801, 676);
+            cartsTab.TabIndex = 0;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1031, 645);
+            ClientSize = new Size(849, 705);
             Controls.Add(tabControlMainForm);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
@@ -100,6 +124,7 @@
             tabControlMainForm.ResumeLayout(false);
             tabPageItems.ResumeLayout(false);
             tabPageCustomers.ResumeLayout(false);
+            tabPageCart.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -110,5 +135,7 @@
         private View.Tabs.ItemsTab itemsTab;
         private TabPage tabPageCustomers;
         private View.Tabs.CustomersTab customersTab;
+        private TabPage tabPageCart;
+        private View.Tabs.CartsTab cartsTab;
     }
 }

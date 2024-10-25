@@ -14,15 +14,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Список товаров в корзине.
         /// </summary>
-        List<Item> _items;
-
-        /// <summary>
-        /// Создает новый экземпляр класса <see cref="Cart"/>.
-        /// </summary>
-        public Cart()
-        {
-            _items = new List<Item>();
-        }
+        List<Item> _items = [];
 
         /// <summary>
         /// Список товаров в корзине.

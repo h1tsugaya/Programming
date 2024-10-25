@@ -43,6 +43,14 @@ namespace ObjectOrientedPractics.Model
             Category = category;
         }
 
+        public Item()
+        {
+            _id = IdGenerator.GetNextId();
+            Name = Id.ToString();
+            Info = "";
+            Cost = 0;
+            Category = Category.Electronics;
+        }
         /// <summary>
         /// Уникальный идентификатор товара.
         /// </summary>
@@ -97,5 +105,10 @@ namespace ObjectOrientedPractics.Model
         /// Категория товара.
         /// </summary>
         public Category Category { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

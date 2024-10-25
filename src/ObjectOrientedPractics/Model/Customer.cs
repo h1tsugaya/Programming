@@ -92,5 +92,9 @@ namespace ObjectOrientedPractics.Model
             get { return _orders; }
             set { _orders = value ?? new List<Order>(); }
         }
+        public override string ToString()
+        {
+            return Fullname;
+        }
     }
 }
