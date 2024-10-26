@@ -28,6 +28,7 @@ namespace ObjectOrientedPractics.View.Tabs
         /// Текущий выбранный заказ.
         /// </summary>
         private Order _currentOrder;
+
         public OrdersTab()
         {
             InitializeComponent();
@@ -50,7 +51,6 @@ namespace ObjectOrientedPractics.View.Tabs
             dataGridViewOrders.AllowUserToOrderColumns = false;
             dataGridViewOrders.AllowUserToResizeColumns = false;
 
-            // Добавляем столбцы в DataGridView.
             dataGridViewOrders.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "Id",
@@ -128,7 +128,6 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 foreach (var order in customer.Orders)
                 {
-                    // Обновляем информацию о заказах, включая имя покупателя
                     order.CustomerName = customer.Fullname;
                     _orders.Add(order);
                 }
