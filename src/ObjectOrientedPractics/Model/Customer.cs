@@ -33,6 +33,11 @@ namespace ObjectOrientedPractics.Model
         private List<Order> _orders;
 
         /// <summary>
+        /// Логическое свойство, указывающее, является ли покупатель приоритетным.
+        /// </summary>
+        private bool _isPriority;
+
+        /// <summary>
         /// Создает новый экземпляр класса Customer.
         /// </summary>
         /// <param name="fullname">Полное имя покупателя (до 200 символов).</param>
@@ -44,6 +49,7 @@ namespace ObjectOrientedPractics.Model
             Address = address;
             _cart = new Cart();
             _orders = new List<Order>();
+            _isPriority = false;
         }
 
         /// <summary>
@@ -92,6 +98,16 @@ namespace ObjectOrientedPractics.Model
             get { return _orders; }
             set { _orders = value ?? new List<Order>(); }
         }
+
+        /// <summary>
+        /// Логическое свойство, указывающее, является ли покупатель приоритетным.
+        /// </summary>
+        public bool IsPriority
+        {
+            get { return _isPriority; }
+            set { _isPriority = value; }
+        }
+
         public override string ToString()
         {
             return Fullname;

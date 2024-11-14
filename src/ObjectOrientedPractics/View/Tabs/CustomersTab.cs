@@ -53,7 +53,8 @@ namespace ObjectOrientedPractics.View.Tabs
             CustomersListBox.Items.Clear();
             foreach (var customer in _customers)
             {
-                CustomersListBox.Items.Add(customer.Fullname);
+                string displayText = customer.IsPriority ? $"{customer.Fullname} (Priority)" : customer.Fullname;
+                CustomersListBox.Items.Add(displayText);
             }
         }
 
@@ -75,6 +76,7 @@ namespace ObjectOrientedPractics.View.Tabs
                         newAddress
                         );
 
+                    newCustomer.IsPriority = checkBoxIsPriority.Checked;
                     _customers.Add(newCustomer);
                     UpdateCustomersListBox();
                     ClearInputFields();
@@ -119,6 +121,20 @@ namespace ObjectOrientedPractics.View.Tabs
                 textBoxId2.Text = selectedCustomer.Id.ToString();
                 textBoxFullName.Text = selectedCustomer.Fullname;
                 addressControl1.Address = selectedCustomer.Address;
+                checkBoxIsPriority.Checked = selectedCustomer.IsPriority;
+            }
+        }
+
+        private void checkBoxIsPriority_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CustomersListBox.SelectedIndex != -1)
+            {
+                int selectedIndex = CustomersListBox.SelectedIndex;
+                Customer selectedCustomer = _customers[selectedIndex];
+
+                selectedCustomer.IsPriority = checkBoxIsPriority.Checked;
+
+                UpdateCustomersListBox();
             }
         }
 
@@ -157,6 +173,7 @@ namespace ObjectOrientedPractics.View.Tabs
             textBoxId2.Text = "";
             textBoxFullName.Text = "";
             addressControl1.ClearFields();
+            checkBoxIsPriority.Checked = false;
         }
     }
 }

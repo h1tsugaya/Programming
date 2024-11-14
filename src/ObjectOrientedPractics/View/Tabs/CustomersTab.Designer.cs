@@ -43,6 +43,7 @@
             CustomersListBox = new ListBox();
             groupBoxCustomers2 = new GroupBox();
             tableLayoutCustomersPanel = new TableLayoutPanel();
+            checkBoxIsPriority = new CheckBox();
             groupBoxCustomers.SuspendLayout();
             groupBoxCustomers2.SuspendLayout();
             tableLayoutCustomersPanel.SuspendLayout();
@@ -61,6 +62,7 @@
             // groupBoxCustomers
             // 
             groupBoxCustomers.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBoxCustomers.Controls.Add(checkBoxIsPriority);
             groupBoxCustomers.Controls.Add(addressControl1);
             groupBoxCustomers.Controls.Add(panel);
             groupBoxCustomers.Controls.Add(textBoxFullName);
@@ -83,7 +85,7 @@
             address1.Index = 0;
             address1.Street = "";
             addressControl1.Address = address1;
-            addressControl1.Location = new Point(6, 104);
+            addressControl1.Location = new Point(6, 139);
             addressControl1.Name = "addressControl1";
             addressControl1.Size = new Size(550, 158);
             addressControl1.TabIndex = 0;
@@ -200,6 +202,16 @@
             tableLayoutCustomersPanel.Size = new Size(1424, 949);
             tableLayoutCustomersPanel.TabIndex = 3;
             // 
+            // checkBoxIsPriority
+            // 
+            checkBoxIsPriority.AutoSize = true;
+            checkBoxIsPriority.Location = new Point(82, 114);
+            checkBoxIsPriority.Name = "checkBoxIsPriority";
+            checkBoxIsPriority.Size = new Size(75, 19);
+            checkBoxIsPriority.TabIndex = 12;
+            checkBoxIsPriority.Text = "Is Priority";
+            checkBoxIsPriority.UseVisualStyleBackColor = true;
+            // 
             // CustomersTab
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -231,5 +243,6 @@
         private GroupBox groupBoxCustomers2;
         private TableLayoutPanel tableLayoutCustomersPanel;
         private Controls.AddressControl addressControl1;
+        private CheckBox checkBoxIsPriority;
     }
 }
