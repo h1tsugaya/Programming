@@ -25,7 +25,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Стоимость товара.
         /// </summary>
-        private decimal _cost;
+        private double _cost;
 
         /// <summary>
         /// Создает новый экземпляр класса Item.
@@ -33,14 +33,24 @@ namespace ObjectOrientedPractics.Model
         /// <param name="name">Название товара (до 200 символов).</param>
         /// <param name="info">Описание товара (до 1000 символов).</param>
         /// <param name="cost">Стоимость товара (от 0 до 100000).</param>
-        public Item(string name, string info, decimal cost)
+        /// <param name="category">Категория товара.</param>
+        public Item(string name, string info, double cost, Category category)
         {
             _id = IdGenerator.GetNextId();
             Name = name;
             Info = info;
             Cost = cost;
+            Category = category;
         }
 
+        public Item()
+        {
+            _id = IdGenerator.GetNextId();
+            Name = Id.ToString();
+            Info = "";
+            Cost = 0;
+            Category = Category.Electronics;
+        }
         /// <summary>
         /// Уникальный идентификатор товара.
         /// </summary>
@@ -78,7 +88,7 @@ namespace ObjectOrientedPractics.Model
         /// Стоимость товара.
         /// </summary>
         /// <exception cref="ArgumentException">Выбрасывается, если стоимость выходит за пределы от 0 до 100000.</exception>
-        public decimal Cost
+        public double Cost
         {
             get => _cost;
             set
@@ -89,6 +99,16 @@ namespace ObjectOrientedPractics.Model
                 }
                 _cost = value;
             }
+        }
+
+        /// <summary>
+        /// Категория товара.
+        /// </summary>
+        public Category Category { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }

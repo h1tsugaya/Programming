@@ -45,6 +45,8 @@
             groupBoxSelectedItems2 = new GroupBox();
             panel2 = new Panel();
             tableLayoutItemsPanel = new TableLayoutPanel();
+            labelCategory = new Label();
+            comboBoxCategory = new ComboBox();
             groupBoxSelectedItems1.SuspendLayout();
             groupBoxSelectedItems2.SuspendLayout();
             tableLayoutItemsPanel.SuspendLayout();
@@ -111,7 +113,7 @@
             // textBoxDescription
             // 
             textBoxDescription.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxDescription.Location = new Point(7, 240);
+            textBoxDescription.Location = new Point(7, 295);
             textBoxDescription.Multiline = true;
             textBoxDescription.Name = "textBoxDescription";
             textBoxDescription.Size = new Size(986, 454);
@@ -120,7 +122,7 @@
             // labelDescription
             // 
             labelDescription.AutoSize = true;
-            labelDescription.Location = new Point(6, 222);
+            labelDescription.Location = new Point(7, 277);
             labelDescription.Name = "labelDescription";
             labelDescription.Size = new Size(70, 15);
             labelDescription.TabIndex = 10;
@@ -129,7 +131,7 @@
             // textBoxName
             // 
             textBoxName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxName.Location = new Point(7, 116);
+            textBoxName.Location = new Point(7, 171);
             textBoxName.Multiline = true;
             textBoxName.Name = "textBoxName";
             textBoxName.Size = new Size(986, 103);
@@ -138,7 +140,7 @@
             // labelName
             // 
             labelName.AutoSize = true;
-            labelName.Location = new Point(7, 98);
+            labelName.Location = new Point(7, 153);
             labelName.Name = "labelName";
             labelName.Size = new Size(42, 15);
             labelName.TabIndex = 8;
@@ -146,7 +148,7 @@
             // 
             // textBoxCost
             // 
-            textBoxCost.Location = new Point(61, 61);
+            textBoxCost.Location = new Point(71, 61);
             textBoxCost.Name = "textBoxCost";
             textBoxCost.Size = new Size(166, 23);
             textBoxCost.TabIndex = 7;
@@ -162,7 +164,7 @@
             // 
             // textBoxId
             // 
-            textBoxId.Location = new Point(61, 34);
+            textBoxId.Location = new Point(71, 34);
             textBoxId.Name = "textBoxId";
             textBoxId.ReadOnly = true;
             textBoxId.Size = new Size(166, 23);
@@ -190,6 +192,8 @@
             // groupBoxSelectedItems2
             // 
             groupBoxSelectedItems2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBoxSelectedItems2.Controls.Add(comboBoxCategory);
+            groupBoxSelectedItems2.Controls.Add(labelCategory);
             groupBoxSelectedItems2.Controls.Add(panel2);
             groupBoxSelectedItems2.Controls.Add(labelSelectedItem);
             groupBoxSelectedItems2.Controls.Add(textBoxDescription);
@@ -209,9 +213,9 @@
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel2.Location = new Point(7, 700);
+            panel2.Location = new Point(7, 755);
             panel2.Name = "panel2";
-            panel2.Size = new Size(986, 129);
+            panel2.Size = new Size(986, 74);
             panel2.TabIndex = 12;
             // 
             // tableLayoutItemsPanel
@@ -228,6 +232,23 @@
             tableLayoutItemsPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutItemsPanel.Size = new Size(1382, 841);
             tableLayoutItemsPanel.TabIndex = 13;
+            // 
+            // labelCategory
+            // 
+            labelCategory.AutoSize = true;
+            labelCategory.Location = new Point(6, 93);
+            labelCategory.Name = "labelCategory";
+            labelCategory.Size = new Size(58, 15);
+            labelCategory.TabIndex = 13;
+            labelCategory.Text = "Category:";
+            // 
+            // comboBoxCategory
+            // 
+            comboBoxCategory.FormattingEnabled = true;
+            comboBoxCategory.Location = new Point(71, 90);
+            comboBoxCategory.Name = "comboBoxCategory";
+            comboBoxCategory.Size = new Size(166, 23);
+            comboBoxCategory.TabIndex = 14;
             // 
             // ItemsTab
             // 
@@ -262,5 +283,7 @@
         private GroupBox groupBoxSelectedItems2;
         private TableLayoutPanel tableLayoutItemsPanel;
         private Panel panel2;
+        private ComboBox comboBoxCategory;
+        private Label labelCategory;
     }
 }

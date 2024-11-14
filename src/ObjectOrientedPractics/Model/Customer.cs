@@ -1,5 +1,4 @@
-﻿
-using ObjectOrientedPractics.Services;
+﻿using ObjectOrientedPractics.Services;
 
 namespace ObjectOrientedPractics.Model
 {
@@ -21,18 +20,30 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Адрес доставки покупателя.
         /// </summary>
-        private string _address;
+        private Address _address;
+
+        /// <summary>
+        /// Корзина товаров покупателя.
+        /// </summary>
+        private Cart _cart;
+
+        /// <summary>
+        /// Список заказов покупателя.
+        /// </summary>
+        private List<Order> _orders;
 
         /// <summary>
         /// Создает новый экземпляр класса Customer.
         /// </summary>
         /// <param name="fullname">Полное имя покупателя (до 200 символов).</param>
         /// <param name="address">Адрес доставки покупателя (до 500 символов).</param>
-        public Customer(string fullname, string address)
+        public Customer(string fullname, Address address)
         {
             _id = IdGenerator.GetNextId();
             Fullname = fullname;
             Address = address;
+            _cart = new Cart();
+            _orders = new List<Order>();
         }
 
         /// <summary>
@@ -46,7 +57,7 @@ namespace ObjectOrientedPractics.Model
         /// <exception cref="ArgumentException">Выбрасывается, если длина имени превышает 200 символов.</exception>
         public string Fullname
         {
-            get => _fullname;
+            get { return _fullname; }
             set
             {
                 ValueValidator.AssertStringOnLength(value, 200, nameof(Fullname));
@@ -58,14 +69,32 @@ namespace ObjectOrientedPractics.Model
         /// Адрес доставки покупателя.
         /// </summary>
         /// <exception cref="ArgumentException">Выбрасывается, если длина адреса превышает 500 символов.</exception>
-        public string Address
+        public Address Address
         {
-            get => _address;
-            set
-            {
-                ValueValidator.AssertStringOnLength(value, 500, nameof(Address));
-                _address = value;
-            }
+            get { return _address; }
+            set { _address = value ?? new Address(); } // Если передан null, инициализируем пустым адресом.
+        }
+
+        /// <summary>
+        /// Корзина товаров покупателя.
+        /// </summary>
+        public Cart Cart
+        {
+            get { return _cart; }
+            set { _cart = value ?? new Cart(); } 
+        }
+
+        /// <summary>
+        /// Список заказов покупателя.
+        /// </summary>
+        public List<Order> Orders
+        {
+            get { return _orders; }
+            set { _orders = value ?? new List<Order>(); }
+        }
+        public override string ToString()
+        {
+            return Fullname;
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.View.Controls;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ObjectOrientedPractics.View.Tabs
@@ -31,6 +32,32 @@ namespace ObjectOrientedPractics.View.Tabs
         }
 
         /// <summary>
+        /// Открытое свойство для получения или установки списка покупателей.
+        /// При установке обновляет элемент управления <see cref="ListBox"/>.
+        /// </summary>
+        public List<Customer> Customers
+        {
+            get => _customers;
+            set
+            {
+                _customers = value ?? new List<Customer>();
+                UpdateCustomersListBox();
+            }
+        }
+
+        /// <summary>
+        /// Обновляет элемент управления <see cref="ListBox"/> для отображения покупателей.
+        /// </summary>
+        private void UpdateCustomersListBox()
+        {
+            CustomersListBox.Items.Clear();
+            foreach (var customer in _customers)
+            {
+                CustomersListBox.Items.Add(customer.Fullname);
+            }
+        }
+
+        /// <summary>
         /// Обрабатывает нажатие кнопки "Add".
         /// Добавляет нового клиента в список и обновляет <see cref="ListBox"/>.
         /// </summary>
@@ -42,14 +69,14 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 try
                 {
+                    Address newAddress = addressControl1.Address;
                     Customer newCustomer = new Customer(
                         textBoxFullName.Text,
-                        textBoxAddress.Text
+                        newAddress
                         );
 
                     _customers.Add(newCustomer);
-                    CustomersListBox.Items.Add(newCustomer.Fullname);
-
+                    UpdateCustomersListBox();
                     ClearInputFields();
                 }
                 catch (ArgumentException ex)
@@ -91,7 +118,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
                 textBoxId2.Text = selectedCustomer.Id.ToString();
                 textBoxFullName.Text = selectedCustomer.Fullname;
-                textBoxAddress.Text = selectedCustomer.Address;
+                addressControl1.Address = selectedCustomer.Address;
             }
         }
 
@@ -114,14 +141,9 @@ namespace ObjectOrientedPractics.View.Tabs
                 textBoxFullName.BackColor = SystemColors.Window;
             }
 
-            if (string.IsNullOrWhiteSpace(textBoxAddress.Text))
+            if (!addressControl1.ValidateInput())
             {
-                textBoxAddress.BackColor = Color.Red;
                 isValid = false;
-            }
-            else
-            {
-                textBoxAddress.BackColor = SystemColors.Window;
             }
 
             return isValid;
@@ -134,7 +156,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             textBoxId2.Text = "";
             textBoxFullName.Text = "";
-            textBoxAddress.Text = "";
+            addressControl1.ClearFields();
         }
     }
 }
