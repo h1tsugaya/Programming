@@ -29,11 +29,20 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private Order _currentOrder;
 
+        private PriorityOrder _selectedPriorityOrder;
+
         public OrdersTab()
         {
             InitializeComponent();
             InitializeDataGridView();
             InitializeComboBoxStatus();
+            InitializeComboBoxDeliveryTime();
+        }
+
+        private void InitializeComboBoxDeliveryTime()
+        {
+            comboBoxDeliveryTime.Items.Clear();
+            comboBoxDeliveryTime.Items.AddRange(Enum.GetValues(typeof(DeliveryTime)).Cast<object>().ToArray());
         }
 
         /// <summary>
@@ -110,6 +119,14 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
+        private void comboBoxDeliveryTime_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_selectedPriorityOrder != null && comboBoxDeliveryTime.SelectedItem is DeliveryTime selectedTime)
+            {
+                _selectedPriorityOrder.DesiredDeliveryTime = selectedTime;
+            }
+        }
+
         /// <summary>
         /// Обновляет список заказов и отображает их в таблице.
         /// </summary>
@@ -148,6 +165,19 @@ namespace ObjectOrientedPractics.View.Tabs
                 if (selectedIndex >= 0 && selectedIndex < _orders.Count)
                 {
                     _currentOrder = _orders[selectedIndex];
+
+                    if (_currentOrder is PriorityOrder priorityOrder)
+                    {
+                        _selectedPriorityOrder = priorityOrder;
+                        panelPriorityOrder.Visible = true;
+                        comboBoxDeliveryTime.SelectedItem = priorityOrder.DesiredDeliveryTime;
+                    }
+                    else
+                    {
+                        _selectedPriorityOrder = null;
+                        panelPriorityOrder.Visible = false;
+                    }
+
                     DisplayOrderDetails(_currentOrder);
                 }
             }
@@ -166,6 +196,16 @@ namespace ObjectOrientedPractics.View.Tabs
             listBoxOrderItems.Items.Clear();
             listBoxOrderItems.Items.AddRange(order.Items.ToArray());
             labelTotalAmountOrdersTab.Text = order.TotalAmount.ToString("N2");
+
+            if (order is PriorityOrder priorityOrder)
+            {
+                comboBoxDeliveryTime.SelectedItem = priorityOrder.DesiredDeliveryTime;
+                panelPriorityOrder.Visible = true;
+            }
+            else
+            {
+                panelPriorityOrder.Visible = false;
+            }
         }
 
         public void RefreshData()

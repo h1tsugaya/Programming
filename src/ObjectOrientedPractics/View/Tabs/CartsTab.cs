@@ -129,14 +129,28 @@ namespace ObjectOrientedPractics.View.Tabs
             if (listBoxCart.Items.Count != 0)
             {
                 string customerName = _currentCustomer.Fullname;
-
                 DateTime creationDate = DateTime.Now;
-
                 List<Item> items = new List<Item>(_currentCustomer.Cart.Items);
-                Order newOrder = new Order(customerName, OrderStatus.New, creationDate, items)
+                Order newOrder;
+
+                if (_currentCustomer.IsPriority)
                 {
-                    Address = _currentCustomer.Address
-                };
+                    // Создаем приоритетный заказ
+                    DateTime desiredDeliveryDate = DateTime.Now.AddDays(1);
+                    DeliveryTime desiredDeliveryTime = DeliveryTime.Morning;
+                    newOrder = new PriorityOrder(customerName, OrderStatus.New, creationDate, items, desiredDeliveryDate, desiredDeliveryTime)
+                    {
+                        Address = _currentCustomer.Address
+                    };
+                }
+                else
+                {
+                    // Создаем обычный заказ
+                    newOrder = new Order(customerName, OrderStatus.New, creationDate, items)
+                    {
+                        Address = _currentCustomer.Address
+                    };
+                }
 
                 _currentCustomer.Orders.Add(newOrder);
 

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Model.Address address1 = new Model.Address();
+            Model.Address address2 = new Model.Address();
             labelOrders = new Label();
             dataGridViewOrders = new DataGridView();
             labelSelectedOrder = new Label();
@@ -43,7 +43,12 @@
             listBoxOrderItems = new ListBox();
             labelAmountOrdersTab = new Label();
             labelTotalAmountOrdersTab = new Label();
+            panelPriorityOrder = new Panel();
+            comboBoxDeliveryTime = new ComboBox();
+            labelDeliveryTime = new Label();
+            labelPriorityOptions = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewOrders).BeginInit();
+            panelPriorityOrder.SuspendLayout();
             SuspendLayout();
             // 
             // labelOrders
@@ -73,7 +78,7 @@
             // 
             labelSelectedOrder.AutoSize = true;
             labelSelectedOrder.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelSelectedOrder.Location = new Point(343, 9);
+            labelSelectedOrder.Location = new Point(343, 18);
             labelSelectedOrder.Name = "labelSelectedOrder";
             labelSelectedOrder.Size = new Size(98, 17);
             labelSelectedOrder.TabIndex = 2;
@@ -131,13 +136,13 @@
             // 
             // addressControlOrdersTab
             // 
-            address1.Apartment = "";
-            address1.Building = "";
-            address1.City = "";
-            address1.Country = "";
-            address1.Index = 0;
-            address1.Street = "";
-            addressControlOrdersTab.Address = address1;
+            address2.Apartment = "";
+            address2.Building = "";
+            address2.City = "";
+            address2.Country = "";
+            address2.Index = 0;
+            address2.Street = "";
+            addressControlOrdersTab.Address = address2;
             addressControlOrdersTab.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             addressControlOrdersTab.Location = new Point(343, 134);
             addressControlOrdersTab.Name = "addressControlOrdersTab";
@@ -186,10 +191,48 @@
             labelTotalAmountOrdersTab.TabIndex = 13;
             labelTotalAmountOrdersTab.Text = "4 999,90";
             // 
+            // panelPriorityOrder
+            // 
+            panelPriorityOrder.Controls.Add(comboBoxDeliveryTime);
+            panelPriorityOrder.Controls.Add(labelDeliveryTime);
+            panelPriorityOrder.Controls.Add(labelPriorityOptions);
+            panelPriorityOrder.Location = new Point(598, 9);
+            panelPriorityOrder.Name = "panelPriorityOrder";
+            panelPriorityOrder.Size = new Size(269, 114);
+            panelPriorityOrder.TabIndex = 14;
+            // 
+            // comboBoxDeliveryTime
+            // 
+            comboBoxDeliveryTime.FormattingEnabled = true;
+            comboBoxDeliveryTime.Location = new Point(90, 41);
+            comboBoxDeliveryTime.Name = "comboBoxDeliveryTime";
+            comboBoxDeliveryTime.Size = new Size(173, 23);
+            comboBoxDeliveryTime.TabIndex = 19;
+            // 
+            // labelDeliveryTime
+            // 
+            labelDeliveryTime.AutoSize = true;
+            labelDeliveryTime.Location = new Point(3, 44);
+            labelDeliveryTime.Name = "labelDeliveryTime";
+            labelDeliveryTime.Size = new Size(81, 15);
+            labelDeliveryTime.TabIndex = 18;
+            labelDeliveryTime.Text = "Delivery Time:";
+            // 
+            // labelPriorityOptions
+            // 
+            labelPriorityOptions.AutoSize = true;
+            labelPriorityOptions.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelPriorityOptions.Location = new Point(3, 9);
+            labelPriorityOptions.Name = "labelPriorityOptions";
+            labelPriorityOptions.Size = new Size(107, 17);
+            labelPriorityOptions.TabIndex = 17;
+            labelPriorityOptions.Text = "Priority Options";
+            // 
             // OrdersTab
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(panelPriorityOrder);
             Controls.Add(labelTotalAmountOrdersTab);
             Controls.Add(labelAmountOrdersTab);
             Controls.Add(listBoxOrderItems);
@@ -207,6 +250,8 @@
             Name = "OrdersTab";
             Size = new Size(1003, 619);
             ((System.ComponentModel.ISupportInitialize)dataGridViewOrders).EndInit();
+            panelPriorityOrder.ResumeLayout(false);
+            panelPriorityOrder.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -227,5 +272,9 @@
         private ListBox listBoxOrderItems;
         private Label labelAmountOrdersTab;
         private Label labelTotalAmountOrdersTab;
+        private Panel panelPriorityOrder;
+        private ComboBox comboBoxDeliveryTime;
+        private Label labelDeliveryTime;
+        private Label labelPriorityOptions;
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Model.Address address2 = new Model.Address();
+            Model.Address address1 = new Model.Address();
             labelSelectedOrder = new Label();
             textBoxIdOrder = new TextBox();
             labelIdOrder = new Label();
@@ -110,13 +110,13 @@
             // 
             // addressControl1
             // 
-            address2.Apartment = "";
-            address2.Building = "";
-            address2.City = "";
-            address2.Country = "";
-            address2.Index = 0;
-            address2.Street = "";
-            addressControl1.Address = address2;
+            address1.Apartment = "";
+            address1.Building = "";
+            address1.City = "";
+            address1.Country = "";
+            address1.Index = 0;
+            address1.Street = "";
+            addressControl1.Address = address1;
             addressControl1.Location = new Point(2, 134);
             addressControl1.Name = "addressControl1";
             addressControl1.Size = new Size(550, 158);

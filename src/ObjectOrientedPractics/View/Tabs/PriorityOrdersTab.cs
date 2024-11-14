@@ -92,12 +92,12 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
-        private void comboBoxDeliveryTime_SelectedIndexChanged(object sender, EventArgs e)
+        /*private void comboBoxDeliveryTime_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (_currentPriorityOrder != null)
             {
                 _currentPriorityOrder.DesiredDeliveryTime = comboBoxDeliveryTime.SelectedItem.ToString();
             }
-        }
+        }*/
     }
 }
