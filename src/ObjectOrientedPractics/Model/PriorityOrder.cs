@@ -15,7 +15,7 @@ namespace ObjectOrientedPractics.Model
         public PriorityOrder() : base()
         {
             DesiredDeliveryDate = DateTime.Now;
-            DesiredDeliveryTime = DeliveryTime.Morning;
+            DesiredDeliveryTime = DeliveryTime.Range9To11;
         }
 
         public PriorityOrder(string customerName, OrderStatus status, DateTime creationDate, List<Item> items, DateTime desiredDeliveryDate, DeliveryTime desiredDeliveryTime) : base(customerName, status, creationDate, items)

@@ -137,7 +137,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 {
                     // Создаем приоритетный заказ
                     DateTime desiredDeliveryDate = DateTime.Now.AddDays(1);
-                    DeliveryTime desiredDeliveryTime = DeliveryTime.Morning;
+                    DeliveryTime desiredDeliveryTime = DeliveryTime.Range9To11;
                     newOrder = new PriorityOrder(customerName, OrderStatus.New, creationDate, items, desiredDeliveryDate, desiredDeliveryTime)
                     {
                         Address = _currentCustomer.Address
