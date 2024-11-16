@@ -38,6 +38,11 @@ namespace ObjectOrientedPractics.Model
         private bool _isPriority;
 
         /// <summary>
+        /// Список скидок покупателя.
+        /// </summary>
+        public List<IDiscount> Discounts { get; }
+
+        /// <summary>
         /// Создает новый экземпляр класса Customer.
         /// </summary>
         /// <param name="fullname">Полное имя покупателя (до 200 символов).</param>
@@ -49,6 +54,7 @@ namespace ObjectOrientedPractics.Model
             Address = address;
             _cart = new Cart();
             _orders = new List<Order>();
+            Discounts = new List<IDiscount> { new PointsDiscount() };
             _isPriority = false;
         }
 

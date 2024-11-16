@@ -19,6 +19,8 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         private readonly int _id;
 
+        private double _discountAmount;
+
         public string CustomerName { get; set; }
 
         /// <summary>
@@ -64,16 +66,30 @@ namespace ObjectOrientedPractics.Model
         public List<Item> Items { get; set; }
 
         /// <summary>
-        /// Общая стоимость всех товаров в заказе.
+        /// Итоговая стоимость заказа с учетом скидки.
+        /// </summary>
+        public double Total => Math.Max(TotalAmount - DiscountAmount, 0);
+
+        /// <summary>
+        /// Общая стоимость всех товаров в заказе без учета скидки.
         /// </summary>
         public double TotalAmount
         {
             get
             {
                 double sum = 0;
-                Items.ForEach(x => { sum += x.Cost; });
+                Items.ForEach(item => sum += item.Cost);
                 return Math.Round(sum, 2);
             }
+        }
+
+        /// <summary>
+        /// Сумма примененной скидки.
+        /// </summary>
+        public double DiscountAmount
+        {
+            get => _discountAmount;
+            set => _discountAmount = Math.Max(value, 0);
         }
 
         /// <summary>
