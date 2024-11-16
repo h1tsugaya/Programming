@@ -105,6 +105,8 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
+
+
         /// <summary>
         /// Обрабатывает изменение выбранного клиента в <see cref="ListBox"/>.
         /// Загружает информацию о выбранном клиенте в текстовые поля.
@@ -164,6 +166,66 @@ namespace ObjectOrientedPractics.View.Tabs
 
             return isValid;
         }
+
+        /*/// <summary>
+        /// Обновляет отображение списка скидок для выбранного клиента.
+        /// </summary>
+        private void UpdateDiscountsList()
+        {
+            listBoxDiscounts.Items.Clear();
+
+            if (_selectedCustomer?.Discounts != null)
+            {
+                foreach (var discount in _selectedCustomer.Discounts)
+                {
+                    listBoxDiscounts.Items.Add(discount.ToString());
+                }
+            }
+        }
+
+        /// <summary>
+        /// Обрабатывает нажатие кнопки "Add Discount".
+        /// </summary>
+        private void buttonAddDiscount_Click(object sender, EventArgs e)
+        {
+            if (_selectedCustomer == null) return;
+
+            using (var addDiscountForm = new AddDiscountForm())
+            {
+                if (addDiscountForm.ShowDialog() == DialogResult.OK)
+                {
+                    var selectedCategory = addDiscountForm.SelectedCategory;
+                    var percentDiscount = addDiscountForm.PercentDiscount;
+
+                    // Проверяем, существует ли уже скидка для выбранной категории
+                    if (_selectedCustomer.Discounts.OfType<PercentDiscount>()
+                        .Any(d => d.Category == selectedCategory.ToString()))
+                    {
+                        MessageBox.Show("Скидка для данной категории уже существует.",
+                                        "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    // Добавляем новую скидку
+                    var newDiscount = new PercentDiscount(percentDiscount, selectedCategory.ToString());
+                    _selectedCustomer.Discounts.Add(newDiscount);
+                    UpdateDiscountsList();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Обрабатывает нажатие кнопки "Remove Discount".
+        /// </summary>
+        private void buttonRemoveDiscount_Click(object sender, EventArgs e)
+        {
+            if (_selectedCustomer == null || listBoxDiscounts.SelectedIndex == -1) return;
+
+            int selectedIndex = listBoxDiscounts.SelectedIndex;
+            _selectedCustomer.Discounts.RemoveAt(selectedIndex);
+            UpdateDiscountsList();
+        }*/
+
 
         /// <summary>
         /// Очищает текстовые поля, связанные с клиентом.
