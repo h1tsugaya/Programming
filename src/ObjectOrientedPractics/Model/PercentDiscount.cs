@@ -6,18 +6,21 @@ using System.Threading.Tasks;
 
 namespace ObjectOrientedPractics.Model
 {
-    public class PercentDiscount
+    /// <summary>
+    /// Класс, представляющий процентную скидку на определенную категорию товаров.
+    /// </summary>
+    public class PercentDiscount : IDiscount
     {
         private int _discountPercent;
         private double _totalSpent;
 
         /// <summary>
-        /// Категория товаров, на которую предоставляется скидка.
+        /// Получает категорию товаров, на которую предоставляется скидка.
         /// </summary>
         public Category Category { get; }
 
         /// <summary>
-        /// Текущий процент скидки (от 1% до 10%).
+        /// Получает текущий процент скидки.
         /// </summary>
         public int DiscountPercent
         {
@@ -26,12 +29,12 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
-        /// Строковое свойство, возвращающее название скидки и текущий процент.
+        /// Возвращает информацию о скидке в формате "Процентная «{Категория}» - {Процент}%".
         /// </summary>
         public string Info => $"Процентная «{Category}» - {DiscountPercent}%";
 
         /// <summary>
-        /// Конструктор, принимающий категорию товаров.
+        /// Инициализирует новый экземпляр класса <see cref="PercentDiscount"/> с заданной категорией товаров.
         /// </summary>
         /// <param name="category">Категория товаров.</param>
         public PercentDiscount(Category category)
@@ -42,7 +45,7 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
-        /// Метод для расчета возможной скидки на основе списка товаров.
+        /// Рассчитывает возможную скидку на товары указанной категории.
         /// </summary>
         /// <param name="items">Список товаров.</param>
         /// <returns>Размер скидки в рублях.</returns>
@@ -60,7 +63,7 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
-        /// Метод для применения скидки к списку товаров. Возвращает размер скидки и уменьшает сумму покупок.
+        /// Применяет процентную скидку к товарам указанной категории.
         /// </summary>
         /// <param name="items">Список товаров.</param>
         /// <returns>Размер примененной скидки в рублях.</returns>
@@ -71,7 +74,7 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
-        /// Метод для обновления суммы покупок и увеличения процента скидки.
+        /// Обновляет процент скидки на основе общей суммы покупок товаров указанной категории.
         /// </summary>
         /// <param name="items">Список товаров.</param>
         public void Update(List<Item> items)
@@ -87,7 +90,6 @@ namespace ObjectOrientedPractics.Model
 
             _totalSpent += categoryTotal;
 
-            // Увеличиваем процент скидки на 1% за каждую 1000 рублей потраченных на товары данной категории.
             while (_totalSpent >= 1000 && DiscountPercent < 10)
             {
                 DiscountPercent++;
