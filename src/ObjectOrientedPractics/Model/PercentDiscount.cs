@@ -15,6 +15,20 @@ namespace ObjectOrientedPractics.Model
         private double _totalSpent;
 
         /// <summary>
+        /// Словарь, хранящий проценты скидок для каждой категории товаров.
+        /// </summary>
+        public static Dictionary<Category, int> DiscountPercentsByCategory { get; } = new()
+        {
+            { Category.Electronics, 5 },
+            { Category.Clothing, 7 },
+            { Category.HomeAppliances, 6 },
+            { Category.Food, 10 },
+            { Category.Cosmetics, 8 },
+            { Category.SportsEquipment, 7 },
+            { Category.Furniture, 5 }
+        };
+
+        /// <summary>
         /// Получает категорию товаров, на которую предоставляется скидка.
         /// </summary>
         public Category Category { get; }
@@ -40,7 +54,9 @@ namespace ObjectOrientedPractics.Model
         public PercentDiscount(Category category)
         {
             Category = category;
-            DiscountPercent = 1;
+            DiscountPercent = DiscountPercentsByCategory.ContainsKey(category)
+                ? DiscountPercentsByCategory[category]
+                : 1; // Если категория не найдена, установить минимальную скидку 1%
             _totalSpent = 0.0;
         }
 

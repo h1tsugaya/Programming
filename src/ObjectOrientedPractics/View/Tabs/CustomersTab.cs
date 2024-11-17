@@ -22,6 +22,7 @@ namespace ObjectOrientedPractics.View.Tabs
         /// Список клиентов.
         /// </summary>
         private List<Customer> _customers = new List<Customer>();
+        private Customer _selectedCustomer;
 
         /// <summary>
         /// Инициализирует новый экземпляр <see cref="CustomersTab"/>.
@@ -71,11 +72,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 try
                 {
                     Address newAddress = addressControl1.Address;
-                    Customer newCustomer = new Customer(
-                        textBoxFullName.Text,
-                        newAddress
-                        );
-
+                    Customer newCustomer = new Customer(textBoxFullName.Text, newAddress);
                     newCustomer.IsPriority = checkBoxIsPriority.Checked;
                     _customers.Add(newCustomer);
                     UpdateCustomersListBox();
@@ -118,24 +115,21 @@ namespace ObjectOrientedPractics.View.Tabs
             if (CustomersListBox.SelectedIndex != -1)
             {
                 int selectedIndex = CustomersListBox.SelectedIndex;
-                Customer selectedCustomer = _customers[selectedIndex];
+                _selectedCustomer = _customers[selectedIndex];
 
-                textBoxId2.Text = selectedCustomer.Id.ToString();
-                textBoxFullName.Text = selectedCustomer.Fullname;
-                addressControl1.Address = selectedCustomer.Address;
-                checkBoxIsPriority.Checked = selectedCustomer.IsPriority;
+                textBoxId2.Text = _selectedCustomer.Id.ToString();
+                textBoxFullName.Text = _selectedCustomer.Fullname;
+                addressControl1.Address = _selectedCustomer.Address;
+                checkBoxIsPriority.Checked = _selectedCustomer.IsPriority;
+                UpdateDiscountsList();
             }
         }
 
         private void checkBoxIsPriority_CheckedChanged(object sender, EventArgs e)
         {
-            if (CustomersListBox.SelectedIndex != -1)
+            if (_selectedCustomer != null)
             {
-                int selectedIndex = CustomersListBox.SelectedIndex;
-                Customer selectedCustomer = _customers[selectedIndex];
-
-                selectedCustomer.IsPriority = checkBoxIsPriority.Checked;
-
+                _selectedCustomer.IsPriority = checkBoxIsPriority.Checked;
                 UpdateCustomersListBox();
             }
         }
@@ -167,7 +161,7 @@ namespace ObjectOrientedPractics.View.Tabs
             return isValid;
         }
 
-        /*/// <summary>
+        /// <summary>
         /// Обновляет отображение списка скидок для выбранного клиента.
         /// </summary>
         private void UpdateDiscountsList()
@@ -178,7 +172,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 foreach (var discount in _selectedCustomer.Discounts)
                 {
-                    listBoxDiscounts.Items.Add(discount.ToString());
+                    listBoxDiscounts.Items.Add(discount.Info);
                 }
             }
         }
@@ -188,28 +182,20 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void buttonAddDiscount_Click(object sender, EventArgs e)
         {
-            if (_selectedCustomer == null) return;
-
             using (var addDiscountForm = new AddDiscountForm())
             {
                 if (addDiscountForm.ShowDialog() == DialogResult.OK)
                 {
                     var selectedCategory = addDiscountForm.SelectedCategory;
-                    var percentDiscount = addDiscountForm.PercentDiscount;
-
-                    // Проверяем, существует ли уже скидка для выбранной категории
-                    if (_selectedCustomer.Discounts.OfType<PercentDiscount>()
-                        .Any(d => d.Category == selectedCategory.ToString()))
+                    var newDiscount = new PercentDiscount(selectedCategory);
+                    int selectedIndex = CustomersListBox.SelectedIndex;
+                    if (selectedIndex != -1)
                     {
-                        MessageBox.Show("Скидка для данной категории уже существует.",
-                                        "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
+                        var selectedCustomer = _customers[selectedIndex];
+                        selectedCustomer.Discounts.Add(newDiscount);
+                        MessageBox.Show($"Скидка на категорию {selectedCategory} добавлена!",
+                                        "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-
-                    // Добавляем новую скидку
-                    var newDiscount = new PercentDiscount(percentDiscount, selectedCategory.ToString());
-                    _selectedCustomer.Discounts.Add(newDiscount);
-                    UpdateDiscountsList();
                 }
             }
         }
@@ -219,12 +205,36 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void buttonRemoveDiscount_Click(object sender, EventArgs e)
         {
-            if (_selectedCustomer == null || listBoxDiscounts.SelectedIndex == -1) return;
+            int selectedCustomerIndex = CustomersListBox.SelectedIndex;
+            int selectedDiscountIndex = listBoxDiscounts.SelectedIndex;
 
-            int selectedIndex = listBoxDiscounts.SelectedIndex;
-            _selectedCustomer.Discounts.RemoveAt(selectedIndex);
-            UpdateDiscountsList();
-        }*/
+            if (selectedCustomerIndex == -1)
+            {
+                MessageBox.Show("Пожалуйста, выберите клиента.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (selectedDiscountIndex == -1)
+            {
+                MessageBox.Show("Пожалуйста, выберите скидку для удаления.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var selectedCustomer = _customers[selectedCustomerIndex];
+            var selectedDiscount = selectedCustomer.Discounts[selectedDiscountIndex];
+
+            if (selectedDiscount is PointsDiscount)
+            {
+                MessageBox.Show("Невозможно удалить накопительную скидку, так как она обязательна для каждого клиента.",
+                                "Удаление невозможно", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            selectedCustomer.Discounts.RemoveAt(selectedDiscountIndex);
+            listBoxDiscounts.Items.RemoveAt(selectedDiscountIndex);
+
+            MessageBox.Show("Скидка успешно удалена.", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
 
 
         /// <summary>

@@ -70,6 +70,7 @@
             buttonOk.TabIndex = 3;
             buttonOk.Text = "Ok";
             buttonOk.UseVisualStyleBackColor = true;
+            buttonOk.Click += buttonOk_Click;
             // 
             // buttonCancel
             // 
@@ -79,6 +80,7 @@
             buttonCancel.TabIndex = 4;
             buttonCancel.Text = "Cancel";
             buttonCancel.UseVisualStyleBackColor = true;
+            buttonCancel.Click += buttonCancel_Click;
             // 
             // AddDiscountForm
             // 
@@ -92,6 +94,7 @@
             Controls.Add(labelPercentDiscount);
             Name = "AddDiscountForm";
             Text = "AddDiscountForm";
+            Load += AddDiscountForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

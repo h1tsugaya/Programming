@@ -31,6 +31,10 @@
             Model.Address address1 = new Model.Address();
             labelCustomers = new Label();
             groupBoxCustomers = new GroupBox();
+            buttonRemoveDiscount = new Button();
+            buttonAddDiscount = new Button();
+            listBoxDiscounts = new ListBox();
+            labelDiscounts = new Label();
             checkBoxIsPriority = new CheckBox();
             addressControl1 = new Controls.AddressControl();
             panel = new Panel();
@@ -44,10 +48,6 @@
             CustomersListBox = new ListBox();
             groupBoxCustomers2 = new GroupBox();
             tableLayoutCustomersPanel = new TableLayoutPanel();
-            labelDiscounts = new Label();
-            listBoxDiscounts = new ListBox();
-            buttonAddDiscount = new Button();
-            buttonRemoveDiscount = new Button();
             groupBoxCustomers.SuspendLayout();
             groupBoxCustomers2.SuspendLayout();
             tableLayoutCustomersPanel.SuspendLayout();
@@ -83,6 +83,45 @@
             groupBoxCustomers.Size = new Size(1042, 943);
             groupBoxCustomers.TabIndex = 1;
             groupBoxCustomers.TabStop = false;
+            // 
+            // buttonRemoveDiscount
+            // 
+            buttonRemoveDiscount.Location = new Point(435, 418);
+            buttonRemoveDiscount.Name = "buttonRemoveDiscount";
+            buttonRemoveDiscount.Size = new Size(121, 60);
+            buttonRemoveDiscount.TabIndex = 16;
+            buttonRemoveDiscount.Text = "Remove";
+            buttonRemoveDiscount.UseVisualStyleBackColor = true;
+            buttonRemoveDiscount.Click += buttonRemoveDiscount_Click;
+            // 
+            // buttonAddDiscount
+            // 
+            buttonAddDiscount.Location = new Point(434, 352);
+            buttonAddDiscount.Name = "buttonAddDiscount";
+            buttonAddDiscount.Size = new Size(122, 60);
+            buttonAddDiscount.TabIndex = 15;
+            buttonAddDiscount.Text = "Add";
+            buttonAddDiscount.UseVisualStyleBackColor = true;
+            buttonAddDiscount.Click += buttonAddDiscount_Click;
+            // 
+            // listBoxDiscounts
+            // 
+            listBoxDiscounts.FormattingEnabled = true;
+            listBoxDiscounts.ItemHeight = 15;
+            listBoxDiscounts.Location = new Point(6, 352);
+            listBoxDiscounts.Name = "listBoxDiscounts";
+            listBoxDiscounts.Size = new Size(408, 169);
+            listBoxDiscounts.TabIndex = 14;
+            // 
+            // labelDiscounts
+            // 
+            labelDiscounts.AutoSize = true;
+            labelDiscounts.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelDiscounts.Location = new Point(6, 332);
+            labelDiscounts.Name = "labelDiscounts";
+            labelDiscounts.Size = new Size(69, 17);
+            labelDiscounts.TabIndex = 13;
+            labelDiscounts.Text = "Discounts";
             // 
             // checkBoxIsPriority
             // 
@@ -219,43 +258,6 @@
             tableLayoutCustomersPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutCustomersPanel.Size = new Size(1424, 949);
             tableLayoutCustomersPanel.TabIndex = 3;
-            // 
-            // labelDiscounts
-            // 
-            labelDiscounts.AutoSize = true;
-            labelDiscounts.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelDiscounts.Location = new Point(6, 332);
-            labelDiscounts.Name = "labelDiscounts";
-            labelDiscounts.Size = new Size(69, 17);
-            labelDiscounts.TabIndex = 13;
-            labelDiscounts.Text = "Discounts";
-            // 
-            // listBoxDiscounts
-            // 
-            listBoxDiscounts.FormattingEnabled = true;
-            listBoxDiscounts.ItemHeight = 15;
-            listBoxDiscounts.Location = new Point(6, 352);
-            listBoxDiscounts.Name = "listBoxDiscounts";
-            listBoxDiscounts.Size = new Size(408, 169);
-            listBoxDiscounts.TabIndex = 14;
-            // 
-            // buttonAddDiscount
-            // 
-            buttonAddDiscount.Location = new Point(434, 352);
-            buttonAddDiscount.Name = "buttonAddDiscount";
-            buttonAddDiscount.Size = new Size(122, 60);
-            buttonAddDiscount.TabIndex = 15;
-            buttonAddDiscount.Text = "Add";
-            buttonAddDiscount.UseVisualStyleBackColor = true;
-            // 
-            // buttonRemoveDiscount
-            // 
-            buttonRemoveDiscount.Location = new Point(435, 418);
-            buttonRemoveDiscount.Name = "buttonRemoveDiscount";
-            buttonRemoveDiscount.Size = new Size(121, 60);
-            buttonRemoveDiscount.TabIndex = 16;
-            buttonRemoveDiscount.Text = "Remove";
-            buttonRemoveDiscount.UseVisualStyleBackColor = true;
             // 
             // CustomersTab
             // 
