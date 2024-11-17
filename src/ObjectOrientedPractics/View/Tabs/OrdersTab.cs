@@ -90,6 +90,12 @@ namespace ObjectOrientedPractics.View.Tabs
                 HeaderText = "Total Amount",
                 ReadOnly = true
             });
+            dataGridViewOrders.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Total",
+                HeaderText = "Total",
+                ReadOnly = true
+            });
             dataGridViewOrders.Columns.Add(new DataGridViewComboBoxColumn
             {
                 DataPropertyName = "Status",
@@ -145,6 +151,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 foreach (var order in customer.Orders)
                 {
+                    order.Customer = customer;
                     order.CustomerName = customer.Fullname;
                     _orders.Add(order);
                 }
@@ -196,6 +203,7 @@ namespace ObjectOrientedPractics.View.Tabs
             listBoxOrderItems.Items.Clear();
             listBoxOrderItems.Items.AddRange(order.Items.ToArray());
             labelTotalAmountOrdersTab.Text = order.TotalAmount.ToString("N2");
+            labelTotalOrdersTab.Text = order.Total.ToString("N2");
 
             if (order is PriorityOrder priorityOrder)
             {

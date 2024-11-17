@@ -24,6 +24,11 @@ namespace ObjectOrientedPractics.Model
         public string CustomerName { get; set; }
 
         /// <summary>
+        /// Покупатель, оформивший заказ.
+        /// </summary>
+        public Customer Customer { get; set; }
+
+        /// <summary>
         /// Дата создания заказа.
         /// </summary>
         private readonly string _creationDate;
@@ -68,7 +73,16 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Итоговая стоимость заказа с учетом скидки.
         /// </summary>
-        public double Total => Math.Max(TotalAmount - DiscountAmount, 0);
+        /*public double Total => Math.Max(TotalAmount - DiscountAmount, 0);*/
+        public double Total
+        {
+            get
+            {
+                double sum = Items?.Sum(item => item.Cost) ?? 0.0;
+                double discount = Customer?.Discounts?.FirstOrDefault()?.Calculate(Items) ?? 0.0;
+                return sum - discount;
+            }
+        }
 
         /// <summary>
         /// Общая стоимость всех товаров в заказе без учета скидки.

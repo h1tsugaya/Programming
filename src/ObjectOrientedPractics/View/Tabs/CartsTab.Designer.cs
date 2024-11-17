@@ -40,6 +40,12 @@
             buttonRemoveItem = new Button();
             buttonClearCart = new Button();
             listBoxCart = new ListBox();
+            labelDiscounts = new Label();
+            checkedListBoxDiscount = new CheckedListBox();
+            labelDiscountAmount = new Label();
+            labelDiscountAmountCount = new Label();
+            labelTotal = new Label();
+            labelTotalCount = new Label();
             SuspendLayout();
             // 
             // labelCartTabItems
@@ -98,7 +104,7 @@
             comboBoxCustomer.FormattingEnabled = true;
             comboBoxCustomer.Location = new Point(401, 17);
             comboBoxCustomer.Name = "comboBoxCustomer";
-            comboBoxCustomer.Size = new Size(375, 23);
+            comboBoxCustomer.Size = new Size(516, 23);
             comboBoxCustomer.TabIndex = 5;
             comboBoxCustomer.SelectedIndexChanged += comboBoxCustomer_SelectedIndexChanged;
             // 
@@ -107,7 +113,7 @@
             labelAmount.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             labelAmount.AutoSize = true;
             labelAmount.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelAmount.Location = new Point(679, 270);
+            labelAmount.Location = new Point(820, 270);
             labelAmount.Name = "labelAmount";
             labelAmount.Size = new Size(62, 17);
             labelAmount.TabIndex = 7;
@@ -118,7 +124,7 @@
             labelAmountCount.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             labelAmountCount.AutoSize = true;
             labelAmountCount.Font = new Font("Segoe UI Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelAmountCount.Location = new Point(679, 287);
+            labelAmountCount.Location = new Point(820, 287);
             labelAmountCount.Name = "labelAmountCount";
             labelAmountCount.Size = new Size(23, 25);
             labelAmountCount.TabIndex = 8;
@@ -138,7 +144,7 @@
             // buttonRemoveItem
             // 
             buttonRemoveItem.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            buttonRemoveItem.Location = new Point(573, 324);
+            buttonRemoveItem.Location = new Point(714, 324);
             buttonRemoveItem.Name = "buttonRemoveItem";
             buttonRemoveItem.Size = new Size(98, 38);
             buttonRemoveItem.TabIndex = 10;
@@ -149,7 +155,7 @@
             // buttonClearCart
             // 
             buttonClearCart.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            buttonClearCart.Location = new Point(677, 324);
+            buttonClearCart.Location = new Point(818, 324);
             buttonClearCart.Name = "buttonClearCart";
             buttonClearCart.Size = new Size(98, 38);
             buttonClearCart.TabIndex = 11;
@@ -164,13 +170,86 @@
             listBoxCart.ItemHeight = 15;
             listBoxCart.Location = new Point(331, 72);
             listBoxCart.Name = "listBoxCart";
-            listBoxCart.Size = new Size(444, 184);
+            listBoxCart.Size = new Size(585, 184);
             listBoxCart.TabIndex = 12;
+            // 
+            // labelDiscounts
+            // 
+            labelDiscounts.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            labelDiscounts.AutoSize = true;
+            labelDiscounts.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelDiscounts.Location = new Point(331, 384);
+            labelDiscounts.Name = "labelDiscounts";
+            labelDiscounts.Size = new Size(73, 17);
+            labelDiscounts.TabIndex = 13;
+            labelDiscounts.Text = "Discounts:";
+            // 
+            // checkedListBoxDiscount
+            // 
+            checkedListBoxDiscount.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            checkedListBoxDiscount.BackColor = SystemColors.ButtonHighlight;
+            checkedListBoxDiscount.BorderStyle = BorderStyle.None;
+            checkedListBoxDiscount.FormattingEnabled = true;
+            checkedListBoxDiscount.Location = new Point(331, 404);
+            checkedListBoxDiscount.Name = "checkedListBoxDiscount";
+            checkedListBoxDiscount.Size = new Size(315, 162);
+            checkedListBoxDiscount.TabIndex = 14;
+            checkedListBoxDiscount.ItemCheck += checkedListBoxDiscount_ItemCheck;
+            // 
+            // labelDiscountAmount
+            // 
+            labelDiscountAmount.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            labelDiscountAmount.AutoSize = true;
+            labelDiscountAmount.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelDiscountAmount.Location = new Point(761, 404);
+            labelDiscountAmount.Name = "labelDiscountAmount";
+            labelDiscountAmount.Size = new Size(121, 17);
+            labelDiscountAmount.TabIndex = 15;
+            labelDiscountAmount.Text = "Discount Amount:";
+            // 
+            // labelDiscountAmountCount
+            // 
+            labelDiscountAmountCount.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            labelDiscountAmountCount.AutoSize = true;
+            labelDiscountAmountCount.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelDiscountAmountCount.Location = new Point(824, 431);
+            labelDiscountAmountCount.Name = "labelDiscountAmountCount";
+            labelDiscountAmountCount.Size = new Size(23, 25);
+            labelDiscountAmountCount.TabIndex = 16;
+            labelDiscountAmountCount.Text = "0";
+            // 
+            // labelTotal
+            // 
+            labelTotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            labelTotal.AutoSize = true;
+            labelTotal.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelTotal.Location = new Point(844, 609);
+            labelTotal.Name = "labelTotal";
+            labelTotal.Size = new Size(47, 17);
+            labelTotal.TabIndex = 17;
+            labelTotal.Text = "TOTAL:";
+            // 
+            // labelTotalCount
+            // 
+            labelTotalCount.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            labelTotalCount.AutoSize = true;
+            labelTotalCount.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelTotalCount.Location = new Point(845, 637);
+            labelTotalCount.Name = "labelTotalCount";
+            labelTotalCount.Size = new Size(23, 25);
+            labelTotalCount.TabIndex = 18;
+            labelTotalCount.Text = "0";
             // 
             // CartsTab
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(labelTotalCount);
+            Controls.Add(labelTotal);
+            Controls.Add(labelDiscountAmountCount);
+            Controls.Add(labelDiscountAmount);
+            Controls.Add(checkedListBoxDiscount);
+            Controls.Add(labelDiscounts);
             Controls.Add(listBoxCart);
             Controls.Add(buttonClearCart);
             Controls.Add(buttonRemoveItem);
@@ -184,7 +263,7 @@
             Controls.Add(listBoxCartItems);
             Controls.Add(labelCartTabItems);
             Name = "CartsTab";
-            Size = new Size(786, 698);
+            Size = new Size(927, 698);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -203,5 +282,11 @@
         private Button buttonRemoveItem;
         private Button buttonClearCart;
         private ListBox listBoxCart;
+        private Label labelDiscounts;
+        private CheckedListBox checkedListBoxDiscount;
+        private Label labelDiscountAmount;
+        private Label labelDiscountAmountCount;
+        private Label labelTotal;
+        private Label labelTotalCount;
     }
 }

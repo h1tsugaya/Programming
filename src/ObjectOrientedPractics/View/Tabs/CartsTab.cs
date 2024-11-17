@@ -145,18 +145,34 @@ namespace ObjectOrientedPractics.View.Tabs
                 }
                 else
                 {
-                    // Создаем обычный заказ
                     newOrder = new Order(customerName, OrderStatus.New, creationDate, items)
                     {
                         Address = _currentCustomer.Address
                     };
                 }
 
-                _currentCustomer.Orders.Add(newOrder);
+                // Применяем выбранные скидки
+                for (int i = 0; i < checkedListBoxDiscount.Items.Count; i++)
+                {
+                    if (checkedListBoxDiscount.GetItemChecked(i))
+                    {
+                        var discount = _currentCustomer.Discounts[i];
+                        discount.Apply(_currentCustomer.Cart.Items);
+                    }
+                }
 
+                // Обновляем все скидки
+                foreach (var discount in _currentCustomer.Discounts)
+                {
+                    discount.Update(_currentCustomer.Cart.Items);
+                }
+
+                _currentCustomer.Orders.Add(newOrder);
                 items.Clear();
                 ClearCart();
                 UpdateAmount();
+                UpdateDiscountsListBox();
+                CalculateDiscounts();
             }
         }
 
@@ -171,12 +187,17 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentCustomer = (Customer)comboBoxCustomer.SelectedItem;
                 UpdateCartItemsListBox();
                 UpdateAmount();
+                UpdateDiscountsListBox();
+                CalculateDiscounts();
             }
             else
             {
                 _currentCustomer = null;
                 listBoxCart.Items.Clear();
+                checkedListBoxDiscount.Items.Clear();
                 UpdateAmount();
+                UpdateDiscountAmount(0);
+                UpdateTotalAmount();
             }
         }
 
@@ -190,6 +211,59 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 listBoxCart.Items.AddRange(_currentCustomer.Cart.Items.ToArray());
             }
+        }
+
+        private void UpdateDiscountsListBox()
+        {
+            checkedListBoxDiscount.Items.Clear();
+
+            if (_currentCustomer == null || _currentCustomer.Discounts == null) return;
+
+            foreach (var discount in _currentCustomer.Discounts)
+            {
+                checkedListBoxDiscount.Items.Add(discount.Info, true);
+            }
+        }
+
+        private void CalculateDiscounts()
+        {
+            if (_currentCustomer == null) return;
+
+            double discountAmount = 0.0;
+
+            for (int i = 0; i < checkedListBoxDiscount.Items.Count; i++)
+            {
+                if (checkedListBoxDiscount.GetItemChecked(i))
+                {
+                    var discount = _currentCustomer.Discounts[i];
+                    discountAmount += discount.Calculate(_currentCustomer.Cart.Items);
+                }
+            }
+
+            UpdateDiscountAmount(discountAmount);
+            UpdateTotalAmount();
+        }
+
+        private void checkedListBoxDiscount_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            // Используем метод BeginInvoke, чтобы дождаться изменения состояния галочки
+            this.BeginInvoke((MethodInvoker)(() =>
+            {
+                CalculateDiscounts();
+            }));
+        }
+
+        private void UpdateDiscountAmount(double amount)
+        {
+            labelDiscountAmountCount.Text = amount.ToString("F2");
+        }
+
+        private void UpdateTotalAmount()
+        {
+            if (_currentCustomer == null) return;
+
+            double totalAmount = _currentCustomer.Cart.Amount - double.Parse(labelDiscountAmountCount.Text);
+            labelTotalCount.Text = totalAmount.ToString("F2");
         }
 
     }

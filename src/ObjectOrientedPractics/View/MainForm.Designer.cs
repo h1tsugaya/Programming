@@ -55,7 +55,7 @@
             tabControlMainForm.Location = new Point(0, 0);
             tabControlMainForm.Name = "tabControlMainForm";
             tabControlMainForm.SelectedIndex = 0;
-            tabControlMainForm.Size = new Size(1026, 653);
+            tabControlMainForm.Size = new Size(1105, 800);
             tabControlMainForm.TabIndex = 0;
             tabControlMainForm.SelectedIndexChanged += tabControlMainForm_SelectedIndexChanged;
             // 
@@ -65,7 +65,7 @@
             tabPageItems.Location = new Point(4, 24);
             tabPageItems.Name = "tabPageItems";
             tabPageItems.Padding = new Padding(3);
-            tabPageItems.Size = new Size(1018, 625);
+            tabPageItems.Size = new Size(1097, 772);
             tabPageItems.TabIndex = 0;
             tabPageItems.Text = "Items";
             tabPageItems.UseVisualStyleBackColor = true;
@@ -75,7 +75,7 @@
             itemsTab.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             itemsTab.Location = new Point(3, 3);
             itemsTab.Name = "itemsTab";
-            itemsTab.Size = new Size(1012, 619);
+            itemsTab.Size = new Size(1091, 766);
             itemsTab.TabIndex = 0;
             // 
             // tabPageCustomers
@@ -101,7 +101,7 @@
             tabPageCart.Controls.Add(cartsTab);
             tabPageCart.Location = new Point(4, 24);
             tabPageCart.Name = "tabPageCart";
-            tabPageCart.Size = new Size(1018, 625);
+            tabPageCart.Size = new Size(1097, 772);
             tabPageCart.TabIndex = 2;
             tabPageCart.Text = "Carts";
             tabPageCart.UseVisualStyleBackColor = true;
@@ -113,7 +113,7 @@
             cartsTab.Items = null;
             cartsTab.Location = new Point(8, 3);
             cartsTab.Name = "cartsTab";
-            cartsTab.Size = new Size(1002, 614);
+            cartsTab.Size = new Size(1064, 726);
             cartsTab.TabIndex = 0;
             // 
             // tabPageOrders
@@ -139,7 +139,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1026, 653);
+            ClientSize = new Size(1105, 800);
             Controls.Add(tabControlMainForm);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";

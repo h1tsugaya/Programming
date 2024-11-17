@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Model.Address address2 = new Model.Address();
+            Model.Address address1 = new Model.Address();
             labelOrders = new Label();
             dataGridViewOrders = new DataGridView();
             labelSelectedOrder = new Label();
@@ -47,6 +47,8 @@
             comboBoxDeliveryTime = new ComboBox();
             labelDeliveryTime = new Label();
             labelPriorityOptions = new Label();
+            labelTotal = new Label();
+            labelTotalOrdersTab = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewOrders).BeginInit();
             panelPriorityOrder.SuspendLayout();
             SuspendLayout();
@@ -70,7 +72,7 @@
             dataGridViewOrders.Location = new Point(3, 29);
             dataGridViewOrders.MultiSelect = false;
             dataGridViewOrders.Name = "dataGridViewOrders";
-            dataGridViewOrders.Size = new Size(335, 587);
+            dataGridViewOrders.Size = new Size(335, 707);
             dataGridViewOrders.TabIndex = 1;
             dataGridViewOrders.SelectionChanged += dataGridViewOrders_SelectionChanged;
             // 
@@ -136,13 +138,13 @@
             // 
             // addressControlOrdersTab
             // 
-            address2.Apartment = "";
-            address2.Building = "";
-            address2.City = "";
-            address2.Country = "";
-            address2.Index = 0;
-            address2.Street = "";
-            addressControlOrdersTab.Address = address2;
+            address1.Apartment = "";
+            address1.Building = "";
+            address1.City = "";
+            address1.Country = "";
+            address1.Index = 0;
+            address1.Street = "";
+            addressControlOrdersTab.Address = address1;
             addressControlOrdersTab.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             addressControlOrdersTab.Location = new Point(343, 134);
             addressControlOrdersTab.Name = "addressControlOrdersTab";
@@ -161,7 +163,7 @@
             // 
             // listBoxOrderItems
             // 
-            listBoxOrderItems.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            listBoxOrderItems.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             listBoxOrderItems.FormattingEnabled = true;
             listBoxOrderItems.ItemHeight = 15;
             listBoxOrderItems.Location = new Point(344, 339);
@@ -174,7 +176,7 @@
             labelAmountOrdersTab.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             labelAmountOrdersTab.AutoSize = true;
             labelAmountOrdersTab.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelAmountOrdersTab.Location = new Point(930, 506);
+            labelAmountOrdersTab.Location = new Point(930, 511);
             labelAmountOrdersTab.Name = "labelAmountOrdersTab";
             labelAmountOrdersTab.Size = new Size(62, 17);
             labelAmountOrdersTab.TabIndex = 12;
@@ -185,7 +187,7 @@
             labelTotalAmountOrdersTab.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             labelTotalAmountOrdersTab.AutoSize = true;
             labelTotalAmountOrdersTab.Font = new Font("Segoe UI Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelTotalAmountOrdersTab.Location = new Point(902, 532);
+            labelTotalAmountOrdersTab.Location = new Point(902, 537);
             labelTotalAmountOrdersTab.Name = "labelTotalAmountOrdersTab";
             labelTotalAmountOrdersTab.Size = new Size(90, 25);
             labelTotalAmountOrdersTab.TabIndex = 13;
@@ -228,10 +230,34 @@
             labelPriorityOptions.TabIndex = 17;
             labelPriorityOptions.Text = "Priority Options";
             // 
+            // labelTotal
+            // 
+            labelTotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            labelTotal.AutoSize = true;
+            labelTotal.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelTotal.Location = new Point(930, 577);
+            labelTotal.Name = "labelTotal";
+            labelTotal.Size = new Size(60, 21);
+            labelTotal.TabIndex = 15;
+            labelTotal.Text = "TOTAL:";
+            // 
+            // labelTotalOrdersTab
+            // 
+            labelTotalOrdersTab.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            labelTotalOrdersTab.AutoSize = true;
+            labelTotalOrdersTab.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelTotalOrdersTab.Location = new Point(930, 609);
+            labelTotalOrdersTab.Name = "labelTotalOrdersTab";
+            labelTotalOrdersTab.Size = new Size(23, 25);
+            labelTotalOrdersTab.TabIndex = 16;
+            labelTotalOrdersTab.Text = "0";
+            // 
             // OrdersTab
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(labelTotalOrdersTab);
+            Controls.Add(labelTotal);
             Controls.Add(panelPriorityOrder);
             Controls.Add(labelTotalAmountOrdersTab);
             Controls.Add(labelAmountOrdersTab);
@@ -248,7 +274,7 @@
             Controls.Add(dataGridViewOrders);
             Controls.Add(labelOrders);
             Name = "OrdersTab";
-            Size = new Size(1003, 619);
+            Size = new Size(1003, 739);
             ((System.ComponentModel.ISupportInitialize)dataGridViewOrders).EndInit();
             panelPriorityOrder.ResumeLayout(false);
             panelPriorityOrder.PerformLayout();
@@ -276,5 +302,7 @@
         private ComboBox comboBoxDeliveryTime;
         private Label labelDeliveryTime;
         private Label labelPriorityOptions;
+        private Label labelTotal;
+        private Label labelTotalOrdersTab;
     }
 }
