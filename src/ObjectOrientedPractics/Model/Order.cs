@@ -73,14 +73,15 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Итоговая стоимость заказа с учетом скидки.
         /// </summary>
-        /*public double Total => Math.Max(TotalAmount - DiscountAmount, 0);*/
         public double Total
         {
             get
             {
-                double sum = Items?.Sum(item => item.Cost) ?? 0.0;
-                double discount = Customer?.Discounts?.FirstOrDefault()?.Calculate(Items) ?? 0.0;
-                return sum - discount;
+                double totalSum = Items?.Sum(item => item.Cost) ?? 0.0;
+
+                double totalDiscount = Customer?.Discounts?.Sum(discount => discount.Calculate(Items)) ?? 0.0;
+
+                return Math.Round(totalSum - totalDiscount, 2);
             }
         }
 

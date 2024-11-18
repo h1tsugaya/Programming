@@ -16,6 +16,8 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         List<Item> _items = [];
 
+        public Customer Customer { get; set; }
+
         /// <summary>
         /// Список товаров в корзине.
         /// </summary>
@@ -33,9 +35,11 @@ namespace ObjectOrientedPractics.Model
         {
             get
             {
-                double sum = 0;
-                Items.ForEach(x => { sum += x.Cost; });
-                return Math.Round(sum, 2);
+                double totalSum = Items?.Sum(item => item.Cost) ?? 0.0;
+
+                double totalDiscount = Customer?.Discounts?.Sum(discount => discount.Calculate(Items)) ?? 0.0;
+
+                return Math.Round(totalSum - totalDiscount, 2);
             }
         }
     }
