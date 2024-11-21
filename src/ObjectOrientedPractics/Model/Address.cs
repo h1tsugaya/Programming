@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ObjectOrientedPractics.Model
 {
-    public class Address : ICloneable
+    public class Address : ICloneable, IEquatable<Address>
     {
         private int _index;
         private string _country;
@@ -18,6 +18,33 @@ namespace ObjectOrientedPractics.Model
         public object Clone()
         {
             return new Address(Index, Country, City, Street, Building, Apartment);
+        }
+
+        public bool Equals(Address other)
+        {
+            if (other is null) return false;
+            if (ReferenceEquals(this, other)) return true;
+
+            return Index == other.Index &&
+                   Country == other.Country &&
+                   City == other.City &&
+                   Street == other.Street &&
+                   Building == other.Building &&
+                   Apartment == other.Apartment;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Address other)
+            {
+                return Equals(other);
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Index, Country, City, Street, Building, Apartment);
         }
 
         /// <summary>

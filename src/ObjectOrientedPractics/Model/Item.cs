@@ -5,7 +5,7 @@ namespace ObjectOrientedPractics.Model
     /// <summary>
     /// Класс, представляющий товар.
     /// </summary>
-    public class Item : ICloneable
+    public class Item : ICloneable, IEquatable<Item>, IComparable<Item>
     {
         /// <summary>
         /// Уникальный идентификатор товара (только для чтения).
@@ -30,6 +30,34 @@ namespace ObjectOrientedPractics.Model
         public object Clone()
         {
             return new Item(Name, Info, Cost, Category);
+        }
+
+        public bool Equals(Item other)
+        {
+            if (other is null) return false;
+            if (ReferenceEquals(this, other)) return true;
+
+            return Id == other.Id;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Item other)
+            {
+                return Equals(other);
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
+
+        public int CompareTo(Item other)
+        {
+            if (other == null) return 1;
+            return Cost.CompareTo(other.Cost);
         }
 
         /// <summary>

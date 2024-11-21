@@ -9,10 +9,16 @@ namespace ObjectOrientedPractics.Model
     /// <summary>
     /// Класс, представляющий процентную скидку на определенную категорию товаров.
     /// </summary>
-    public class PercentDiscount : IDiscount
+    public class PercentDiscount : IDiscount, IComparable<PercentDiscount>
     {
         private int _discountPercent;
         private double _totalSpent;
+
+        public int CompareTo(PercentDiscount other)
+        {
+            if (other == null) return 1;
+            return DiscountPercent.CompareTo(other.DiscountPercent);
+        }
 
         /// <summary>
         /// Словарь, хранящий проценты скидок для каждой категории товаров.

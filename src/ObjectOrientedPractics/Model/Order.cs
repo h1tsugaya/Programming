@@ -12,7 +12,7 @@ namespace ObjectOrientedPractics.Model
     /// <summary>
     /// Класс, представляющий заказ.
     /// </summary>
-    public class Order
+    public class Order : IEquatable<Order>
     {
         /// <summary>
         /// Уникальный идентификатор заказа.
@@ -20,6 +20,28 @@ namespace ObjectOrientedPractics.Model
         private readonly int _id;
 
         private double _discountAmount;
+
+        public bool Equals(Order other)
+        {
+            if (other is null) return false;
+            if (ReferenceEquals(this, other)) return true;
+
+            return Id == other.Id;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Order other)
+            {
+                return Equals(other);
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
 
         public string CustomerName { get; set; }
 

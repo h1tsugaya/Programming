@@ -9,8 +9,15 @@ namespace ObjectOrientedPractics.Model
     /// <summary>
     /// Класс, представляющий скидку накопительных баллов.
     /// </summary>
-    public class PointsDiscount : IDiscount
+    public class PointsDiscount : IDiscount, IComparable<PointsDiscount>
     {
+
+        public int CompareTo(PointsDiscount other)
+        {
+            if (other == null) return 1;
+            return Points.CompareTo(other.Points);
+        }
+
         /// <summary>
         /// Получает текущее количество накопленных баллов.
         /// </summary>
