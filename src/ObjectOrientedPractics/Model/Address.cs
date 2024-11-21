@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ObjectOrientedPractics.Model
 {
-    public class Address
+    public class Address : ICloneable
     {
         private int _index;
         private string _country;
@@ -14,6 +14,11 @@ namespace ObjectOrientedPractics.Model
         private string _street;
         private string _building;
         private string _apartment;
+
+        public object Clone()
+        {
+            return new Address(Index, Country, City, Street, Building, Apartment);
+        }
 
         /// <summary>
         /// Возвращает или задает почтовый индекс (должен быть шестизначным целым числом).

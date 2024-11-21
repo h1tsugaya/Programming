@@ -5,7 +5,7 @@ namespace ObjectOrientedPractics.Model
     /// <summary>
     /// Класс, представляющий товар.
     /// </summary>
-    public class Item
+    public class Item : ICloneable
     {
         /// <summary>
         /// Уникальный идентификатор товара (только для чтения).
@@ -26,6 +26,11 @@ namespace ObjectOrientedPractics.Model
         /// Стоимость товара.
         /// </summary>
         private double _cost;
+
+        public object Clone()
+        {
+            return new Item(Name, Info, Cost, Category);
+        }
 
         /// <summary>
         /// Создает новый экземпляр класса Item.
