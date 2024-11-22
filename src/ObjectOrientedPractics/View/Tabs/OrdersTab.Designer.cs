@@ -72,7 +72,7 @@
             dataGridViewOrders.Location = new Point(3, 29);
             dataGridViewOrders.MultiSelect = false;
             dataGridViewOrders.Name = "dataGridViewOrders";
-            dataGridViewOrders.Size = new Size(335, 707);
+            dataGridViewOrders.Size = new Size(335, 753);
             dataGridViewOrders.TabIndex = 1;
             dataGridViewOrders.SelectionChanged += dataGridViewOrders_SelectionChanged;
             // 
@@ -148,7 +148,7 @@
             addressControlOrdersTab.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             addressControlOrdersTab.Location = new Point(343, 134);
             addressControlOrdersTab.Name = "addressControlOrdersTab";
-            addressControlOrdersTab.Size = new Size(649, 167);
+            addressControlOrdersTab.Size = new Size(691, 167);
             addressControlOrdersTab.TabIndex = 9;
             // 
             // labelOrderItems
@@ -168,7 +168,7 @@
             listBoxOrderItems.ItemHeight = 15;
             listBoxOrderItems.Location = new Point(344, 339);
             listBoxOrderItems.Name = "listBoxOrderItems";
-            listBoxOrderItems.Size = new Size(648, 154);
+            listBoxOrderItems.Size = new Size(690, 154);
             listBoxOrderItems.TabIndex = 11;
             // 
             // labelAmountOrdersTab
@@ -176,7 +176,7 @@
             labelAmountOrdersTab.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             labelAmountOrdersTab.AutoSize = true;
             labelAmountOrdersTab.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelAmountOrdersTab.Location = new Point(930, 511);
+            labelAmountOrdersTab.Location = new Point(956, 555);
             labelAmountOrdersTab.Name = "labelAmountOrdersTab";
             labelAmountOrdersTab.Size = new Size(62, 17);
             labelAmountOrdersTab.TabIndex = 12;
@@ -187,7 +187,7 @@
             labelTotalAmountOrdersTab.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             labelTotalAmountOrdersTab.AutoSize = true;
             labelTotalAmountOrdersTab.Font = new Font("Segoe UI Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelTotalAmountOrdersTab.Location = new Point(902, 537);
+            labelTotalAmountOrdersTab.Location = new Point(928, 583);
             labelTotalAmountOrdersTab.Name = "labelTotalAmountOrdersTab";
             labelTotalAmountOrdersTab.Size = new Size(90, 25);
             labelTotalAmountOrdersTab.TabIndex = 13;
@@ -235,7 +235,7 @@
             labelTotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             labelTotal.AutoSize = true;
             labelTotal.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelTotal.Location = new Point(930, 577);
+            labelTotal.Location = new Point(956, 623);
             labelTotal.Name = "labelTotal";
             labelTotal.Size = new Size(60, 21);
             labelTotal.TabIndex = 15;
@@ -246,7 +246,7 @@
             labelTotalOrdersTab.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             labelTotalOrdersTab.AutoSize = true;
             labelTotalOrdersTab.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelTotalOrdersTab.Location = new Point(930, 609);
+            labelTotalOrdersTab.Location = new Point(956, 654);
             labelTotalOrdersTab.Name = "labelTotalOrdersTab";
             labelTotalOrdersTab.Size = new Size(23, 25);
             labelTotalOrdersTab.TabIndex = 16;
@@ -274,7 +274,7 @@
             Controls.Add(dataGridViewOrders);
             Controls.Add(labelOrders);
             Name = "OrdersTab";
-            Size = new Size(1003, 739);
+            Size = new Size(1045, 785);
             ((System.ComponentModel.ISupportInitialize)dataGridViewOrders).EndInit();
             panelPriorityOrder.ResumeLayout(false);
             panelPriorityOrder.PerformLayout();

@@ -27,6 +27,10 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         private double _cost;
 
+        public event EventHandler<EventArgs> NameChanged;
+        public event EventHandler<EventArgs> InfoChanged;
+        public event EventHandler<EventArgs> CostChanged;
+
         public object Clone()
         {
             return new Item(Name, Info, Cost, Category);
@@ -99,7 +103,11 @@ namespace ObjectOrientedPractics.Model
             set
             {
                 ValueValidator.AssertStringOnLength(value, 200, nameof(Name));
-                _name = value;
+                if (_name != value)
+                {
+                    _name = value;
+                    OnNameChanged(EventArgs.Empty);
+                }
             }
         }
 
@@ -113,7 +121,11 @@ namespace ObjectOrientedPractics.Model
             set
             {
                 ValueValidator.AssertStringOnLength(value, 1000, nameof(Info));
-                _info = value;
+                if (_info != value)
+                {
+                    _info = value;
+                    OnInfoChanged(EventArgs.Empty);
+                }
             }
         }
 
@@ -130,8 +142,27 @@ namespace ObjectOrientedPractics.Model
                 {
                     throw new ArgumentException("Стоимость товара должна быть в диапазоне от 0 до 100000.");
                 }
-                _cost = value;
+                if (_cost != value)
+                {
+                    _cost = value;
+                    OnCostChanged(EventArgs.Empty);
+                }
             }
+        }
+
+        protected virtual void OnNameChanged(EventArgs e)
+        {
+            NameChanged?.Invoke(this, e);
+        }
+
+        protected virtual void OnInfoChanged(EventArgs e)
+        {
+            InfoChanged?.Invoke(this, e);
+        }
+
+        protected virtual void OnCostChanged(EventArgs e)
+        {
+            CostChanged?.Invoke(this, e);
         }
 
         /// <summary>

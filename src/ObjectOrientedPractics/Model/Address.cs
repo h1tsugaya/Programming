@@ -15,6 +15,16 @@ namespace ObjectOrientedPractics.Model
         private string _building;
         private string _apartment;
 
+        /// <summary>
+        /// Событие, которое возникает при изменении любого из свойств.
+        /// </summary>
+        public event EventHandler<EventArgs> AddressChanged;
+
+        protected virtual void OnAddressChanged(EventArgs e)
+        {
+            AddressChanged?.Invoke(this, e);
+        }
+
         public object Clone()
         {
             return new Address(Index, Country, City, Street, Building, Apartment);
@@ -55,7 +65,11 @@ namespace ObjectOrientedPractics.Model
             get => _index;
             set
             {
-                _index = value;
+                if (_index != value)
+                {
+                    _index = value;
+                    OnAddressChanged(EventArgs.Empty);
+                }
             }
         }
 
@@ -67,7 +81,11 @@ namespace ObjectOrientedPractics.Model
             get => _country;
             set
             {
-                _country = value;
+                if (_country != value)
+                {
+                    _country = value;
+                    OnAddressChanged(EventArgs.Empty);
+                }
             }
         }
 
@@ -79,7 +97,11 @@ namespace ObjectOrientedPractics.Model
             get => _city;
             set
             {
-                _city = value;
+                if (_city != value)
+                {
+                    _city = value;
+                    OnAddressChanged(EventArgs.Empty);
+                }
             }
         }
 
@@ -91,7 +113,11 @@ namespace ObjectOrientedPractics.Model
             get => _street;
             set
             {
-                _street = value;
+                if (_street != value)
+                {
+                    _street = value;
+                    OnAddressChanged(EventArgs.Empty);
+                }
             }
         }
 
@@ -103,7 +129,11 @@ namespace ObjectOrientedPractics.Model
             get => _building;
             set
             {
-                _building = value;
+                if (_building != value)
+                {
+                    _building = value;
+                    OnAddressChanged(EventArgs.Empty);
+                }
             }
         }
 
@@ -115,7 +145,11 @@ namespace ObjectOrientedPractics.Model
             get => _apartment;
             set
             {
-                _apartment = value;
+                if (_apartment != value)
+                {
+                    _apartment = value;
+                    OnAddressChanged(EventArgs.Empty);
+                }
             }
         }
 

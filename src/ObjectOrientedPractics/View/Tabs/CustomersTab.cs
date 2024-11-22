@@ -247,5 +247,13 @@ namespace ObjectOrientedPractics.View.Tabs
             addressControl1.ClearFields();
             checkBoxIsPriority.Checked = false;
         }
+
+        /// <summary>
+        /// Обновляет данные на вкладке.
+        /// </summary>
+        public void RefreshData()
+        {
+            UpdateCustomersListBox();
+        }
     }
 }

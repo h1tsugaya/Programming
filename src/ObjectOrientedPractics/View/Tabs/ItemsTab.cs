@@ -25,6 +25,11 @@ namespace ObjectOrientedPractics.View.Tabs
         private Comparison<Item> _currentSortMethod;
 
         /// <summary>
+        /// Событие, которое зажигается при изменении списка товаров.
+        /// </summary>
+        public event EventHandler<EventArgs> ItemsChanged;
+
+        /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="ItemsTab"/>.
         /// </summary>
         public ItemsTab()
@@ -48,6 +53,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 _items = value ?? new List<Item>();
                 ApplyFiltersAndSort();
+                OnItemsChanged();
             }
         }
 
@@ -178,6 +184,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 Item selectedItem = _items[selectedIndex];
 
                 selectedItem.Category = (Category)comboBoxCategory.SelectedItem;
+                OnItemsChanged();
             }
         }
 
@@ -203,6 +210,7 @@ namespace ObjectOrientedPractics.View.Tabs
                     _items.Add(newItem);
                     ApplyFiltersAndSort();
                     ClearInputFields();
+                    OnItemsChanged();
                 }
                 catch (ArgumentException ex)
                 {
@@ -225,6 +233,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 _items.Remove(selectedItem);
                 ApplyFiltersAndSort();
                 ClearInputFields();
+                OnItemsChanged();
             }
         }
 
@@ -313,6 +322,14 @@ namespace ObjectOrientedPractics.View.Tabs
             textBoxDescription.Text = "";
             textBoxCost.Text = "";
             comboBoxCategory.SelectedIndex = 0;
+        }
+
+        /// <summary>
+        /// Вызывает событие ItemsChanged.
+        /// </summary>
+        private void OnItemsChanged()
+        {
+            ItemsChanged?.Invoke(this, EventArgs.Empty);
         }
     }
 }
