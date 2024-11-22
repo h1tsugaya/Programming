@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.Services;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -19,7 +20,9 @@ namespace ObjectOrientedPractics.View.Tabs
         /// <summary>
         /// Список товаров.
         /// </summary>
-        private List<Item> _items = new List<Item>();
+        private List<Item> _items = new();
+        private List<Item> _displayedItems = new();
+        private Comparison<Item> _currentSortMethod;
 
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="ItemsTab"/>.
@@ -28,6 +31,10 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             InitializeComponent();
             InitializeCategoryComboBox();
+            InitializeComboBoxOrderItems();
+            textBoxFindItems.TextChanged += TextBoxFindItems_TextChanged;
+            _currentSortMethod = SortByName;
+            ApplyFiltersAndSort();
         }
 
         /// <summary>
@@ -40,8 +47,44 @@ namespace ObjectOrientedPractics.View.Tabs
             set
             {
                 _items = value ?? new List<Item>();
-                UpdateItemsListBox();
+                ApplyFiltersAndSort();
             }
+        }
+
+        /// <summary>
+        /// Инициализирует выпадающий список для выбора способа упорядочивания.
+        /// </summary>
+        private void InitializeComboBoxOrderItems()
+        {
+            comboBoxOrderItems.Items.Add("По имени");
+            comboBoxOrderItems.Items.Add("По возрастанию стоимости");
+            comboBoxOrderItems.Items.Add("По убыванию стоимости");
+
+            comboBoxOrderItems.SelectedIndex = 0; // Устанавливаем "По имени" по умолчанию
+            comboBoxOrderItems.SelectedIndexChanged += ComboBoxOrderItems_SelectedIndexChanged;
+        }
+
+        /// <summary>
+        /// Применяет фильтрацию и сортировку к товарам.
+        /// </summary>
+        private void ApplyFiltersAndSort()
+        {
+            string searchText = textBoxFindItems.Text.Trim();
+
+            // Фильтрация
+            if (string.IsNullOrEmpty(searchText))
+            {
+                _displayedItems = new List<Item>(_items);
+            }
+            else
+            {
+                _displayedItems = DataTools.Filter(_items,
+                    item => item.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase));
+            }
+
+            // Сортировка
+            _displayedItems.Sort(_currentSortMethod);
+            UpdateItemsListBox();
         }
 
         /// <summary>
@@ -49,11 +92,61 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void UpdateItemsListBox()
         {
+            int previousIndex = itemsListBox.SelectedIndex;
             itemsListBox.Items.Clear();
-            foreach (var item in _items)
+            foreach (var item in _displayedItems)
             {
                 itemsListBox.Items.Add(item.Name);
             }
+
+            if (previousIndex >= 0 && previousIndex < _displayedItems.Count)
+            {
+                itemsListBox.SelectedIndex = previousIndex;
+            }
+        }
+
+        /// <summary>
+        /// Сортировка по имени.
+        /// </summary>
+        private int SortByName(Item a, Item b) => string.Compare(a.Name, b.Name, StringComparison.OrdinalIgnoreCase);
+
+        /// <summary>
+        /// Сортировка по возрастанию стоимости.
+        /// </summary>
+        private int SortByCostAscending(Item a, Item b) => a.Cost.CompareTo(b.Cost);
+
+        /// <summary>
+        /// Сортировка по убыванию стоимости.
+        /// </summary>
+        private int SortByCostDescending(Item a, Item b) => b.Cost.CompareTo(a.Cost);
+
+        /// <summary>
+        /// Обрабатывает изменение способа упорядочивания в выпадающем списке.
+        /// </summary>
+        private void ComboBoxOrderItems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBoxOrderItems.SelectedIndex)
+            {
+                case 0:
+                    _currentSortMethod = SortByName;
+                    break;
+                case 1:
+                    _currentSortMethod = SortByCostAscending;
+                    break;
+                case 2:
+                    _currentSortMethod = SortByCostDescending;
+                    break;
+            }
+
+            ApplyFiltersAndSort();
+        }
+
+        /// <summary>
+        /// Обрабатывает изменение текста в поисковой строке.
+        /// </summary>
+        private void TextBoxFindItems_TextChanged(object sender, EventArgs e)
+        {
+            ApplyFiltersAndSort();
         }
 
         /// <summary>
@@ -61,16 +154,13 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void InitializeCategoryComboBox()
         {
-            // Добавляем все значения перечисления Category в выпадающий список
             foreach (Category category in Enum.GetValues(typeof(Category)))
             {
                 comboBoxCategory.Items.Add(category);
             }
 
-            // Устанавливаем значение по умолчанию (первое значение списка)
             comboBoxCategory.SelectedIndex = 0;
 
-            // Добавляем обработчик для события изменения выбранного элемента
             comboBoxCategory.SelectedIndexChanged += comboBoxCategory_SelectedIndexChanged;
         }
 
@@ -87,7 +177,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 int selectedIndex = itemsListBox.SelectedIndex;
                 Item selectedItem = _items[selectedIndex];
 
-                // Присваиваем новую категорию выбранному товару
                 selectedItem.Category = (Category)comboBoxCategory.SelectedItem;
             }
         }
@@ -112,7 +201,7 @@ namespace ObjectOrientedPractics.View.Tabs
                     );
 
                     _items.Add(newItem);
-                    UpdateItemsListBox();
+                    ApplyFiltersAndSort();
                     ClearInputFields();
                 }
                 catch (ArgumentException ex)
@@ -132,9 +221,9 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             if (itemsListBox.SelectedIndex != -1)
             {
-                int selectedIndex = itemsListBox.SelectedIndex;
-                _items.RemoveAt(selectedIndex);
-                itemsListBox.Items.RemoveAt(selectedIndex);
+                Item selectedItem = _displayedItems[itemsListBox.SelectedIndex];
+                _items.Remove(selectedItem);
+                ApplyFiltersAndSort();
                 ClearInputFields();
             }
         }
@@ -149,14 +238,26 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             if (itemsListBox.SelectedIndex != -1)
             {
-                int selectedIndex = itemsListBox.SelectedIndex;
-                Item selectedItem = _items[selectedIndex];
+                Item selectedItem = _displayedItems[itemsListBox.SelectedIndex];
+                int realIndex = _items.IndexOf(selectedItem);
 
-                textBoxId.Text = selectedItem.Id.ToString();
-                textBoxName.Text = selectedItem.Name;
-                textBoxDescription.Text = selectedItem.Info;
-                textBoxCost.Text = selectedItem.Cost.ToString();
-                comboBoxCategory.SelectedItem = selectedItem.Category;
+                ShowItemDetails(realIndex);
+            }
+        }
+
+        /// <summary>
+        /// Отображает информацию о товаре на правой панели.
+        /// </summary>
+        private void ShowItemDetails(int index)
+        {
+            if (index >= 0 && index < _items.Count)
+            {
+                var item = _items[index];
+                textBoxId.Text = item.Id.ToString();
+                textBoxName.Text = item.Name;
+                textBoxDescription.Text = item.Info;
+                textBoxCost.Text = item.Cost.ToString();
+                comboBoxCategory.SelectedItem = item.Category;
             }
         }
 

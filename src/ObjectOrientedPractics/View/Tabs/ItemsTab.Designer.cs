@@ -33,6 +33,10 @@
             buttonRemoveItem = new Button();
             labelItems = new Label();
             groupBoxSelectedItems1 = new GroupBox();
+            comboBoxOrderItems = new ComboBox();
+            labelOrderBy = new Label();
+            textBoxFindItems = new TextBox();
+            labelFind = new Label();
             textBoxDescription = new TextBox();
             labelDescription = new Label();
             textBoxName = new TextBox();
@@ -43,10 +47,10 @@
             labelId = new Label();
             labelSelectedItem = new Label();
             groupBoxSelectedItems2 = new GroupBox();
+            comboBoxCategory = new ComboBox();
+            labelCategory = new Label();
             panel2 = new Panel();
             tableLayoutItemsPanel = new TableLayoutPanel();
-            labelCategory = new Label();
-            comboBoxCategory = new ComboBox();
             groupBoxSelectedItems1.SuspendLayout();
             groupBoxSelectedItems2.SuspendLayout();
             tableLayoutItemsPanel.SuspendLayout();
@@ -54,12 +58,12 @@
             // 
             // itemsListBox
             // 
-            itemsListBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            itemsListBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             itemsListBox.FormattingEnabled = true;
             itemsListBox.ItemHeight = 15;
-            itemsListBox.Location = new Point(6, 29);
+            itemsListBox.Location = new Point(8, 64);
             itemsListBox.Name = "itemsListBox";
-            itemsListBox.Size = new Size(360, 724);
+            itemsListBox.Size = new Size(360, 649);
             itemsListBox.TabIndex = 0;
             itemsListBox.SelectedIndexChanged += itemsListBox_SelectedIndexChanged;
             // 
@@ -99,6 +103,10 @@
             // 
             // groupBoxSelectedItems1
             // 
+            groupBoxSelectedItems1.Controls.Add(comboBoxOrderItems);
+            groupBoxSelectedItems1.Controls.Add(labelOrderBy);
+            groupBoxSelectedItems1.Controls.Add(textBoxFindItems);
+            groupBoxSelectedItems1.Controls.Add(labelFind);
             groupBoxSelectedItems1.Controls.Add(itemsListBox);
             groupBoxSelectedItems1.Controls.Add(labelItems);
             groupBoxSelectedItems1.Controls.Add(buttonRemoveItem);
@@ -109,6 +117,43 @@
             groupBoxSelectedItems1.Size = new Size(371, 835);
             groupBoxSelectedItems1.TabIndex = 4;
             groupBoxSelectedItems1.TabStop = false;
+            // 
+            // comboBoxOrderItems
+            // 
+            comboBoxOrderItems.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            comboBoxOrderItems.FormattingEnabled = true;
+            comboBoxOrderItems.Location = new Point(93, 726);
+            comboBoxOrderItems.Name = "comboBoxOrderItems";
+            comboBoxOrderItems.Size = new Size(272, 23);
+            comboBoxOrderItems.TabIndex = 7;
+            // 
+            // labelOrderBy
+            // 
+            labelOrderBy.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelOrderBy.AutoSize = true;
+            labelOrderBy.Location = new Point(8, 729);
+            labelOrderBy.Name = "labelOrderBy";
+            labelOrderBy.Size = new Size(56, 15);
+            labelOrderBy.TabIndex = 6;
+            labelOrderBy.Text = "Order by:";
+            // 
+            // textBoxFindItems
+            // 
+            textBoxFindItems.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxFindItems.Location = new Point(93, 34);
+            textBoxFindItems.Name = "textBoxFindItems";
+            textBoxFindItems.Size = new Size(272, 23);
+            textBoxFindItems.TabIndex = 5;
+            // 
+            // labelFind
+            // 
+            labelFind.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            labelFind.AutoSize = true;
+            labelFind.Location = new Point(8, 37);
+            labelFind.Name = "labelFind";
+            labelFind.Size = new Size(33, 15);
+            labelFind.TabIndex = 4;
+            labelFind.Text = "Find:";
             // 
             // textBoxDescription
             // 
@@ -210,6 +255,23 @@
             groupBoxSelectedItems2.TabIndex = 12;
             groupBoxSelectedItems2.TabStop = false;
             // 
+            // comboBoxCategory
+            // 
+            comboBoxCategory.FormattingEnabled = true;
+            comboBoxCategory.Location = new Point(71, 90);
+            comboBoxCategory.Name = "comboBoxCategory";
+            comboBoxCategory.Size = new Size(166, 23);
+            comboBoxCategory.TabIndex = 14;
+            // 
+            // labelCategory
+            // 
+            labelCategory.AutoSize = true;
+            labelCategory.Location = new Point(6, 93);
+            labelCategory.Name = "labelCategory";
+            labelCategory.Size = new Size(58, 15);
+            labelCategory.TabIndex = 13;
+            labelCategory.Text = "Category:";
+            // 
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -232,23 +294,6 @@
             tableLayoutItemsPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutItemsPanel.Size = new Size(1382, 841);
             tableLayoutItemsPanel.TabIndex = 13;
-            // 
-            // labelCategory
-            // 
-            labelCategory.AutoSize = true;
-            labelCategory.Location = new Point(6, 93);
-            labelCategory.Name = "labelCategory";
-            labelCategory.Size = new Size(58, 15);
-            labelCategory.TabIndex = 13;
-            labelCategory.Text = "Category:";
-            // 
-            // comboBoxCategory
-            // 
-            comboBoxCategory.FormattingEnabled = true;
-            comboBoxCategory.Location = new Point(71, 90);
-            comboBoxCategory.Name = "comboBoxCategory";
-            comboBoxCategory.Size = new Size(166, 23);
-            comboBoxCategory.TabIndex = 14;
             // 
             // ItemsTab
             // 
@@ -285,5 +330,9 @@
         private Panel panel2;
         private ComboBox comboBoxCategory;
         private Label labelCategory;
+        private TextBox textBoxFindItems;
+        private Label labelFind;
+        private ComboBox comboBoxOrderItems;
+        private Label labelOrderBy;
     }
 }

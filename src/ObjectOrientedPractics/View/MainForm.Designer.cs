@@ -55,7 +55,7 @@
             tabControlMainForm.Location = new Point(0, 0);
             tabControlMainForm.Name = "tabControlMainForm";
             tabControlMainForm.SelectedIndex = 0;
-            tabControlMainForm.Size = new Size(1105, 800);
+            tabControlMainForm.Size = new Size(1400, 882);
             tabControlMainForm.TabIndex = 0;
             tabControlMainForm.SelectedIndexChanged += tabControlMainForm_SelectedIndexChanged;
             // 
@@ -65,7 +65,7 @@
             tabPageItems.Location = new Point(4, 24);
             tabPageItems.Name = "tabPageItems";
             tabPageItems.Padding = new Padding(3);
-            tabPageItems.Size = new Size(1097, 772);
+            tabPageItems.Size = new Size(1392, 854);
             tabPageItems.TabIndex = 0;
             tabPageItems.Text = "Items";
             tabPageItems.UseVisualStyleBackColor = true;
@@ -75,7 +75,7 @@
             itemsTab.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             itemsTab.Location = new Point(3, 3);
             itemsTab.Name = "itemsTab";
-            itemsTab.Size = new Size(1091, 766);
+            itemsTab.Size = new Size(1386, 848);
             itemsTab.TabIndex = 0;
             // 
             // tabPageCustomers
@@ -83,7 +83,7 @@
             tabPageCustomers.Controls.Add(customersTab);
             tabPageCustomers.Location = new Point(4, 24);
             tabPageCustomers.Name = "tabPageCustomers";
-            tabPageCustomers.Size = new Size(1018, 625);
+            tabPageCustomers.Size = new Size(1097, 772);
             tabPageCustomers.TabIndex = 1;
             tabPageCustomers.Text = "Customers";
             tabPageCustomers.UseVisualStyleBackColor = true;
@@ -93,7 +93,7 @@
             customersTab.Dock = DockStyle.Fill;
             customersTab.Location = new Point(0, 0);
             customersTab.Name = "customersTab";
-            customersTab.Size = new Size(1018, 625);
+            customersTab.Size = new Size(1097, 772);
             customersTab.TabIndex = 0;
             // 
             // tabPageCart
@@ -121,7 +121,7 @@
             tabPageOrders.Controls.Add(ordersTab);
             tabPageOrders.Location = new Point(4, 24);
             tabPageOrders.Name = "tabPageOrders";
-            tabPageOrders.Size = new Size(1018, 625);
+            tabPageOrders.Size = new Size(1097, 772);
             tabPageOrders.TabIndex = 3;
             tabPageOrders.Text = "Orders";
             tabPageOrders.UseVisualStyleBackColor = true;
@@ -139,7 +139,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1105, 800);
+            ClientSize = new Size(1400, 882);
             Controls.Add(tabControlMainForm);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
