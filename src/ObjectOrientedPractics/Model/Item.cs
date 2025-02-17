@@ -78,6 +78,7 @@ namespace ObjectOrientedPractics.Model
         /// Стоимость товара.
         /// </summary>
         /// <exception cref="ArgumentException">Выбрасывается, если стоимость выходит за пределы от 0 до 100000.</exception>
+        /// TODO: увеличить диапозон стоимости товара
         public decimal Cost
         {
             get => _cost;
